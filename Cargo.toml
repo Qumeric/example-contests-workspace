@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_kth_not_divisible_by_n",
     "a_odd_divisor",
     "a_hit_the_lottery",
     "a_divisibility_problem",
