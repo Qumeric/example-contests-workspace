@@ -162,6 +162,16 @@ impl<T: Writable> Writable for Vec<T> {
     }
 }
 
+impl Writable for bool {
+    fn write(&self, output: &mut Output) {
+        if *self {
+            "YES".to_string().write(output);
+        } else {
+            "NO".to_string().write(output);
+        }
+    }
+}
+
 macro_rules! write_to_string {
     ($($t:ident)+) => {$(
         impl Writable for $t {

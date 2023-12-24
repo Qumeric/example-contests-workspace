@@ -1,6 +1,9 @@
 [workspace]
 members = [
+    "a_odd_divisor",
+    "a_hit_the_lottery",
     "a_divisibility_problem",
     "main",
     "algo_lib",
 ]
+resolver = "2"
