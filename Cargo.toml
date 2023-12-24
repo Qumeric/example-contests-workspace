@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_alternating_subsequence",
     "d_same_differences",
     "c_move_brackets",
     "c_kth_not_divisible_by_n",
