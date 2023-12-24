@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c2_potions_hard_version",
     "e_special_elements",
     "d_pair_of_topics",
     "c_product_of_three_numbers",
