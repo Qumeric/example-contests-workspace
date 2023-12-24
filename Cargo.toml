@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_pair_of_topics",
     "c_product_of_three_numbers",
     "b_same_parity_summands",
     "a_nastia_and_nearly_good_numbers",
