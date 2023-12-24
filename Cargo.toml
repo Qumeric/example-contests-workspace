@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "e_construct_matrix",
+    "c_watering_an_array",
+    "b_erase_first_or_second_letter",
+    "a_least_product",
     "c2_potions_hard_version",
     "e_special_elements",
     "d_pair_of_topics",
