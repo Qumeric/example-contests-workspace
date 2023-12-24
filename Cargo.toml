@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "b_same_parity_summands",
     "a_nastia_and_nearly_good_numbers",
     "c_alternating_subsequence",
     "d_same_differences",

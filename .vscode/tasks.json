@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Current Problem",
+            "type": "shell",
+            "command": "${workspaceFolder}/run_problem.sh ${relativeFileDirname}"
+        }
+    ]
+}
