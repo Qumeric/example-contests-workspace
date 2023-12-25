@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "f_consecutive_subsequence",
     "e_construct_matrix",
     "c_watering_an_array",
     "b_erase_first_or_second_letter",
