@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "static_range_minimum_queries",
     "b_password",
     "f_consecutive_subsequence",
     "e_construct_matrix",
