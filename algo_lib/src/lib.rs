@@ -2,5 +2,6 @@
 #![allow(clippy::type_complexity)]
 
 pub mod io;
-pub mod misc;
 pub mod math;
+pub mod misc;
+pub mod strings;
