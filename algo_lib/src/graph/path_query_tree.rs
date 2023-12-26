@@ -18,7 +18,7 @@ pub enum QueryKind {
 }
 
 // HLD-based tree which supports operations on paths and subtrees
-pub struct MagicTree<Spec: ArqSpec> {
+pub struct PathQueryTree<Spec: ArqSpec> {
     pub query_kind: QueryKind,
     lca: LCA,
     hld: HLD,
@@ -26,7 +26,7 @@ pub struct MagicTree<Spec: ArqSpec> {
     n: usize,
 }
 
-impl<Spec: ArqSpec> MagicTree<Spec> {
+impl<Spec: ArqSpec> PathQueryTree<Spec> {
     pub fn new_with_root<E: Clone>(
         tree: &Graph<BiEdge<E>>,
         query_kind: QueryKind,
@@ -51,7 +51,7 @@ impl<Spec: ArqSpec> MagicTree<Spec> {
     }
 
     pub fn new<E: Clone>(tree: &Graph<BiEdge<E>>, query_kind: QueryKind) -> Self {
-        MagicTree::new_with_root(tree, query_kind, 0)
+        PathQueryTree::new_with_root(tree, query_kind, 0)
     }
 
     pub fn update(&mut self, mut u: usize, mut v: usize, val: &Spec::F) {

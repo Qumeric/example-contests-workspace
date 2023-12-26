@@ -6,5 +6,8 @@ pub mod graph;
 pub mod hl_decomposition;
 pub mod lca;
 
+// from TheAlgorithms
+pub mod centroid_decomposition;
+
 // my own
-pub mod magic_tree;
+pub mod path_query_tree;

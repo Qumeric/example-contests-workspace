@@ -5,7 +5,7 @@ use algo_lib::collections::static_arq::StaticArq;
 use algo_lib::graph::graph::Graph;
 use algo_lib::graph::hl_decomposition::HLDecomposition;
 use algo_lib::graph::lca::{LCATrait, LCA};
-use algo_lib::graph::magic_tree::{MagicTree, QueryKind};
+use algo_lib::graph::path_query_tree::{PathQueryTree, QueryKind};
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
 
@@ -20,7 +20,7 @@ fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc
 
     let tree = Graph::from_biedges(n, &edges);
 
-    let mut magic_tree: MagicTree<PlusSum> = MagicTree::new(&tree, QueryKind::Edge);
+    let mut magic_tree: PathQueryTree<PlusSum> = PathQueryTree::new(&tree, QueryKind::Edge);
 
     let k: usize = input.read();
     for _ in 0..k {
