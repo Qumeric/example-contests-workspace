@@ -107,6 +107,20 @@ impl<T: ArqSpec> StaticArq<T> {
         self.pull_from(r0);
     }
 
+    /// Updates the value at a single point.
+    ///
+    /// # Arguments
+    ///
+    /// * `p`: The position to update.
+    /// * `f`: The endomorphism to apply.
+    ///
+    /// # Panics
+    ///
+    /// Panics if `p` is out of bounds.
+    pub fn update_point(&mut self, p: usize, f: &T::F) {
+        self.update(p, p, f)
+    }
+
     /// Returns the aggregate range query on all entries from l to r, inclusive.
     ///
     /// # Panics
@@ -133,6 +147,19 @@ impl<T: ArqSpec> StaticArq<T> {
             r >>= 1;
         }
         T::op(&l_agg, &r_agg)
+    }
+
+    /// Queries the value at a single point.
+    ///
+    /// # Returns
+    ///
+    /// The value at the specified position.
+    ///
+    /// # Panics
+    ///
+    /// Panics if `p` is out of bounds.
+    pub fn query_point(&mut self, p: usize) -> T::S {
+        self.query(p, p)
     }
 }
 

@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_fools_and_roads",
     "d_roads_not_only_in_berland",
     "e_tree_queries",
     "c_medium_design",

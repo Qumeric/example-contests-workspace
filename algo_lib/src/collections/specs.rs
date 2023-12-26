@@ -95,6 +95,43 @@ impl ArqSpec for AssignSum {
     }
 }
 
+/// PlusSum is an ARQ specification for summing elements with incremental updates.
+/// It allows for both range queries and point updates where the update value is added to the current value.
+///
+/// # Examples
+///
+/// ```
+/// use algo_lib::collections::static_arq::StaticArq;
+/// use algo_lib::collections::specs::PlusSum;
+///
+/// let mut arq = StaticArq::<PlusSum>::new(vec![1, 2, 3, 4]);
+/// assert_eq!(arq.query(1, 3), 9); // sums elements 1 through 3
+/// arq.update_point(2, &5); // adds 5 to the element at index 2
+/// assert_eq!(arq.query(1, 3), 14); // sums elements 1 through 3 after update
+/// ```
+///
+/// The `op` function defines the operation for the ARQ, which is addition in this case.
+/// The `identity` function returns the identity element for the operation, which is 0.
+/// The `compose` function combines update functions, which is also addition.
+/// The `apply` function applies an update to a segment, which is the addition of the update value to each element in the segment.
+pub enum PlusSum {}
+impl ArqSpec for PlusSum {
+    type S = i64;
+    type F = i64;
+    fn op(&a: &Self::S, &b: &Self::S) -> Self::S {
+        a + b
+    }
+    fn identity() -> Self::S {
+        0
+    }
+    fn compose(&f: &Self::F, c: &Self::F) -> Self::F {
+        f + c
+    }
+    fn apply(&f: &Self::F, c: &Self::S, size: i64) -> Self::S {
+        f * size + c
+    }
+}
+
 /// Supply & Demand, based on https://codeforces.com/gym/102218/problem/F
 /// update(i, i, &(p, o)) increases supply by p and demand by o at time i.
 /// query(l, r) computes total supply and demand at times l to r, as well as
