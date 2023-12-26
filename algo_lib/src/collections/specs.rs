@@ -2,7 +2,7 @@
 
 pub trait ArqSpec {
     /// Type of underlying array elements.
-    type S: Clone;
+    type S: Clone + Default;
     /// Type of data representing an endomorphism.
     // Note that while a Fn(S) -> S may seem like a more natural representation
     // for an endomorphism, compositions would then have to delegate to each of

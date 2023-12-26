@@ -2,10 +2,16 @@ use crate::graph::edges::edge_trait::BidirectionalEdgeTrait;
 use crate::graph::graph::Graph;
 use crate::misc::recursive_function::{Callable2, RecursiveFunction2};
 
-pub trait HLDecomposition {
-    fn hl_decomposition_with_root(&self, root: usize) -> (Vec<Vec<usize>>, Vec<usize>, Vec<usize>);
+pub struct HLD {
+    pub paths: Vec<Vec<usize>>,
+    pub id: Vec<usize>,
+    pub pos: Vec<usize>,
+}
 
-    fn hl_decomposition(&self) -> (Vec<Vec<usize>>, Vec<usize>, Vec<usize>) {
+pub trait HLDecomposition {
+    fn hl_decomposition_with_root(&self, root: usize) -> HLD;
+
+    fn hl_decomposition(&self) -> HLD {
         self.hl_decomposition_with_root(0)
     }
 }
@@ -17,7 +23,7 @@ pub trait HLDecomposition {
 ///
 /// # Returns
 ///
-/// A tuple containing:
+/// A struct HLD containing:
 /// - `paths`: A `Vec<Vec<usize>>` where each inner vector represents a heavy path in the tree.
 /// - `id`: A `Vec<usize>` mapping each node to its heavy path identifier.
 /// - `pos`: A `Vec<usize>` mapping each node to its position within its heavy path.
@@ -34,7 +40,7 @@ pub trait HLDecomposition {
 ///     &vec![(0, 1), (1, 2), (1, 3), (3, 4)]
 /// );
 ///
-/// let (paths, id, pos) = graph.hl_decomposition();
+/// let HLD {paths, id, pos} = graph.hl_decomposition();
 ///
 /// // The tree is decomposed into heavy paths, and each node is assigned to a path
 /// // with a unique identifier and a position within that path.
@@ -46,7 +52,7 @@ pub trait HLDecomposition {
 /// the complexity of such operations.
 
 impl<E: BidirectionalEdgeTrait> HLDecomposition for Graph<E> {
-    fn hl_decomposition_with_root(&self, root: usize) -> (Vec<Vec<usize>>, Vec<usize>, Vec<usize>) {
+    fn hl_decomposition_with_root(&self, root: usize) -> HLD {
         debug_assert!(self.is_tree());
         let n = self.vertex_count();
         let mut paths = Vec::new();
@@ -86,6 +92,6 @@ impl<E: BidirectionalEdgeTrait> HLDecomposition for Graph<E> {
             }
         });
         build.call(root, root);
-        (paths, id, pos)
+        HLD { paths, id, pos }
     }
 }
