@@ -8,7 +8,10 @@ use super::edges::bi_edge::BiEdge;
 use super::hl_decomposition::HLD;
 use super::lca::LCA;
 
-#[derive(PartialEq, Debug)]
+// TODO:
+// It would be nice to make query kind generic to avoid asserts
+// but rust doesn't support specification by enum variant as of 1.75
+#[derive(PartialEq, Debug, Clone, Copy)]
 pub enum QueryKind {
     Vertex,
     Edge,
@@ -82,6 +85,12 @@ impl<Spec: ArqSpec> MagicTree<Spec> {
     }
 
     pub fn get_vertexes(&mut self) -> Vec<Spec::S> {
+        self.get_vertexes_internal(self.query_kind)
+    }
+
+    fn get_vertexes_internal(&mut self, query_kind: QueryKind) -> Vec<Spec::S> {
+        assert_eq!(query_kind, QueryKind::Vertex);
+
         (0..self.n)
             .map(|i| {
                 let path_id = self.hld.id[i];
@@ -92,11 +101,9 @@ impl<Spec: ArqSpec> MagicTree<Spec> {
     }
 
     pub fn get_edges(&mut self, edges: &[(usize, usize)]) -> Vec<Spec::S> {
-        // It would be nice to make query kind generic but rust doesn't support
-        // Specification by enum vartiant at 1.75
         assert_eq!(self.query_kind, QueryKind::Edge);
 
-        let mut vertex_ans = self.get_vertexes();
+        let mut vertex_ans = self.get_vertexes_internal(QueryKind::Vertex);
 
         edges
             .into_iter()
