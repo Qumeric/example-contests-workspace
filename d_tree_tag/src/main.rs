@@ -51,6 +51,9 @@ fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc
     let diam_a = *diameter.first().unwrap();
     let diam_b = *diameter.last().unwrap();
 
+    // This is actually redundant because we can prove that diameter is always accessible if
+    // it's long enough (diameter.len() - 1 > da * 2). 
+    // But it works too.
     let longest_accessible = if !is_in_subtree[diam_a] && !is_in_subtree[diam_b] {
         let mut distances_a = vec![0; n];
         tree.dfs(diam_a, |parent, v| {
