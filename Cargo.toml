@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_tree_tag",
     "c_need_for_pink_slips",
     "c_fools_and_roads",
     "d_roads_not_only_in_berland",

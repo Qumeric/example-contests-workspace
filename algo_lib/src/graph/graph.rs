@@ -57,6 +57,39 @@ impl<E: EdgeTrait> Graph<E> {
     pub fn degrees(&self) -> Vec<usize> {
         self.edges.iter().map(|v| v.len()).collect()
     }
+
+    /// Perform a depth-first search (DFS) starting from a given vertex.
+    ///
+    /// This method takes a mutable reference to a function that will be called
+    /// for each vertex visited during the DFS. The function receives an `Option<usize>`
+    /// representing the parent of the current vertex (or `None` if it's the root of the DFS)
+    /// and the index of the current vertex.
+    ///
+    /// # Arguments
+    ///
+    /// * `start` - The starting vertex index for the DFS.
+    /// * `visit` - A mutable reference to a function that processes each vertex.
+    pub fn dfs<F>(&self, start: usize, mut visit: F)
+    where
+        F: FnMut(Option<usize>, usize),
+    {
+        let mut stack = vec![(None, start)];
+        let mut visited = vec![false; self.vertex_count()];
+
+        while let Some((parent, node)) = stack.pop() {
+            if visited[node] {
+                continue;
+            }
+            visited[node] = true;
+            visit(parent, node);
+
+            for edge in &self.edges[node] {
+                if !visited[edge.to()] {
+                    stack.push((Some(node), edge.to()));
+                }
+            }
+        }
+    }
 }
 
 impl<E: BidirectionalEdgeTrait> Graph<E> {
@@ -88,6 +121,58 @@ impl<E: BidirectionalEdgeTrait> Graph<E> {
             }
         }
         dsu.set_count() == 1
+    }
+
+    pub fn find_diameter_path(&self) -> Vec<usize> {
+        assert!(self.is_tree());
+        let mut a_node = 0;
+        let mut max_distance = 0;
+        let mut distances = vec![0; self.vertex_count()];
+        let mut parents = vec![None; self.vertex_count()];
+        self.dfs(0, |parent, node| {
+            if let Some(parent) = parent {
+                distances[node] = distances[parent] + 1;
+                parents[node] = Some(parent);
+                if distances[node] > max_distance {
+                    max_distance = distances[node];
+                    a_node = node;
+                }
+            }
+        });
+        let mut b_node = 0;
+        max_distance = 0;
+        distances = vec![0; self.vertex_count()];
+        parents = vec![None; self.vertex_count()];
+        self.dfs(a_node, |parent, node| {
+            if let Some(parent) = parent {
+                distances[node] = distances[parent] + 1;
+                parents[node] = Some(parent);
+                if distances[node] > max_distance {
+                    max_distance = distances[node];
+                    b_node = node;
+                }
+            }
+        });
+
+        self.find_path_between(a_node, b_node)
+    }
+
+    pub fn find_path_between(&self, start: usize, end: usize) -> Vec<usize> {
+        let mut path = Vec::new();
+        let mut parents = vec![None; self.vertex_count()];
+        self.dfs(start, |parent, node| {
+            if let Some(parent) = parent {
+                parents[node] = Some(parent);
+            }
+        });
+        let mut node = end;
+        while let Some(parent) = parents[node] {
+            path.push(node);
+            node = parent;
+        }
+        path.push(start);
+        path.reverse();
+        path
     }
 }
 

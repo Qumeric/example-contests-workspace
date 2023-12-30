@@ -109,6 +109,11 @@ impl<'s> Input<'s> {
         T::read(self)
     }
 
+    // used to read 1-indexed things when we 0-index internally
+    pub fn read1(&mut self) -> usize {
+        usize::read(self) - 1
+    }
+
     pub fn read_vec<T: Readable>(&mut self, size: usize) -> Vec<T> {
         let mut res = Vec::with_capacity(size);
         for _ in 0..size {
@@ -144,13 +149,12 @@ impl<'s> Input<'s> {
     }
 
     fn read_integer<T: FromStr>(&mut self) -> T
-        where
-            <T as FromStr>::Err: Debug,
+    where
+        <T as FromStr>::Err: Debug,
     {
         let res = self.read_string();
         res.parse::<T>().unwrap()
     }
-
 
     pub fn read_char(&mut self) -> char {
         self.skip_whitespace();
