@@ -5,6 +5,7 @@ pub mod iter_ext;
 pub mod md_arr;
 pub mod min_max;
 pub mod slice_ext;
+pub mod treap;
 
 // From EbTech's lib
 pub mod specs;
