@@ -131,23 +131,6 @@ impl<'s> Input<'s> {
         }
     }
 
-    pub fn read_line(&mut self) -> String {
-        let mut res = String::new();
-        while let Some(c) = self.get() {
-            if c == b'\n' {
-                break;
-            }
-            if c == b'\r' {
-                if self.peek() == Some(b'\n') {
-                    self.get();
-                }
-                break;
-            }
-            res.push(c.into());
-        }
-        res
-    }
-
     fn read_integer<T: FromStr>(&mut self) -> T
     where
         <T as FromStr>::Err: Debug,
