@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "b_two_divisors",
     "d_tree_tag",
     "c_need_for_pink_slips",
     "c_fools_and_roads",
