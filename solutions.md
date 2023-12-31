@@ -83,3 +83,24 @@ Now convert a to map<remainder F, div F>
 Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
 
 Be careful about negative F.
+
+### Moving Points
+https://codeforces.com/contest/1311/problem/F
+
+We iterate through points. We at position i.
+
+Suppose v_i is 0.
+
+Then we need to calculate amount of points on the left with v_i > 0 and amount of points on the right with v_i < 0.
+
+It's easy.
+
+Suppose (WLOG) that v_i > 0.
+
+We need to calculate:
+* Amount of points on the left with v_j > v_i
+* Amount points on the right with v_j < v_i
+
+Need data structure to answer such queries. Seems like treap can do it? I didn't do any treap in a long time, I should implement!
+
+TODO
