@@ -73,4 +73,13 @@ There is some position where we stop earning to educate and start earning to win
 Main insight: it's always worth it to educate as soon as possible in position i unless we are not going to educate ever.
 
 
+### Old Floppy Drive
+https://codeforces.com/contest/1490/problem/G
 
+Calculate amount of full circular spin F.
+
+Now convert a to map<remainder F, div F>
+
+Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
+
+Be careful about negative F.
