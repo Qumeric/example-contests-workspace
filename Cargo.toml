@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "f_moving_points",
     "e_maximum_subsequence_value",
     "b_two_divisors",
     "d_tree_tag",

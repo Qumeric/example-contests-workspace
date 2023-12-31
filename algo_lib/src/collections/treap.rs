@@ -1,41 +1,3 @@
-//! # Treap Data Structure
-//!
-//! A treap is a randomized binary search tree that maintains a dynamic set of ordered keys and allows binary searches among the keys.
-//! Each node of the treap maintains a key and a priority, where the tree is ordered by keys and heap-ordered by priorities.
-//!
-//! ## Usage
-//!
-//! This module provides an implementation of a treap with the following operations:
-//!
-//! - `insert`: To add a new key to the treap.
-//! - `delete`: To remove a key from the treap.
-//! - `split`: To divide the treap into two treaps based on a pivot key.
-//! - `merge`: To combine two treaps into one.
-//! - `search`: To find a key in the treap.
-//! - `range`: To iterate over a range of keys in the treap.
-//!
-//! The keys must be totally ordered and implement the `Ord` trait. The priorities are generated randomly, ensuring the balance of the treap.
-//!
-//! ## Example
-//!
-//! ```
-//! use algo_lib::collections::treap::Treap;
-//!
-//! let mut treap = Treap::new();
-//! treap.insert(1);
-//! treap.insert(5);
-//! treap.insert(3);
-//!
-//! assert!(treap.search(&3).is_some());
-//! assert!(treap.search(&4).is_none());
-//!
-//! for value in treap.range(2..5) {
-//!     println!("{}", value);
-//! }
-//! ```
-//!
-//! The treap is not guaranteed to be deterministic due to the random nature of its priority assignments.
-
 use crate::misc::direction::Direction;
 use crate::misc::random::random;
 use std::borrow::Borrow;
@@ -386,6 +348,33 @@ impl<Data> From<Data> for SizePayload<PureDataPayload<Data>> {
     }
 }
 
+/// `SizePayload` wraps another payload and adds a size field.
+/// It is used to keep track of the size of a subtree in a treap.
+///
+/// # Examples
+///
+/// Basic usage:
+///
+/// ```
+/// use algo_lib::collections::treap::SizePayload;
+/// use algo_lib::collections::treap::Payload;
+///
+/// struct MyPayload {
+///     key: i32,
+///     // other fields
+/// }
+///
+/// // Implement `Payload` for `MyPayload`...
+///
+/// let size_payload = SizePayload {
+///     inner: MyPayload { key: 10 },
+///     size: 1,
+/// };
+///
+/// assert_eq!(*size_payload.key(), 10);
+/// assert_eq!(size_payload.size, 1);
+/// ```
+
 impl<InnerPayload: Payload> Payload for SizePayload<InnerPayload> {
     type Key = InnerPayload::Key;
 
@@ -433,6 +422,7 @@ impl<Key: Ord, InnerPayload: Payload, Data: Into<InnerPayload>> From<(Key, Data)
     }
 }
 
+// TODO: how to use this?
 impl<Key: Ord, InnerPayload: Payload> Payload for KeyPayload<Key, InnerPayload> {
     type Key = Key;
 
@@ -472,6 +462,19 @@ impl<Data> From<Data> for PureDataPayload<Data> {
     }
 }
 
+/// `PureDataPayload` is a simple payload wrapper that contains arbitrary data.
+/// It does not have a key and is not meant to be used with operations that require a key.
+///
+/// # Examples
+///
+/// Basic usage:
+///
+/// ```
+/// use algo_lib::collections::treap::PureDataPayload;
+///
+/// let payload = PureDataPayload::from(42);
+/// assert_eq!(payload.data, 42);
+/// ```
 impl<Data> Payload for PureDataPayload<Data> {
     type Key = usize;
 
@@ -512,6 +515,25 @@ impl<Data, InnerPayload: Payload + Replaceable<Data>> Replaceable<Data>
         self.inner.inner.replace(data)
     }
 }
+
+
+/// `ImpliedKeyPayload` wraps another payload and maintains an implied key based on the size of the subtree.
+/// It is typically used in treaps where the key is determined by the position in the tree rather than
+/// an explicit key value.
+///
+/// # Examples
+///
+/// Basic usage:
+///
+/// ```
+/// use algo_lib::collections::treap::{Payload, ImpliedKeyPayload, SizePayload};
+///
+/// let inner_payload = SizePayload::from(10);
+/// let implied_key_payload = ImpliedKeyPayload::from(inner_payload);
+/// assert_eq!(*implied_key_payload.key(), 1);
+/// ```
+
+
 
 impl<InnerPayload: Payload> Payload for ImpliedKeyPayload<InnerPayload> {
     type Key = u32;

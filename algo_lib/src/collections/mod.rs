@@ -8,5 +8,6 @@ pub mod slice_ext;
 pub mod treap;
 
 // From EbTech's lib
+pub mod dynamic_arq;
 pub mod specs;
 pub mod static_arq;

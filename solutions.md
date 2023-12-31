@@ -87,20 +87,14 @@ Be careful about negative F.
 ### Moving Points
 https://codeforces.com/contest/1311/problem/F
 
-We iterate through points. We at position i.
+sort points by x
+initialize set S
+initialize answer as 0
 
-Suppose v_i is 0.
+for each point pi with speed vi:
+    add (vi) to set S
+    count = number of elements in S > vi
+    answer += count
 
-Then we need to calculate amount of points on the left with v_i > 0 and amount of points on the right with v_i < 0.
+then do the same but in reverse. Either go from left or just reverse array and negate values.
 
-It's easy.
-
-Suppose (WLOG) that v_i > 0.
-
-We need to calculate:
-* Amount of points on the left with v_j > v_i
-* Amount points on the right with v_j < v_i
-
-Need data structure to answer such queries. Seems like treap can do it? I didn't do any treap in a long time, I should implement!
-
-TODO
