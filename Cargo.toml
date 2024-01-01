@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_magic_ship",
     "f_moving_points",
     "e_maximum_subsequence_value",
     "b_two_divisors",
