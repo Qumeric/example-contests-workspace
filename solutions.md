@@ -117,8 +117,59 @@ Order doesn't matter, so we can first be moved by wind and then move ourselves t
 
 ### Gargari and Permutations
 https://codeforces.com/problemset/problem/463/D
+
 Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
 
 Now we just need to find longest path on DAG.
 
 Would be nice to solve and add longest path, topsort etc. to the lib.
+
+### Maximal GCD
+https://codeforces.com/problemset/problem/803/C
+
+First notice that minimum is 1 2 3 .. k
+
+If this is > n then -1
+
+Otherwise iterate over divisors of n from largest to lowest and try to do (1 2 3 .. k-1 k+x) * div
+
+### Obtain a Permutation
+https://codeforces.com/contest/1294/problem/E
+
+We can solve for each column separately.
+
+For each element we need to calc how many cyclic shifts (if any) will put in a proper position. 
+We can use binary search to find this.
+
+Create map[num-shifts, cnt-elems] and select the best.
+
+Then sum ans for all columns.
+
+### Beautiful Array
+We can remove 0s first. 
+
+Then seems like I have to split array on pos - neg parts (each pos starts with neg and end with neg). then just convert each such part to sum. 
+
+when! {
+   x == 0 => output max
+   x > 0 => output (max * x)
+   x < 0 => output max over (pos_i + -neg_(i+1) + pos_(i+2))
+ }
+
+ TODO: not completely sure but sounds right?
+
+ ### Pairs
+ TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
+ This is the same, just in mirror.
+ To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
+
+ ### Fish
+ https://codeforces.com/problemset/problem/16/E
+
+ DP. State: [alive fish, fishes left]
+There is <= 18 * 2^18 = 4718592 ~ 5e6 states
+Step: all masks with +1 fish (18) with the same alive fish. so 1e8
+Answer is dp_i[0]
+Basis dp_i[((1 << n) - 1) ^ (1 << i)] = 1
+
+Seems like need to calculate for all fishes at each amount of alive fishes from large to small?

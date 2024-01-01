@@ -139,6 +139,11 @@ impl<'s> Input<'s> {
         res.parse::<T>().unwrap()
     }
 
+    fn read_float(&mut self) -> f64 {
+        let res = self.read_string();
+        res.parse::<f64>().unwrap()
+    }
+
     pub fn read_char(&mut self) -> char {
         self.skip_whitespace();
         self.get().unwrap().into()
@@ -169,6 +174,12 @@ pub trait Readable {
 impl Readable for char {
     fn read(input: &mut Input) -> Self {
         input.read_char()
+    }
+}
+
+impl Readable for f64 {
+    fn read(input: &mut Input) -> Self {
+        input.read_float()
     }
 }
 

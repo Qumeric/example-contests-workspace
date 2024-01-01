@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "e_fish",
+    "c_maximal_gcd",
     "c_magic_ship",
     "f_moving_points",
     "e_maximum_subsequence_value",

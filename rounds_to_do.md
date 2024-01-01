@@ -15,3 +15,8 @@ https://codeforces.com/contest/1558
 ## Codeforces Round 679 (Div. 1, based on Technocup 2021 Elimination Round 1)
 https://codeforces.com/contest/1434
 
+## Codeforces Round 680 (Div. 1, based on Moscow Team Olympiad)
+https://codeforces.com/contest/1444
+
+## Codeforces Round 599 (Div. 1)
+https://codeforces.com/contest/1242
