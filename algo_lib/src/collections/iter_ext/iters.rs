@@ -1,4 +1,4 @@
-use std::iter::{Chain, Enumerate, Rev, Skip, Zip};
+use std::iter::{Chain, Enumerate, Map, Rev, Skip, Zip};
 
 pub trait Iters<'a>: 'a
 where
@@ -21,6 +21,9 @@ where
     ) -> Zip<<&'a Self as IntoIterator>::IntoIter, <&'a V as IntoIterator>::IntoIter>
     where
         &'a V: IntoIterator<Item = <&'a Self as IntoIterator>::Item>;
+    fn map<B, F>(&'a self, f: F) -> Map<<&'a Self as IntoIterator>::IntoIter, F>
+    where
+        F: FnMut(<&'a Self as IntoIterator>::Item) -> B;
 }
 
 /// Syntax sugar to avoid typing `into_iter()`.
@@ -62,6 +65,13 @@ where
     {
         self.into_iter().zip(other)
     }
+
+    fn map<B, F>(&'a self, f: F) -> Map<<&'a Self as IntoIterator>::IntoIter, F>
+    where
+        F: FnMut(<&'a Self as IntoIterator>::Item) -> B,
+    {
+        self.into_iter().map(f)
+    }
 }
 
 #[cfg(test)]
@@ -76,6 +86,17 @@ mod tests {
         assert_eq!(iter.next(), Some((0, &1)));
         assert_eq!(iter.next(), Some((1, &2)));
         assert_eq!(iter.next(), Some((2, &3)));
+        assert!(iter.next().is_none());
+    }
+
+    #[test]
+    fn iters_map_test() {
+        let vec = vec![1, 2, 3];
+        let mut iter = vec.map(|x| x * 2);
+
+        assert_eq!(iter.next(), Some(2));
+        assert_eq!(iter.next(), Some(4));
+        assert_eq!(iter.next(), Some(6));
         assert!(iter.next().is_none());
     }
 }
