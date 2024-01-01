@@ -10,3 +10,4 @@ Using rust-competitive-helper and heaveily borrowing from:
 * Make ArqSpec generic?
 * Magic tree abstraction -- does queries on paths and subtrees very easily.
 * Read graph from n and edges
+* kth order like we have in C++ with g++ libs

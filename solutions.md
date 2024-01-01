@@ -84,7 +84,7 @@ Now for every x we need to find element in map. It should have the same remainde
 
 Be careful about negative F.
 
-### Moving Points
+### Moving Points [x]
 https://codeforces.com/contest/1311/problem/F
 
 sort points by x
@@ -98,3 +98,27 @@ for each point pi with speed vi:
 
 then do the same but in reverse. Either go from left or just reverse array and negate values.
 
+### Nearest Opposite Parity
+https://codeforces.com/problemset/problem/1272/E
+
+It's just multisource bfs. Start from all even and find distance to each odd. Same for starting with odd. Not much edges (2n - 2) so it's fine.
+
+### Equalize the Remainders
+https://codeforces.com/problemset/problem/999/D
+
+Ones with cr <= n/m just stay. Others move to the closest cr which is lower. Just store crs which are low in set, find and update. 
+
+Just go iteratively.
+
+### Magic ship [x]
+https://codeforces.com/problemset/problem/1117/C
+
+Order doesn't matter, so we can first be moved by wind and then move ourselves the same amount of times. Also we can stay in place so if we can do in n, we can do in n+x. So binary search works. Then just take manhattan distance?
+
+### Gargari and Permutations
+https://codeforces.com/problemset/problem/463/D
+Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
+
+Now we just need to find longest path on DAG.
+
+Would be nice to solve and add longest path, topsort etc. to the lib.
