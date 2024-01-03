@@ -20,3 +20,6 @@ https://codeforces.com/contest/1444
 
 ## Codeforces Round 599 (Div. 1)
 https://codeforces.com/contest/1242
+
+## Good Bye 2021: 2022 is NEAR
+https://codeforces.com/contest/1616

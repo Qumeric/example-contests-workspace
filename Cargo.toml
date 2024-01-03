@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "f_education",
+    "c_longest_regular_bracket_sequence",
     "e_fish",
     "c_maximal_gcd",
     "c_magic_ship",

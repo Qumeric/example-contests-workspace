@@ -84,20 +84,6 @@ Now for every x we need to find element in map. It should have the same remainde
 
 Be careful about negative F.
 
-### Moving Points [x]
-https://codeforces.com/contest/1311/problem/F
-
-sort points by x
-initialize set S
-initialize answer as 0
-
-for each point pi with speed vi:
-    add (vi) to set S
-    count = number of elements in S > vi
-    answer += count
-
-then do the same but in reverse. Either go from left or just reverse array and negate values.
-
 ### Nearest Opposite Parity
 https://codeforces.com/problemset/problem/1272/E
 
@@ -109,11 +95,6 @@ https://codeforces.com/problemset/problem/999/D
 Ones with cr <= n/m just stay. Others move to the closest cr which is lower. Just store crs which are low in set, find and update. 
 
 Just go iteratively.
-
-### Magic ship [x]
-https://codeforces.com/problemset/problem/1117/C
-
-Order doesn't matter, so we can first be moved by wind and then move ourselves the same amount of times. Also we can stay in place so if we can do in n, we can do in n+x. So binary search works. Then just take manhattan distance?
 
 ### Gargari and Permutations
 https://codeforces.com/problemset/problem/463/D
@@ -173,3 +154,52 @@ Answer is dp_i[0]
 Basis dp_i[((1 << n) - 1) ^ (1 << i)] = 1
 
 Seems like need to calculate for all fishes at each amount of alive fishes from large to small?
+
+### Cow and Fields
+https://codeforces.com/contest/1307/problem/D
+
+Just need to calc dist_from dist_to with 2 bfses
+
+Then we iterate over special field 1 and try to find special field 2 which will result in longest path
+(dist_from[sf1] + 1 + query). Where query is max on subsegment before and subsegment after in segment tree where values are 0 if not special or dist_to[i].
+
+Take min(ans, distance_from_to) because if ans is large enough it may be larger than original distance.
+
+TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
+
+## 2000
+
+### Directing Edges
+https://codeforces.com/problemset/problem/1385/E
+
+First leave only directed edges. Find connected components, check them for cycles in proccess (print NO if any).
+Find topsort for each component. Now iterate over undirected edges. If (u, v) in the same connected component, orient using topsort order.
+
+Now the task converged to orient all edges of bidirected graph. I think it can be done with dfs where you orient depening on what you found in the end. If you found leaf, orient forward, otherwise orient backwards.
+
+TODO: how to implement in the simplest possible way?
+
+### Ice Cave
+https://codeforces.com/problemset/problem/540/C
+
+If there is no path:
+   NO
+Otherwise:
+   If you are already staying on proper cell:
+      if you can't move:
+         NO
+      otherwise:
+         YES # go one step and back
+   Otherwise:
+      if end point have at least 2 adjacent empty squares:
+         YES
+      otherwise:
+         NO
+   
+### Fixed Points
+https://codeforces.com/problemset/problem/1551/E
+
+Simple DP. I just need to store for each length maximum amount of sequence and add iteratively
+
+basis: 0
+step: dp[i][len+1] = dp[i-1][len] + (a[i] == len+1)
