@@ -65,14 +65,6 @@ Start with bitmask of ones. Try to set each bit to 0 from right to left. Check c
 ### Guessing the Greatest (hard version)
 ???
 
-### Education
-https://codeforces.com/problemset/problem/1512/F
-
-There is some position where we stop earning to educate and start earning to win. Just iterate over this position, keep time taken to get there and amount of tugriks and update and with minim to win from there.
-
-Main insight: it's always worth it to educate as soon as possible in position i unless we are not going to educate ever.
-
-
 ### Old Floppy Drive
 https://codeforces.com/contest/1490/problem/G
 
