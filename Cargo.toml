@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_print_a1337_string",
     "f_education",
     "c_longest_regular_bracket_sequence",
     "e_fish",
