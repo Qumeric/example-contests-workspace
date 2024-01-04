@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "f_number_of_subsequences",
     "d_print_a1337_string",
     "f_education",
     "c_longest_regular_bracket_sequence",
