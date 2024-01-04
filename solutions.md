@@ -36,13 +36,6 @@ On every step:
 4. Pay taken x. Pay remaining l.
 5. Compare if we paid more than s or not.
 
-### Print a 1337-string...
-https://codeforces.com/problemset/problem/1202/D
-
-First add 3s in format 13...37 until we can't add more.
-
-Then add ones so string will be 13..31..1337. Each one will add 1 to answer and there will be enough space.
-
 ### Same Sum Blocks (Hard)
 https://codeforces.com/problemset/problem/1141/F2
 
@@ -195,3 +188,37 @@ Simple DP. I just need to store for each length maximum amount of sequence and a
 
 basis: 0
 step: dp[i][len+1] = dp[i-1][len] + (a[i] == len+1)
+
+### Jzzhu and Cities
+https://codeforces.com/problemset/problem/449/B
+
+It seems that (not a figure of speach, I am not completely sure) that we can just do dijkstra from multiple points: root and all points with roads.
+
+The only potential problem is that it's not very clear what to select if distance is equal. However, if we loose closely we can notice that if it's equal between path from root and bridge then we take only root and if it's equal from two bridges, we take both bridges.
+
+### Number of Simple Paths
+https://codeforces.com/problemset/problem/1454/E
+
+We have one circle and some trees growing on it (cacti?) the  answer is number of paths multiplied by two minus number of paths in each growing tree.
+
+The only question how to implement most elegantly.
+
+### Shortest Path
+https://codeforces.com/problemset/problem/59/E
+
+Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where we kind of go over edges (or store prev and current vertex). There are < n^2 edges so it will be fast enough.
+
+### Square Subsets
+https://codeforces.com/problemset/problem/895/C
+
+Something something bitmask TODO.
+
+### Triangular Paths
+https://codeforces.com/problemset/problem/1506/F
+
+TODO
+
+### Number of Subsequences
+https://codeforces.com/problemset/problem/1426/F
+
+DP where we store amount of subsequences "a", amount of subsequences "ab" and amount of subsequences "abc".
