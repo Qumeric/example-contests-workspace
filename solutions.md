@@ -218,7 +218,25 @@ https://codeforces.com/problemset/problem/1506/F
 
 TODO
 
-### Number of Subsequences
-https://codeforces.com/problemset/problem/1426/F
+### Propagating Tree
+https://codeforces.com/problemset/problem/383/C
 
-DP where we store amount of subsequences "a", amount of subsequences "ab" and amount of subsequences "abc".
+Here we just need to build segment tree for each depth level.
+
+### How Many Paths?
+https://codeforces.com/problemset/problem/1547/G
+
+First find 0, remove them.
+
+Now find strongly connected components. Now mark nodes with loops. Now find SCC. Mark nodes in SCC with size at least 2. Now do bfs from all marked nodes. Mark everything reached with -1, remove.
+
+Now we only need to differ between 1 and 2, this is easy. Can be done with bfs prob?
+
+### Reducing Delivery Cost
+https://codeforces.com/problemset/problem/1433/G
+
+It sounds like we have to try for each road? Because if we find shortest path changing one road may completely change it.
+
+Do floyd. Now we know the smallest path.
+
+Now try every road. For each courier answer will be min(initial_ans, min(f[a][v] + f[u][b], f[a][u] + f[v][a])) 
