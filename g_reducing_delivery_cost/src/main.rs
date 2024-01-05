@@ -2,7 +2,8 @@
 
 use std::cmp::min;
 
-use algo_lib::graph::all_distances::AllDistances;
+use algo_lib::collections::iter_ext::iters::Iters;
+use algo_lib::graph::distances::Distances;
 use algo_lib::graph::graph::Graph;
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
@@ -22,9 +23,6 @@ fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc
             (x, y, w)
         })
         .collect();
-    let graph = Graph::from_weighted_biedges(n, &edges);
-
-    let f = graph.all_distances();
 
     let routes: Vec<_> = (0..k)
         .map(|_| {
@@ -34,15 +32,31 @@ fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc
         })
         .collect();
 
-    let mut ans = 0;
-    for &(a, b) in routes.iter() {
-        ans += f[a][b];
+    let mut ans = u64::MAX;
+
+    let graph = Graph::from_weighted_biedges(n, &edges);
+    let mut orig_dist = vec![0; k];
+    for (i, &(a, b)) in routes.enumerate() {
+        orig_dist[i] = graph.distance(a, b).unwrap().0;
     }
 
-    for (x, y, _w) in edges {
+    for i in 0..m {
+        let mut new_edges = edges.clone();
+        new_edges[i].2 = 0;
+        let graph = Graph::from_weighted_biedges(n, &new_edges);
+        let (x, y, _) = new_edges[i].clone();
+        let distances_from = graph.distances_from(x);
+        let distances_to = graph.distances_from(y);
+
         let mut cans = 0;
-        for &(a, b) in routes.iter() {
-            cans += min(f[a][b], min(f[a][x] + f[y][b], f[a][y] + f[x][b]));
+        for (i, &(a, b)) in routes.enumerate() {
+            cans += min(
+                orig_dist[i],
+                min(
+                    distances_from[a].unwrap().0 + distances_to[b].unwrap().0,
+                    distances_from[b].unwrap().0 + distances_to[a].unwrap().0,
+                ),
+            );
         }
         ans = min(ans, cans);
     }

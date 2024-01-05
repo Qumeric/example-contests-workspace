@@ -1,6 +1,7 @@
 // from EgorKulikov's lib
 pub mod all_distances;
 pub mod dfs_order;
+pub mod distances;
 pub mod edges;
 #[allow(clippy::module_inception)]
 pub mod graph;

@@ -1,6 +1,7 @@
 // From EgorKulikov's lib
 pub mod bounds;
 pub mod dsu;
+pub mod indexed_heap;
 pub mod iter_ext;
 pub mod md_arr;
 pub mod min_max;
