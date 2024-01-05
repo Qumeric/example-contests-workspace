@@ -4,6 +4,8 @@ use crate::graph::edges::edge::Edge;
 use crate::graph::edges::edge_trait::{BidirectionalEdgeTrait, EdgeTrait};
 use std::ops::{Index, IndexMut};
 
+use super::edges::bi_weighted_edge::BiWeightedEdge;
+
 pub struct Graph<E: EdgeTrait> {
     pub(super) edges: Vec<Vec<E>>,
     edge_count: usize,
@@ -205,6 +207,16 @@ impl Graph<BiEdge<()>> {
         let mut graph = Self::new(n);
         for &(from, to) in edges {
             graph.add_edge(BiEdge::new(from, to));
+        }
+        graph
+    }
+}
+
+impl<W: Copy> Graph<BiWeightedEdge<W, ()>> {
+    pub fn from_weighted_biedges(n: usize, edges: &[(usize, usize, W)]) -> Self {
+        let mut graph = Self::new(n);
+        for &(from, to, w) in edges {
+            graph.add_edge(BiWeightedEdge::new(from, to, w));
         }
         graph
     }
