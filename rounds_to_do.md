@@ -23,3 +23,9 @@ https://codeforces.com/contest/1242
 
 ## Good Bye 2021: 2022 is NEAR
 https://codeforces.com/contest/1616
+
+## Good Bye 2022: 2023 is NEAR
+https://codeforces.com/contest/1770
+
+## Codeforces Global Round 23
+https://codeforces.com/contest/1746
