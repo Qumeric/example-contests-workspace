@@ -1,10 +1,9 @@
 use crate::collections::dsu::DSU;
 use crate::graph::edges::bi_edge::BiEdge;
+use crate::graph::edges::bi_weighted_edge::BiWeightedEdge;
 use crate::graph::edges::edge::Edge;
 use crate::graph::edges::edge_trait::{BidirectionalEdgeTrait, EdgeTrait};
 use std::ops::{Index, IndexMut};
-
-use super::edges::bi_weighted_edge::BiWeightedEdge;
 
 pub struct Graph<E: EdgeTrait> {
     pub(super) edges: Vec<Vec<E>>,
