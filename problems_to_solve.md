@@ -79,3 +79,11 @@
 * Big Brush: https://codeforces.com/contest/1638/problem/D
 
 TODO: finish this https://codeforces.com/blog/entry/110753
+
+
+# Not CF
+* IOI 2006 joining points -- kostka say one of the best ever
+* SPOJ ADACOINS: https://www.spoj.com/problems/ADACOINS/
+* BalkanOI 2011: timeismoney http://www.boi2011.ro/resurse/tasks/timeismoney.pdf
+* XXV OI wit https://szkopul.edu.pl/problemset/problem/9JvSAnyf5d1FlPAEXEdUAtCz/statement/
+* ICPC 2009 Jakarta -- Top 10 (where is link?)
