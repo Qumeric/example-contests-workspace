@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "d01_tree",
+    "c_grouping_increases",
+    "b_plus_minus_split",
+    "a_wallet_exchange",
     "g_reducing_delivery_cost",
     "f_number_of_subsequences",
     "d_print_a1337_string",
