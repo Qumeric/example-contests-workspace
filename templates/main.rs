@@ -10,5 +10,7 @@ mod tester;
 
 fn main() {
     tester::run_tests();
+    // don't forget to set test_type = Single if you do it
+    // tester::stress_test(run, tester::check);
 }
 //END MAIN

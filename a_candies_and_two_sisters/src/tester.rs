@@ -1,13 +1,19 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
+use algo_lib::{io::input::Input, misc::random::random};
 use std::io::{stdout, Write};
 
-fn generate_test(out: &mut Output) {}
+fn generate_test(out: &mut Output) {
+    let r = random().next(2_000_000_000) + 1;
+    out.print_line(r);
+}
 
-fn stupid(input: &mut Input, out: &mut Output) {}
+fn stupid(input: &mut Input, out: &mut Output) {
+    let n = input.read_size();
+    out.print_line((n + 1) / 2 - 1);
+}
 
 pub fn check(input: &mut &[u8], expected: &mut &[u8], actual: &mut &[u8]) -> Result<(), String> {
     let mut _input = Input::new(input);
@@ -45,8 +51,8 @@ pub(crate) fn run_tests() -> bool {
     let green = "\x1B[32m";
     let yellow = "\x1B[33m";
     let def = "\x1B[0m";
-    let time_limit = std::time::Duration::from_millis($TIME_LIMIT);
-    let mut paths = std::fs::read_dir("./$TASK/tests/")
+    let time_limit = std::time::Duration::from_millis(1000);
+    let mut paths = std::fs::read_dir("./a_candies_and_two_sisters/tests/")
         .unwrap()
         .map(|res| res.unwrap())
         .collect::<Vec<_>>();
@@ -89,7 +95,8 @@ pub(crate) fn run_tests() -> bool {
                             let mut file = std::fs::File::open(&path).unwrap();
                             let started = std::time::Instant::now();
                             let mut output = Vec::new();
-                            let is_exhausted = crate::run(Input::new(&mut file), Output::new(&mut output));
+                            let is_exhausted =
+                                crate::run(Input::new(&mut file), Output::new(&mut output));
                             let res = started.elapsed();
                             println!("{}", String::from_utf8_lossy(&output));
                             (output, res, is_exhausted)

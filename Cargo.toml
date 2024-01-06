@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "a_candies_and_two_sisters",
     "d01_tree",
     "c_grouping_increases",
     "b_plus_minus_split",
