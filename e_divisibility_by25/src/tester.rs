@@ -1,13 +1,82 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
+use algo_lib::string::str::StrReader;
+use algo_lib::{io::input::Input, misc::random::random};
+use std::cmp::min;
 use std::io::{stdout, Write};
 
-fn generate_test(out: &mut Output) {}
+fn generate_test(out: &mut Output) {
+    let chars = vec!['1', '2', '5', '0'];
+    let fst = chars[(random().gen() % 3) as usize];
+    out.print(fst);
+    for i in 0..4 {
+        let c = chars[(random().gen() % 4) as usize];
+        out.print(c);
+    }
 
-fn stupid(input: &mut Input, out: &mut Output) {}
+    // generates stuff of len 5
+}
+
+fn stupid(input: &mut Input, out: &mut Output) {
+    let mut s = input.read_str();
+    let n = s.len();
+    for i in 0..n {
+        if s[i] == b'7' {
+            s[i] = b'2';
+        }
+    }
+
+    let positions_of_zero: Vec<usize> = s
+        .iter()
+        .enumerate()
+        .filter_map(|(idx, ch)| if ch == b'0' { Some(idx) } else { None })
+        .collect();
+
+    let position_of_two: Option<usize> = s
+        .iter()
+        .enumerate()
+        .filter_map(|(idx, ch)| if ch == b'2' { Some(idx) } else { None })
+        .last();
+
+    let position_of_five: Option<usize> = s
+        .iter()
+        .enumerate()
+        .filter_map(|(idx, ch)| if ch == b'5' { Some(idx) } else { None })
+        .last();
+
+    if positions_of_zero.len() >= 2
+        || (positions_of_zero.len() >= 1 && position_of_five.is_some())
+        || (position_of_two.is_some() && position_of_five.is_some())
+    {
+        let mut ans = 1_000_000;
+        for i in 0..100000 {
+            let mut ss = s.clone();
+            let mut swaps = 0;
+            for j in 0..10 {
+                let val: u64 = ss.clone().parse();
+                if val % 25 == 0 {
+                    ans = min(ans, swaps);
+                    break;
+                }
+                if swaps >= ans {
+                    continue;
+                }
+                let p = (random().gen() % 4) as usize;
+                if p != 0 || ss[p + 1] != b'0' {
+                    let tmp = ss[p];
+                    ss[p] = ss[p + 1];
+                    ss[p + 1] = tmp;
+                    swaps += 1;
+                }
+            }
+        }
+        out.print_line(ans);
+    } else {
+        out.print_line(-1);
+    }
+}
 
 pub fn check(input: &mut &[u8], expected: &mut &[u8], actual: &mut &[u8]) -> Result<(), String> {
     let mut _input = Input::new(input);
@@ -45,8 +114,8 @@ pub(crate) fn run_tests() -> bool {
     let green = "\x1B[32m";
     let yellow = "\x1B[33m";
     let def = "\x1B[0m";
-    let time_limit = std::time::Duration::from_millis($TIME_LIMIT);
-    let mut paths = std::fs::read_dir("./$TASK/tests/")
+    let time_limit = std::time::Duration::from_millis(1000);
+    let mut paths = std::fs::read_dir("./e_divisibility_by25/tests/")
         .unwrap()
         .map(|res| res.unwrap())
         .collect::<Vec<_>>();
@@ -89,7 +158,8 @@ pub(crate) fn run_tests() -> bool {
                             let mut file = std::fs::File::open(&path).unwrap();
                             let started = std::time::Instant::now();
                             let mut output = Vec::new();
-                            let is_exhausted = crate::run(Input::new(&mut file), Output::new(&mut output));
+                            let is_exhausted =
+                                crate::run(Input::new(&mut file), Output::new(&mut output));
                             let res = started.elapsed();
                             println!("{}", String::from_utf8_lossy(&output));
                             (output, res, is_exhausted)

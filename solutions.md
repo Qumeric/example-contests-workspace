@@ -90,15 +90,6 @@ Now we just need to find longest path on DAG.
 
 Would be nice to solve and add longest path, topsort etc. to the lib.
 
-### Maximal GCD
-https://codeforces.com/problemset/problem/803/C
-
-First notice that minimum is 1 2 3 .. k
-
-If this is > n then -1
-
-Otherwise iterate over divisors of n from largest to lowest and try to do (1 2 3 .. k-1 k+x) * div
-
 ### Obtain a Permutation
 https://codeforces.com/contest/1294/problem/E
 
@@ -153,6 +144,10 @@ Take min(ans, distance_from_to) because if ans is large enough it may be larger 
 TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
 
 ## 2000
+
+### Masha-Forgetful
+https://codeforces.com/problemset/problem/1624/E
+Just split on segments of len 2 and 3. Then DP. 
 
 ### Directing Edges
 https://codeforces.com/problemset/problem/1385/E
@@ -223,6 +218,13 @@ https://codeforces.com/problemset/problem/383/C
 
 Here we just need to build segment tree for each depth level.
 
+### Choosing Flowers
+Main insight: answer looks like many flowers of some kind and at most 1 flower of each other kind.
+
+Has set sorted by a.
+Then iterate over flower which we take >= 1 times. Remove from set (and return after handling this iter). Find all flowers with a_i > b_x. Take them (or as much as possible). If space remained fill wiht b_x.
+
+## 2100
 ### How Many Paths?
 https://codeforces.com/problemset/problem/1547/G
 
@@ -232,11 +234,97 @@ Now find strongly connected components. Now mark nodes with loops. Now find SCC.
 
 Now we only need to differ between 1 and 2, this is easy. Can be done with bfs prob?
 
-### Reducing Delivery Cost
-https://codeforces.com/problemset/problem/1433/G
+### Red-Black Number
+https://codeforces.com/problemset/problem/1593/F
+each digit adds to reminder
+there are only 1600 possible pairs of reminders
 
-It sounds like we have to try for each road? Because if we find shortest path changing one road may completely change it.
+so from 1600 pairs (some may be present multiple times) we need to fill.
 
-Do floyd. Now we know the smallest path.
+so iterate over x and have dp[i][taken][pair] 
 
-Now try every road. For each courier answer will be min(initial_ans, min(f[a][v] + f[u][b], f[a][u] + f[v][a])) 
+to recalculate we iterate through all pairs and all taken and try to add. there are 40 steps, 20 taken can be at most and 1600 pairs. 
+
+O(n^4) easily fits. Tbh even O(n^5) may fit if we do it carefully)
+
+### Ant colony
+https://codeforces.com/contest/474/problem/F
+
+Need to answer queries "how many elements of subsegment divide all other elements"
+
+If it divides all then it divides gcd. But it can't be smaller than gcd so it is gcd. Using adamant's gcd trick we can quickly find gcd for any subsegment. We can also find minimum using segment tree (or whatever). If minimum does not equal to gcd then answer is r-l. If it does equal then answer is r-l-number_of_minimums. Finding number of minimums is a standard execrcies. I added it to the lib.
+
+### Minimum Spanning Tree for Each Edge
+https://codeforces.com/contest/609/problem/E
+
+Shall we just build and MST and then for each edge if it's not in MST answer queries "maximum edge on path from u to v in MST"?
+
+MST building is easy and for queries I have HLD implementation.
+
+### Olya and Energy Drinks
+https://codeforces.com/problemset/problem/877/D
+
+it seems like there is no problem to traverse everything in bfs because we will go to each square once?
+
+We need to be able to find next wall from each square in each direction. It's easy to do with 2*n + 2*m precalc (one for each direction)
+
+Now we do bfs but want to ensure that we don't go to same place twice. For this we can use sets and binary search. Store row and columns, find reachable cells [max(wall_l+1, pos-k); min(wall_r-1+pos+k)]. Remove them from set and go to those cells (bfs).
+
+### Round Subset
+https://codeforces.com/problemset/problem/837/D
+
+roundness only depends on number of 2 divisors and 5 divisors. So we replace each number by pair (d2, d5) where d2 is at most 60 and d5 is at most 30.
+
+So it total 1800 pairs btw
+
+Now we need select k pairs such that min(d2, d5) is maximum
+
+Sounds like dp extremely similar to red-black number problem
+
+### New Year Tree
+https://codeforces.com/contest/620/problem/E
+Seems like we just need 60 things which handle subtrees requests? Like centroid decomposition.
+
+When query just answer.
+When update in one thing we set to 1. In other things we set to 0.
+
+it will be mc log n which is 400_000 * 60 * 20 ~ 500_000 * 1_000 = 5e8
+
+### Valid Sets
+https://codeforces.com/problemset/problem/486/D
+
+
+
+### Blood Cousins
+https://codeforces.com/contest/208/problem/E
+
+Amount of p-cousins is amount of p-children of p-ancestor of v_i. So let's replace it to this.
+
+It's offline so we can handle in any order. we dfs tree and store ancestors at each dp and merge using smallest-to-largest tecnique (aka sack).
+
+### A and B and Lecture Rooms
+https://codeforces.com/problemset/problem/519/E
+
+We have tree. Given queries (A, B) need to find amount of nodes with same distance to A and B.
+
+Find LCA. Then answer is sum of trees from the middle of path from A to B. (need to go up half way). Don't include trees of A and trees of B. If LCA itself is in the middle then also include "up tree".
+
+### Wi-Fi
+https://codeforces.com/problemset/problem/1216/F
+
+DP with segment tree? When connected directly update is trivial. When connected with router update on segment with i + last_dp (k before) on segment (both backward and forward). Update is minimum, init is INF everywhere except for 0. Enumeration starts from 1 for convenience.
+
+### Guide
+https://codeforces.com/problemset/problem/1510/G
+
+We have a tree (at most 100 verticies). Find shortest path from root which visits k different cities.
+Stupid way would be 2k lenthg because we never go over edge more than twice. 
+
+Maybe can do divide and conquer? 
+
+TODO
+
+### Zero Remainder Sum
+https://codeforces.com/problemset/problem/1433/F
+
+We can do dp for each row to find maximum sum for each reminder. Then we need to combine reminders somehow? TODO: not clear

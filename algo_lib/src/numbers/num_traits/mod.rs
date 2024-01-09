@@ -1,4 +1,5 @@
 pub mod add_sub;
+pub mod algebra;
 pub mod as_index;
 pub mod bit_ops;
 pub mod from_u8;

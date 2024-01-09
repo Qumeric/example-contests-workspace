@@ -9,5 +9,5 @@ Using rust-competitive-helper and heaveily borrowing from:
 * Extension: create map from values to positions
 * Make ArqSpec generic?
 * Magic tree abstraction -- does queries on paths and subtrees very easily.
-* Read graph from n and edges
 * kth order like we have in C++ with g++ libs
+* Try using centroid decomposition and maybe make it more friendly to rust_algo graphs

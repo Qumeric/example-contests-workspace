@@ -50,13 +50,59 @@ impl ArqSpec for AssignMin {
         a.min(b)
     }
     fn identity() -> Self::S {
-        i64::max_value()
+        i64::MAX
     }
     fn compose(&f: &Self::F, _: &Self::F) -> Self::F {
         f
     }
     fn apply(&f: &Self::F, _: &Self::S, _: i64) -> Self::S {
         f
+    }
+}
+
+pub enum AssignMax {}
+impl ArqSpec for AssignMax {
+    type S = i64;
+    type F = i64;
+    fn op(&a: &Self::S, &b: &Self::S) -> Self::S {
+        a.max(b)
+    }
+    fn identity() -> Self::S {
+        i64::MIN
+    }
+    fn compose(&f: &Self::F, _: &Self::F) -> Self::F {
+        f
+    }
+    fn apply(&f: &Self::F, _: &Self::S, _: i64) -> Self::S {
+        f
+    }
+}
+
+/// Range Minimum Query (RMQ) with count of minimums and support for addition.
+pub enum AssignMinWithCount {}
+impl ArqSpec for AssignMinWithCount {
+    type S = (i64, i64); // (value, count)
+    type F = i64; // The value to add to all elements
+
+    fn op(a: &Self::S, b: &Self::S) -> Self::S {
+        match a.0.cmp(&b.0) {
+            std::cmp::Ordering::Less => a.clone(),
+            std::cmp::Ordering::Greater => b.clone(),
+            std::cmp::Ordering::Equal => (a.0, a.1 + b.1),
+        }
+    }
+
+    fn identity() -> Self::S {
+        (i64::MAX, 0)
+    }
+
+    fn compose(&f: &Self::F, _: &Self::F) -> Self::F {
+        // Since we're just assigning, the new function is simply the new value to add
+        f
+    }
+
+    fn apply(&f: &Self::F, _: &Self::S, size: i64) -> Self::S {
+        (f, size)
     }
 }
 

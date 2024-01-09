@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f_wi_fi",
+    "f_array_partition",
+    "e_funny_substrings",
+    "d_max_median",
+    "e_masha_forgetful",
+    "e_divisibility_by25",
     "a_candies_and_two_sisters",
     "d01_tree",
     "c_grouping_increases",
