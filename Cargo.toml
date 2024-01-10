@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "e_obtain_apermutation",
+    "c2_skyscrapers_hard_version",
+    "b_maximum_value",
+    "c_ciel_the_commander",
     "f_wi_fi",
     "f_array_partition",
     "e_funny_substrings",

@@ -29,3 +29,7 @@ https://codeforces.com/contest/1770
 
 ## Codeforces Global Round 23
 https://codeforces.com/contest/1746
+
+## Codeforces Round 626 (Div. 1, based on Moscow Open Olympiad in Informatics)
+https://codeforces.com/contest/1322
+

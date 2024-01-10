@@ -90,18 +90,6 @@ Now we just need to find longest path on DAG.
 
 Would be nice to solve and add longest path, topsort etc. to the lib.
 
-### Obtain a Permutation
-https://codeforces.com/contest/1294/problem/E
-
-We can solve for each column separately.
-
-For each element we need to calc how many cyclic shifts (if any) will put in a proper position. 
-We can use binary search to find this.
-
-Create map[num-shifts, cnt-elems] and select the best.
-
-Then sum ans for all columns.
-
 ### Beautiful Array
 We can remove 0s first. 
 
@@ -142,6 +130,35 @@ Then we iterate over special field 1 and try to find special field 2 which will 
 Take min(ans, distance_from_to) because if ans is large enough it may be larger than original distance.
 
 TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
+
+### Skyscrapers (hard version)
+https://codeforces.com/problemset/problem/1313/C2
+
+Need segment tree which finds minimum element and position.
+
+Then do divide and conquer. For each segment answer is max(min_elem*(left_len+1) + right_seg, left_seg + min_elem(right_len+1)). That's it?
+
+For some reason WA... Maybe bug idk? Try stress or come up with same but simpler solution
+
+### String Reversal
+https://codeforces.com/problemset/problem/1430/E
+
+Just match first a in original with first a in reversed etc. Now we just know where each symbol should move. Now need to calculate how long it will take. It's segment tree maybe?
+
+For each position write how many it should move (+ if backward or - if forward). Now take one which needs to go to 0. Add value to answer, add +1 to all on left. Now take one which needs to go to 1...
+
+aaaza to azaaa
+0 -1 0 2 0
+
+ans +2
+x 0 0 x 0
+
+### Ehab and the Expected XOR Problem
+https://codeforces.com/problemset/problem/1174/D
+
+TODO
+
+
 
 ## 2000
 
@@ -309,11 +326,6 @@ We have tree. Given queries (A, B) need to find amount of nodes with same distan
 
 Find LCA. Then answer is sum of trees from the middle of path from A to B. (need to go up half way). Don't include trees of A and trees of B. If LCA itself is in the middle then also include "up tree".
 
-### Wi-Fi
-https://codeforces.com/problemset/problem/1216/F
-
-DP with segment tree? When connected directly update is trivial. When connected with router update on segment with i + last_dp (k before) on segment (both backward and forward). Update is minimum, init is INF everywhere except for 0. Enumeration starts from 1 for convenience.
-
 ### Guide
 https://codeforces.com/problemset/problem/1510/G
 
@@ -328,3 +340,30 @@ TODO
 https://codeforces.com/problemset/problem/1433/F
 
 We can do dp for each row to find maximum sum for each reminder. Then we need to combine reminders somehow? TODO: not clear
+
+### Ciel the Commander
+Isn't it centroid decomposition?
+
+TODO
+
+### Tree Painting
+https://codeforces.com/problemset/problem/1187/E
+
+It doesn't matter how you play -- if you selected vertex the game is split on 1+ games on parts. Each part has predetermined start too. 
+So it only matter where you start.
+
+Ahh unclear TODO. Kind of reminds heavy light?? Maybe need to think how answer changes when I move start to adjacent? But depth is also important...
+
+### Maximum Value
+https://codeforces.com/problemset/problem/484/B
+
+Can remove same values
+
+If we have <1e4 values we can try all. Prob even for <2e4?
+
+So we have a lot of different values. Maybe binary search things like smallest > x/2, smallest > x/3 etc..
+
+Answer have to be quite large right? If we will look up to sqrt it will be n * sqrt(n) * log n. Althought it's a bit much, more than 1e9.
+
+Answer should be pretty large!
+

@@ -11,6 +11,8 @@
 * Typo: minimum instead of maximum (1)
 * Misread problem -- definition was not standard (1)
 * Wrong solution -- strategy is not optimal (1)
+* Typo: 'a' instead of 'A' (1)
+* Return in lambda returns not from outer func but wrom lambda (1)
 
 # 1919
 Extremely bad result :(
