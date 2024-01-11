@@ -24,6 +24,25 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 
 ## 1900
 
+### Shichikuji and Power Grid
+https://codeforces.com/contest/1245/problem/D
+
+### K-periodic Garland [EASY IMPL]
+https://codeforces.com/problemset/problem/1353/E
+
+Need to reach state where distance between all ones is k (1001 is k = 3) with flipping bits.
+
+if k <= sqrt(n) -- can bruteforce
+
+if k > sqrt(n) -- can also bruteforce but differently
+
+Actually can be one solution?
+
+Just iterate over starting position up to k. Then we need to check each kth element. Ans (for cur) is number of zeros in those positions + number of ones in other positions.
+
+
+there will be  k * (n/k) operations which is n?
+
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D
 
@@ -56,7 +75,8 @@ https://codeforces.com/problemset/problem/1624/G
 Start with bitmask of ones. Try to set each bit to 0 from right to left. Check connectivity (e.g DSU)
 
 ### Guessing the Greatest (hard version)
-???
+https://codeforces.com/problemset/problem/1486/C2
+TODO
 
 ### Old Floppy Drive
 https://codeforces.com/contest/1490/problem/G
@@ -69,7 +89,7 @@ Now for every x we need to find element in map. It should have the same remainde
 
 Be careful about negative F.
 
-### Nearest Opposite Parity
+### Nearest Opposite Parity [EASY IMPL]
 https://codeforces.com/problemset/problem/1272/E
 
 It's just multisource bfs. Start from all even and find distance to each odd. Same for starting with odd. Not much edges (2n - 2) so it's fine.
@@ -165,8 +185,13 @@ Key insight: consider strings only of length 2 and 3.
 
 TODO
 
+### Multiset
+https://codeforces.com/problemset/problem/1354/D
 
+What if I store 1000 numbers and each number is bucket size. Then I do this whole thing. And some bucket remains. 
 
+Then answer will be in this bucket. So I know answer up to 1000. Now I can do stuff again.
+But I will store 1000 + 2 numbers. Too small, too large, and count for every potentially matching. I will be able to quickly do all queries.
 
 
 
