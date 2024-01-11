@@ -158,6 +158,16 @@ https://codeforces.com/problemset/problem/1174/D
 
 TODO
 
+### AB-string
+https://codeforces.com/problemset/problem/1238/D
+
+Key insight: consider strings only of length 2 and 3.
+
+TODO
+
+
+
+
 
 
 ## 2000
