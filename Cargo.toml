@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "d_array_repetition",
+    "c_partitioning_the_array",
+    "b_summation_game",
+    "satisfying_constraints",
     "f_lets_play_the_hat",
     "e_kperiodic_garland",
     "d_multiset",
