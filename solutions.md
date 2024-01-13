@@ -24,6 +24,44 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 
 ## 1900
 
+### 1D Sokoban
+https://codeforces.com/problemset/problem/1494/C
+
+First solve it for negative and positive and add answers. Solving negative can be mirrored so we only need to solve positive.
+
+Just move pointers. One pointer is a special position of last box in a line of boxes .
+
+TODO but this is basically implementation problem?
+
+### 0-1 MST [EASY IMPL]
+https://codeforces.com/problemset/problem/1242/B
+
+If we find connected components by 0 edges then the answer will be number of connected components -1.
+
+We can use DSU but how to merge? 
+
+If graph has <= 10000 nodes then we have 1e8 edges and can do properly.
+
+Otherwise take 100 verticies with most 1 edges. Do properly for them. Remaining verticies can't have more than 100 1-edges. Seems like all of them should be connected?
+
+Actually just take as much largest nodes as possible. We are going to do n operations for each node so we can take something like max(n, 1e8/n). Maybe can try something smaller like 5e7/n to be safer in terms of time.
+
+## Tree with Maximum Cost
+https://codeforces.com/problemset/problem/1092/F
+
+Given tree. Find max sum dist (i, v) * w_v
+
+### Koa and the Beach (Easy) [EASY IMPL]
+https://codeforces.com/contest/1384/problem/B1
+
+Lol this is div2 B1...
+
+Just brute force.
+
+### GameGame
+
+TODO. I did not read this problem but seems there is an interesting discussion here: https://codeforces.com/blog/entry/80422#comment-668160
+
 ### Shichikuji and Power Grid
 https://codeforces.com/contest/1245/problem/D
 
@@ -32,16 +70,15 @@ https://codeforces.com/problemset/problem/1353/E
 
 Need to reach state where distance between all ones is k (1001 is k = 3) with flipping bits.
 
-if k <= sqrt(n) -- can bruteforce
+The problem is that we can have zero prefix and zero suffix.
 
-if k > sqrt(n) -- can also bruteforce but differently
+If we write for i % k positions in sequence.
 
-Actually can be one solution?
+Then we will need to solve the following task: have a set of elements. Can remove or insert elements. Need to find minimum amount to make elements be a segment (can be empty).
 
-Just iterate over starting position up to k. Then we need to check each kth element. Ans (for cur) is number of zeros in those positions + number of ones in other positions.
+There will be k such task each with at most n/k elements
 
-
-there will be  k * (n/k) operations which is n?
+To solve this task we keep balances. Go from start, if balance goes below 0 then it's better to remove ones. Do the same from the end
 
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D
@@ -185,15 +222,9 @@ Key insight: consider strings only of length 2 and 3.
 
 TODO
 
-### Multiset
-https://codeforces.com/problemset/problem/1354/D
+### Flood Fill
 
-What if I store 1000 numbers and each number is bucket size. Then I do this whole thing. And some bucket remains. 
-
-Then answer will be in this bucket. So I know answer up to 1000. Now I can do stuff again.
-But I will store 1000 + 2 numbers. Too small, too large, and count for every potentially matching. I will be able to quickly do all queries.
-
-
+It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
 
 ## 2000
 

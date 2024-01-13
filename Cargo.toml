@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "f_lets_play_the_hat",
+    "e_kperiodic_garland",
     "d_multiset",
     "e_necklace_assembly",
     "e_obtain_apermutation",

@@ -32,4 +32,3 @@ https://codeforces.com/contest/1746
 
 ## Codeforces Round 626 (Div. 1, based on Moscow Open Olympiad in Informatics)
 https://codeforces.com/contest/1322
-
