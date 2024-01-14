@@ -8,11 +8,14 @@
 * TLE: O(n^2) when n = 1000 but t is 50000 and there is no sum(n) <= 1000 constraint (1)
 * Asked GPT to write small simple piece, it misunderstood me (subarray instead of subsequence) and I didn't check (1)
 * Almost correct greedy solution but wrong initialization (1)
-* Typo: similar things (a vs A, min vs max) (2)
+* Typo: similar things (a vs A, min vs max) (3)
 * Misread problem -- definition was not standard (1)
 * Wrong solution -- strategy is not optimal (1)
 * Return in lambda returns not from outer func but wrom lambda (1)
-* Wrrrg iter bounds (used n instead of m etc.) (1)
+* Wrong iter bounds (used n instead of m etc.) (1)
+* Forgot to initializes sum dp state such as (0, 1) (1)
+* Did not handle special case when something is 1 or 0 (1).
+
 
 # 1919
 Extremely bad result :(

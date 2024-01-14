@@ -24,6 +24,32 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 
 ## 1900
 
+### Perform Easily
+https://codeforces.com/problemset/problem/1413/C
+
+Sort strings and notes.
+
+Binary search answer ans.
+
+There is some string which plays the lowest note. Iterate over it. It will set lowest fret. and range will start from some k
+
+We definitely will have proper because we iterate over all. It will be the lowest fret because there is no 
+
+For each starting string iterate over all other string and try to play each on any string using any fret from k to k + ans.
+
+a = [1, 4]
+
+notes s [1, 3]
+
+
+frets will be 
+
+### Shichikuji and Power Grid
+https://codeforces.com/problemset/problem/1245/D
+
+This is just MST problem. Just add "POWER" node and make edges to it. All other nodes will have edges as described (variant of manhattan distance).
+
+
 ### 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 
@@ -227,6 +253,29 @@ TODO
 It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
 
 ## 2000
+
+### Genius's Gambit [EASY IMPL]
+https://codeforces.com/problemset/problem/1492/D
+
+We can easily do
+1 1111 1000
+1 1111 0001
+
+if we need 3 ones
+
+or second can be e.g 
+
+0010
+0001
+
+if we need just single one. But what to do with ones? insight: setting two ones on the same pos is same as setting as two zero
+
+so if we need x ones
+we ones in first position (if b == 1 then answer is Yes iff k == 0)
+
+then we set a single one on position k+1 on top
+and set a single one one on position 1 on the bottom
+now we have some other positions but it doesn't matter if they are 1 or 0, they just must be the same
 
 ### Masha-Forgetful
 https://codeforces.com/problemset/problem/1624/E
@@ -432,4 +481,12 @@ So we have a lot of different values. Maybe binary search things like smallest >
 Answer have to be quite large right? If we will look up to sqrt it will be n * sqrt(n) * log n. Althought it's a bit much, more than 1e9.
 
 Answer should be pretty large!
+
+
+# List to Solve
+Ok I solved or had ideas or banned a lot of problems. Let's make a list of what to solve
+
+### Palindrome Game (hard)
+https://codeforces.com/contest/1527/problem/B2
+
 

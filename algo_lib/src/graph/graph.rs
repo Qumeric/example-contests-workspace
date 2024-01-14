@@ -36,6 +36,10 @@ impl<E: EdgeTrait> Graph<E> {
         direct_id
     }
 
+    pub fn into_egdes(self) -> Vec<Vec<E>> {
+        self.edges
+    }
+
     pub fn add_vertices(&mut self, cnt: usize) {
         self.edges.resize(self.edges.len() + cnt, Vec::new());
     }

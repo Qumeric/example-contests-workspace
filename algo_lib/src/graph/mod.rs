@@ -7,6 +7,7 @@ pub mod edges;
 pub mod graph;
 pub mod hl_decomposition;
 pub mod lca;
+pub mod minimal_spanning_tree;
 
 // from TheAlgorithms
 pub mod centroid_decomposition;

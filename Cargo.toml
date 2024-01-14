@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "d_shichikuji_and_power_grid",
+    "d_yet_another_subarray_problem",
     "d_array_repetition",
     "c_partitioning_the_array",
     "b_summation_game",
