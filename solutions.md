@@ -364,6 +364,13 @@ https://codeforces.com/problemset/problem/59/E
 
 Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where we kind of go over edges (or store prev and current vertex). There are < n^2 edges so it will be fast enough.
 
+### Orac and Game of Life
+https://codeforces.com/problemset/problem/1349/C
+
+We can observe that each cell either flickers or stays the same. And amount of points which stay the same goes down each step, at most 2000 (+ eps?) steps. 
+
+For each point we need to find where is stops to flicker and what color it had. This can be done for each "shape" with bfs from multisource. Actually seems like we can just bfs from all points that change color? If there are no such points then things are constant.
+
 ### Square Subsets
 https://codeforces.com/problemset/problem/895/C
 
@@ -371,6 +378,12 @@ Something something bitmask TODO.
 
 ### Triangular Paths
 https://codeforces.com/problemset/problem/1506/F
+
+Need to sort points by layer first and traverse in this order.
+
+Now between two points we consider evennes of start and end and amount to go.
+
+We can have function solve (isStartEven, stepsDown, stepsDownRight). 
 
 TODO
 
