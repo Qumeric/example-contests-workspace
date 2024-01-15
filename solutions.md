@@ -88,6 +88,32 @@ Just brute force.
 
 TODO. I did not read this problem but seems there is an interesting discussion here: https://codeforces.com/blog/entry/80422#comment-668160
 
+consider element with rightmost 1
+
+there are 4 cases:
+odd this, odd other 
+
+goes to:
+* even this, odd other we get here but with having 1. and player 2 starts. we will end. so player 2 always leaves the last this to us so we lose. unless this is 0
+
+
+
+* odd this, even other. -- LOSE so we don't go here
+
+odd this, even other -- WIN. take this and then mirror every turn
+
+
+even this, odd other
+even this, even other
+
+in both last first bit doesn't matter because it will be always the same for both. so we just solve the same without first bit. It nicesly generalizes because 0 is even.
+
+So iterating left to right over bits.
+If there is just 1 bit WIN.
+If number is odd then skip
+Otherwise WIN if len is odd, otherwise LOSE (this one I am not 100% sure)
+If skipped all then DRAW
+
 ### Shichikuji and Power Grid
 https://codeforces.com/contest/1245/problem/D
 
@@ -139,7 +165,10 @@ Start with bitmask of ones. Try to set each bit to 0 from right to left. Check c
 
 ### Guessing the Greatest (hard version)
 https://codeforces.com/problemset/problem/1486/C2
-TODO
+
+First ask all. Now ask right to the found (including found) what is 2nd. If the same max is on right, else it on left.
+
+18 questions left. We now just have to binary search.
 
 ### Old Floppy Drive
 https://codeforces.com/contest/1490/problem/G
