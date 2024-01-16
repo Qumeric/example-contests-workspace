@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_watto_and_mechanism",
     "c_three_bags",
     "e2_string_coloring_hard_version",
     "d_shichikuji_and_power_grid",
