@@ -552,4 +552,24 @@ Ok I solved or had ideas or banned a lot of problems. Let's make a list of what 
 ### Palindrome Game (hard)
 https://codeforces.com/contest/1527/problem/B2
 
+TODO
+
+### Cut
+https://codeforces.com/contest/1516/problem/D
+
+If two elements have common divisor then it's a no. We can find all divisors for each element in n^1.5
+
+Now for each element we need to find next element which shares prime.
+We can do it by saving position of all divisor in map<prime, set<position>>
+
+Now just find next position for each element, it will be n log^2.
+
+Now for each position we know what last element we can take. 
+
+But naive algo would be still too slow? Because there could be tons of segments in each query? Like for 1 1 1 1 1 1 array?
+
+Now it split at bunch of chains it seems (paths staring at 0, path starting from first unreachable from 0 etc.) ? And chains are arrays. We can map each position to (chain, pos in chain) and do binary search.
+
+Woah kind of a lot of stuff. But everything is pretty easy to implement? Prob can simplify somewhere.
+
 

@@ -32,3 +32,8 @@ https://codeforces.com/contest/1746
 
 ## Codeforces Round 626 (Div. 1, based on Moscow Open Olympiad in Informatics)
 https://codeforces.com/contest/1322
+
+## Codeforces Round 733 (Div. 1 + Div. 2, based on VK Cup 2021 - Elimination (Engine))
+https://codeforces.com/contest/1530
+
+
