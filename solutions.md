@@ -181,11 +181,6 @@ Now for every x we need to find element in map. It should have the same remainde
 
 Be careful about negative F.
 
-### Nearest Opposite Parity [EASY IMPL]
-https://codeforces.com/problemset/problem/1272/E
-
-It's just multisource bfs. Start from all even and find distance to each odd. Same for starting with odd. Not much edges (2n - 2) so it's fine.
-
 ### Equalize the Remainders
 https://codeforces.com/problemset/problem/999/D
 
@@ -280,6 +275,15 @@ TODO
 ### Flood Fill
 
 It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
+
+### Inconvenient Pairs
+https://codeforces.com/contest/1569/problem/D
+
+If something is on crossroad then we can exclude it.
+
+For each point inconvenient will be ones which are between (exclusive) left and right roads (for somebody on horizontal road, WLOG) but not on the same horizonal road.
+
+/ 2 in the end. Be careful in general.
 
 ## 2000
 
@@ -397,6 +401,23 @@ Main insight: answer looks like many flowers of some kind and at most 1 flower o
 
 Has set sorted by a.
 Then iterate over flower which we take >= 1 times. Remove from set (and return after handling this iter). Find all flowers with a_i > b_x. Take them (or as much as possible). If space remained fill wiht b_x.
+
+### Prefixes and Suffixes
+https://codeforces.com/problemset/problem/432/D
+
+I can just calculate Z-function.
+And now I know which prefixes match suffixes.
+
+Save those matching things.
+
+Now I calculate prefix-function. And now for each suffix as substring I know in how many prefixes it includes.
+
+Just add to segment tree or something?
+
+TODO: not quite right, for example if AB matches A matches as well and I will add A two times but it should be added only once
+
+but if AA matches, A should be added twice! So maybe we need to somehow call something for matching prefix also to do 5+
+
 
 ## 2100
 ### How Many Paths?

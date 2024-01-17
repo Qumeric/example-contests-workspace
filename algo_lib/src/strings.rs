@@ -7,6 +7,7 @@ pub struct KmpMatcher<'a, C: Eq> {
     pub prefix_function: Vec<usize>,
 }
 
+// TODO deprecate, use things from string crate
 impl<'a, C: Eq> KmpMatcher<'a, C> {
     /// Precomputes the automaton that allows linear-time string matching.
     ///

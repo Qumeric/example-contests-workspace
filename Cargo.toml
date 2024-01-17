@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "e_nearest_opposite_parity",
+    "d_prefixes_and_suffixes",
     "c_watto_and_mechanism",
     "c_three_bags",
     "e2_string_coloring_hard_version",
