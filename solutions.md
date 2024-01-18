@@ -571,5 +571,3 @@ But naive algo would be still too slow? Because there could be tons of segments 
 Now it split at bunch of chains it seems (paths staring at 0, path starting from first unreachable from 0 etc.) ? And chains are arrays. We can map each position to (chain, pos in chain) and do binary search.
 
 Woah kind of a lot of stuff. But everything is pretty easy to implement? Prob can simplify somewhere.
-
-

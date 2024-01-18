@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d2_domino_hard_version",
     "e_nearest_opposite_parity",
     "d_prefixes_and_suffixes",
     "c_watto_and_mechanism",
