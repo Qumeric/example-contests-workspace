@@ -1,4 +1,5 @@
 // From EgorKulikov's lib
+pub mod bit_set;
 pub mod bounds;
 pub mod dsu;
 pub mod fenwick;

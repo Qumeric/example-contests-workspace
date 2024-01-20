@@ -655,3 +655,52 @@ https://codeforces.com/problemset/problem/1454/F
 
 TODO
 
+### Segment Tree [EASY IMPL]
+https://codeforces.com/problemset/problem/1278/D
+
+Maybe insight here is that there are only n-1 edges so if we can add edges with log n we win?
+
+Let's sort by start. Now we find ones which match the start i.e. start before start and end after start but before i.end
+
+To do this use set sorted by end (from min to max). Iterate over it, if it ends to early, remove, it's not going to be needed. If it ends to late -- break.
+
+Use DSU to merge. If already the same comonent - NO
+
+### Number of Components
+https://codeforces.com/problemset/problem/1151/E
+
+Note: stress test is easy
+
+We will do stuff in order
+
+there is x y z subsegment. if x > y && y < z then adding y will increase number
+
+if x > y && y > z || x < y && y < z then adding y will not change number
+
+if x < y && y > z then adding y will decrease number.
+
+
+we can calculate like this and get sum for (l, r) it seems
+
+then move left boundary. Need only recalculate elems adjacent to removed, it's the same as setting removed to INF
+
+TODO: details
+
+### The Number of Pairs
+https://codeforces.com/problemset/problem/1499/D
+
+lcm/gcd is divisors which only one number has
+
+so we can do c * singleDiv(a, b) = x/gcd(a, b) + d
+
+so singleDiv should is (x/gcd(a, b) + d) / c
+
+so gcd(a, b) should be divisor of x
+
+so let's look at all divisors of x. 
+
+then we will have singleDiv = CONST
+
+we just need to calculate amount of possible splits which is just mult of degrees or smth?
+
+TODO: details

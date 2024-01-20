@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "e_we_need_more_bosses",
     "d_water_tree",
     "e_connected_components",
     "e_tree_with_small_distances",
