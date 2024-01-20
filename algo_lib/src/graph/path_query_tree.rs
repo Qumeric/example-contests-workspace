@@ -26,6 +26,9 @@ pub struct PathQueryTree<Spec: ArqSpec> {
     n: usize,
 }
 
+// TODO: maybe it would be better to have a separate struct for vertexes and edges.
+// Yes there will be duplication but it's ok. Or maybe a single thing?
+
 impl<Spec: ArqSpec> PathQueryTree<Spec> {
     pub fn new_with_root<E: Clone>(
         tree: &Graph<BiEdge<E>>,
@@ -82,6 +85,52 @@ impl<Spec: ArqSpec> PathQueryTree<Spec> {
         if self.query_kind == QueryKind::Vertex {
             seg_trees[hld.id[cur_lca]].update_point(hld.pos[cur_lca], val);
         }
+    }
+
+    pub fn query(&mut self, mut u: usize, mut v: usize) -> Spec::S {
+        let cur_lca = self.lca.lca(u, v);
+        let hld = &mut self.hld;
+        let seg_trees = &mut self.seg_trees;
+
+        let mut get_path = |x: &mut usize| {
+            let mut val: Spec::S = Default::default();
+            while hld.id[*x] != hld.id[cur_lca] {
+                let path_id = hld.id[*x];
+                let cur_pos = hld.pos[*x];
+
+                let path = &mut seg_trees[path_id];
+                val = Spec::op(&val, &path.query(0, cur_pos));
+                // out.print_line(("updating", path_id, "to", cur_pos));
+
+                *x = self.lca.parent(hld.paths[path_id][0]).unwrap();
+            }
+            if *x != cur_lca {
+                val = Spec::op(
+                    &val,
+                    &seg_trees[hld.id[*x]].query(hld.pos[cur_lca] + 1, hld.pos[*x]),
+                );
+            }
+            val
+        };
+
+        let a = get_path(&mut u);
+        let b = get_path(&mut v);
+        let mut val = Spec::op(&a, &b);
+
+        if self.query_kind == QueryKind::Vertex {
+            val = Spec::op(
+                &val,
+                &seg_trees[hld.id[cur_lca]].query_point(hld.pos[cur_lca]),
+            );
+        }
+        val
+    }
+
+    pub fn get_vertex(&mut self, i: usize) -> Spec::S {
+        assert_eq!(self.query_kind, QueryKind::Vertex);
+        let path_id = self.hld.id[i];
+        let pos = self.hld.pos[i];
+        self.seg_trees[path_id].query_point(pos)
     }
 
     pub fn get_vertexes(&mut self) -> Vec<Spec::S> {

@@ -519,6 +519,11 @@ https://codeforces.com/problemset/problem/1433/F
 
 We can do dp for each row to find maximum sum for each reminder. Then we need to combine reminders somehow? TODO: not clear
 
+dp will have rem taken state for each row.
+
+Now do another similar dp by columnt, but here only have rem (we have to take all)
+
+
 ### Ciel the Commander
 Isn't it centroid decomposition?
 
@@ -600,4 +605,53 @@ Need to "rotate" this thing 45 degree. Now we are looking for squares, need find
 
 Finding can be done with binary search. Checking can be done without data structures, just sum and use inclusion-exclusion. Maybe would be convenient to map a - > 1 -> 2, b -> 2 -> 4, c -> 3 -> 8 etc so sum would never be ambiguous.
 
+### Max Median
+https://codeforces.com/contest/1486/problem/D
+
+Binary search answer. For each candidate convert array to binary. Now we need to find any segment of len at least k with at lest k/2 1 elements.
+
+Now we can write O(n^2) solution here. Iterate over start and then start from j=i+k to end and find the best. "Bestness" will be determined by value and position of j so we can use fenwick/segment tree to find it in log time. O(n log^2 n) easily fits in 1e8 (and it's 2 seconds even).
+
+### The Winter Hike 
+https://codeforces.com/contest/1621/problem/D
+
+TODO. Maybe in any solution we should never move in more than 2 different directions? Then 2d dp for each (2 out of 4) = 6
+
+### Errich-Tac-Toe (Easy Version)
+https://codeforces.com/contest/1450/problem/C1
+
+TODO
+
+Maybe just greedily find positions such that they are both in hor and ver and set them to 0? And then everything is either only in hor or only vert, so I can just set 1 per 3.
+
+Or maybe slightly differnt greedy: caluclate amount of hor and ver for each pos, now do in order of priority, don't forget to update all neighbours. There are not a lot of neighbours so it's not costly.
+
+### Nearest Beautiful Number (hard version)
+https://codeforces.com/problemset/problem/1560/F2
+
+Maybe need precalc for each k.
+
+For k = 10, 9, 8, 7, 6, 5 can do naively
+
+Iterate over prefix. XXY....
+
+If Y gets to Z=Y+1 then try all XXZ0000, XXZ1111 etc. (XX can change as well, doesn't matter)
+
+Also try all XXY0000, XXY1111 (but number of steps can't be negative)
+
+### Binary Median [EASY IMPL]
+https://codeforces.com/contest/1360/problem/H
+
+Remove at most 100 strings from set of all strings of len at most 60
+
+Print element with index (k-1)/2
+
+k is 2^m - n
+
+Binary search answer? For each element position is element - removedSmaller. If binary serach found removed element, then just take first larger not removed.
+
+### Array Partition
+https://codeforces.com/problemset/problem/1454/F
+
+TODO
 
