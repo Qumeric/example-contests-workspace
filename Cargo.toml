@@ -1,5 +1,8 @@
 [workspace]
 members = [
+    "e_connected_components",
+    "e_tree_with_small_distances",
+    "f2_pictures_with_kittens_hard_version",
     "d2_domino_hard_version",
     "e_nearest_opposite_parity",
     "d_prefixes_and_suffixes",

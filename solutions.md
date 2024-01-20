@@ -546,14 +546,6 @@ Answer have to be quite large right? If we will look up to sqrt it will be n * s
 Answer should be pretty large!
 
 
-# List to Solve
-Ok I solved or had ideas or banned a lot of problems. Let's make a list of what to solve
-
-### Palindrome Game (hard)
-https://codeforces.com/contest/1527/problem/B2
-
-TODO
-
 ### Cut
 https://codeforces.com/contest/1516/problem/D
 
@@ -571,3 +563,41 @@ But naive algo would be still too slow? Because there could be tons of segments 
 Now it split at bunch of chains it seems (paths staring at 0, path starting from first unreachable from 0 etc.) ? And chains are arrays. We can map each position to (chain, pos in chain) and do binary search.
 
 Woah kind of a lot of stuff. But everything is pretty easy to implement? Prob can simplify somewhere.
+
+### New Years' Puzzle
+https://codeforces.com/problemset/problem/1472/F
+
+It's dp. Only last column matters. You just jump through ms keeping what last column you had. What if n is large? Jump through ms when disance between them is say > 5. You will be able to have any column of the same parity.
+
+Notice that you are considering 2x2 square, last column and new column.
+
+### Pictures with Kittens (hard version)
+https://codeforces.com/contest/1077/problem/F2
+
+Need to maximise sum of x elements but do not have gaps of size at least k.
+
+It's just dp with segment tree. Need do have segemnt tree for each amount of kitten and go from the end. n^2 log n
+
+Actually it's too slow. Need to somehow remove log TODO
+
+### Tree with Small Distances
+https://codeforces.com/problemset/problem/1029/E
+
+Given tree add minimum number of edges so everything is reachable from 1 with path of len <= 2.
+
+So the task is cover tree with minimum amount of stars such that one of stars in in 0.
+
+Key observation: it never makes sense to cover leafs, it's always better to cover parent. So do bfs. Take all parent for each leaf. Remove all leafs and parents.
+
+store number of children for each and a queue for leaves. also save parents.
+
+take leave, get parent. Remove all edges from parent. recalculate amount of children and add new leaves in queue.
+
+### Rarity and New Dress
+https://codeforces.com/problemset/problem/1393/D
+
+Need to "rotate" this thing 45 degree. Now we are looking for squares, need find largest for each top left corner.
+
+Finding can be done with binary search. Checking can be done without data structures, just sum and use inclusion-exclusion. Maybe would be convenient to map a - > 1 -> 2, b -> 2 -> 4, c -> 3 -> 8 etc so sum would never be ambiguous.
+
+
