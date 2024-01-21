@@ -1,5 +1,12 @@
 [workspace]
 members = [
+    "g_unusual_entertainment",
+    "f_alexs_whims",
+    "e_queue_sort",
+    "d_yarik_and_musical_notes",
+    "c_yarik_and_array",
+    "b250_thousand_tons_of_tnt",
+    "a_game_with_integers",
     "e_we_need_more_bosses",
     "d_water_tree",
     "e_connected_components",
