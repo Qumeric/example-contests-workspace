@@ -183,22 +183,3 @@ pub fn first_negative(arq: &mut StaticArq<super::specs::AssignMin>) -> Option<us
         Some(p - arq.app.len())
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::collections::specs::AssignMin;
-
-    #[test]
-    fn rmq() {
-        let vec: Vec<i64> = vec![1, 3, 2, 5];
-        let mut rmq_tree = StaticArq::<AssignMin>::new(&vec);
-
-        assert_eq!(rmq_tree.query(0, 1), 1);
-        assert_eq!(rmq_tree.query(0, 2), 1);
-        assert_eq!(rmq_tree.query(1, 2), 2);
-        assert_eq!(rmq_tree.query(2, 3), 2);
-        rmq_tree.update(0, 3, &1);
-        assert_eq!(rmq_tree.query(0, 3), 1);
-    }
-}

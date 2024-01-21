@@ -37,22 +37,3 @@ pub fn interleave<T, I: Iterator<Item = T>, J: Iterator<Item = T>>(
         next_from: NextFrom::First,
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::collections::iter_ext::interleave::interleave;
-
-    #[test]
-    fn interleaved_example() {
-        let a = vec![1, 3];
-        let b = vec![2, 4];
-
-        let mut interleaved = interleave(a.iter(), b.iter());
-
-        assert_eq!(interleaved.next(), Some(&1));
-        assert_eq!(interleaved.next(), Some(&2));
-        assert_eq!(interleaved.next(), Some(&3));
-        assert_eq!(interleaved.next(), Some(&4));
-        assert!(interleaved.next().is_none());
-    }
-}

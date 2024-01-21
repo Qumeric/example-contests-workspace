@@ -16,3 +16,6 @@ pub mod treap_map;
 pub mod dynamic_arq;
 pub mod specs;
 pub mod static_arq;
+
+// Tests
+pub mod tests;

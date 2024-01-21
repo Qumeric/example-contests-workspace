@@ -79,28 +79,3 @@ impl DSU {
         res
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_dsu() {
-        let mut dsu = DSU::new(10);
-        assert_eq!(dsu.set_count(), 10);
-
-        assert!(dsu.join(2, 3));
-        assert_eq!(dsu.set_count(), 9);
-        assert_eq!(dsu.get(2), dsu.get(3));
-
-        assert!(!dsu.join(2, 3));
-        assert_eq!(dsu.set_count(), 9);
-
-        assert!(dsu.join(3, 4));
-        assert_eq!(dsu.set_count(), 8);
-        assert_eq!(dsu.get(2), dsu.get(4));
-
-        dsu.clear();
-        assert_eq!(dsu.set_count(), 10);
-    }
-}

@@ -73,30 +73,3 @@ where
         self.into_iter().map(f)
     }
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::collections::iter_ext::iters::Iters;
-
-    #[test]
-    fn iters_example() {
-        let vec = vec![1, 2, 3];
-        let mut iter = vec.enumerate();
-
-        assert_eq!(iter.next(), Some((0, &1)));
-        assert_eq!(iter.next(), Some((1, &2)));
-        assert_eq!(iter.next(), Some((2, &3)));
-        assert!(iter.next().is_none());
-    }
-
-    #[test]
-    fn iters_map_test() {
-        let vec = vec![1, 2, 3];
-        let mut iter = vec.map(|x| x * 2);
-
-        assert_eq!(iter.next(), Some(2));
-        assert_eq!(iter.next(), Some(4));
-        assert_eq!(iter.next(), Some(6));
-        assert!(iter.next().is_none());
-    }
-}

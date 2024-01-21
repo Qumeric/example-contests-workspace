@@ -21,7 +21,7 @@ fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc
     }
 
     let mut p = vec![];
-    for i in 0..n {
+    for _i in 0..n {
         p.push(input.read1());
     }
 
