@@ -11,3 +11,4 @@ Using rust-competitive-helper and heaveily borrowing from:
 * Magic tree abstraction -- does queries on paths and subtrees very easily.
 * kth order like we have in C++ with g++ libs
 * Try using centroid decomposition and maybe make it more friendly to rust_algo graphs
+* If graph is forest, split it to tree graphs

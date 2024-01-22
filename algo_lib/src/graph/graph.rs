@@ -63,17 +63,6 @@ impl<E: EdgeTrait> Graph<E> {
         self.edges.iter().map(|v| v.len()).collect()
     }
 
-    /// Perform a depth-first search (DFS) starting from a given vertex.
-    ///
-    /// This method takes a mutable reference to a function that will be called
-    /// for each vertex visited during the DFS. The function receives an `Option<usize>`
-    /// representing the parent of the current vertex (or `None` if it's the root of the DFS)
-    /// and the index of the current vertex.
-    ///
-    /// # Arguments
-    ///
-    /// * `start` - The starting vertex index for the DFS.
-    /// * `visit` - A mutable reference to a function that processes each vertex.
     pub fn dfs<F>(&self, start: usize, mut visit: F)
     where
         F: FnMut(Option<usize>, usize),
@@ -128,6 +117,7 @@ impl<E: BidirectionalEdgeTrait> Graph<E> {
         dsu.set_count() == 1
     }
 
+    // maybe incorrect somehow?? maybe better to do with LCA?
     pub fn find_diameter_path(&self) -> Vec<usize> {
         assert!(self.is_tree());
         let mut a_node = 0;
@@ -158,6 +148,10 @@ impl<E: BidirectionalEdgeTrait> Graph<E> {
                 }
             }
         });
+
+        if a_node == b_node {
+            return vec![];
+        }
 
         self.find_path_between(a_node, b_node)
     }

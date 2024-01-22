@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_civilization",
     "d_two_strings_swaps",
     "g_unusual_entertainment",
     "f_alexs_whims",
