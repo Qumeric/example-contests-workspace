@@ -488,7 +488,21 @@ it will be mc log n which is 400_000 * 60 * 20 ~ 500_000 * 1_000 = 5e8
 ### Valid Sets
 https://codeforces.com/problemset/problem/486/D
 
+Iterate from largest value to smallest value (store (value, index) pairs and sort)
 
+Now current vertex will be max. Find all reachable and large enough (but not included already handled verticies), calc tree amount of possible subtrees starting from root in each. Now multiply numbers for each tree (they should include set as well).
+
+Repeat. n^2 only
+
+### Civilization
+https://codeforces.com/problemset/problem/455/C
+
+Given a bunch of trees (regions). Queries:
+1. Diameter of some region
+2. Merge two regions such that diameter will be minimal
+
+Solution:
+Calculate diameter of each region. Use DSU to merge. Take mid point of each diameter to merge. ans will be (a+1)/2 + (b+1)/2 + 1
 
 ### Blood Cousins
 https://codeforces.com/contest/208/problem/E
