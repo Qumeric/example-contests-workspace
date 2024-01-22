@@ -494,16 +494,6 @@ Now current vertex will be max. Find all reachable and large enough (but not inc
 
 Repeat. n^2 only
 
-### Civilization
-https://codeforces.com/problemset/problem/455/C
-
-Given a bunch of trees (regions). Queries:
-1. Diameter of some region
-2. Merge two regions such that diameter will be minimal
-
-Solution:
-Calculate diameter of each region. Use DSU to merge. Take mid point of each diameter to merge. ans will be (a+1)/2 + (b+1)/2 + 1
-
 ### Blood Cousins
 https://codeforces.com/contest/208/problem/E
 
@@ -718,3 +708,21 @@ then we will have singleDiv = CONST
 we just need to calculate amount of possible splits which is just mult of degrees or smth?
 
 TODO: details
+
+### Mahmoud and a xor trip
+https://codeforces.com/problemset/problem/766/E
+
+Tree. distance is xor. find sum of all paths.
+
+Calculate for every bit separately. There will be 20 trees. 
+
+Now we can dfs and keep for each subtree amount of 0-paths and amount of 1-paths. Now for current vertex we calc sum of paths going trough this vertex.
+
+How to calc with not n^2? If node is 1 I am interested it ones * zeros. If node is 0 then I match ones between themselves and zeros between themselves. Can be done in linear fashion.
+
+## Other
+
+### Number of Parallelorgrams
+https://codeforces.com/contest/660/problem/D
+
+Need to iterate over pairs. Find angle. For each angle x*(x-1)/2.
