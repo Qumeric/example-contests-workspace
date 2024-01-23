@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "c_classy_numbers",
     "d_number_of_parallelograms",
     "c_civilization",
     "d_two_strings_swaps",

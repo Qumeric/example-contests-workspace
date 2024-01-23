@@ -24,6 +24,18 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 
 ## 1900
 
+### Strange Definition
+https://codeforces.com/problemset/problem/1471/D
+
+Uncommon primes all has even degree -- adjacent
+
+max number of adjacent -- beauty
+
+things only get merged, so maybe DSU
+
+is this relation transitive? TODO
+
+
 ### Perform Easily
 https://codeforces.com/problemset/problem/1413/C
 
@@ -720,9 +732,46 @@ Now we can dfs and keep for each subtree amount of 0-paths and amount of 1-paths
 
 How to calc with not n^2? If node is 1 I am interested it ones * zeros. If node is 0 then I match ones between themselves and zeros between themselves. Can be done in linear fashion.
 
+### SUM AND REPLACE
+https://codeforces.com/problemset/problem/920/F
+
+Key insight: there are not many steps. So we can store at most 10 values for each starting point.
+
+Now when we REPLACE we just need to have set (maybe treapset, implicit key) and find lower bound, then iterate through whole subarray and replace. Why it is not slow? Because 0 can be removed. Thus each position will be handled at most 10 times (log3?).
+
+It is O(n*sqrt(max(a)) + m*log(n)*log(max(a))) = 3 * 10^8 + 10^8.
+
+Maybe can be faster if we precalc primes and use only them? At least in practice.
+
+### Longest Array Deconstruction
+https://codeforces.com/contest/1575/problem/L
+
+Fuck this is not easy? Idea I had:
+
+Need to have segment tree (MaxMax).
+
+If value is a_i and it's <= i. We do tree[a_i] = max(tree[a_i], tree[0..a_1] + 1)
+
+Test could be: 1 0 3 2 3
+
+Doesn't work on: 2 1 4 2 5. Because will asy 3 because before 5 there is 2 but it requires removal. Maybe need assign to tree and have indexes of i and not a_i.
+
+
+
 ## Other
 
 ### Number of Parallelorgrams
 https://codeforces.com/contest/660/problem/D
 
 Need to iterate over pairs. Find angle. For each angle x*(x-1)/2.
+
+### XOR construction
+https://codeforces.com/contest/1895/problem/D
+
+Link on discussion: https://codeforces.com/blog/entry/122034?#comment-1083134
+
+### Gadgets for dollars and pounds
+https://codeforces.com/contest/609/problem/D
+
+Seems trivial? Price is just min(a*d, b*d). Now binary search answer, for each answer add to arr and sort, take k cheapest, n log^2 n.
+

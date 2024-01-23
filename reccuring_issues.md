@@ -1,5 +1,4 @@
 # List of reason why I get WA:
-* Binary search bounds are wrong (1)
 * Found answer with binary search but predicate is not monotonic (1)
 * When checking divisors up to sqrt(n) only taking div but forgetting about n/div or vice versa (1) 
 * Used usize when meant to use i64 (1)
@@ -12,7 +11,7 @@
 * Misread problem -- definition was not standard (1)
 * Wrong solution -- strategy is not optimal (1)
 * Return in lambda returns not from outer func but wrom lambda (1)
-* Wrong iter bounds (used n instead of m etc.) (1)
+* Wrong binsearch/iter bounds (used n instead of m, off by 1 etc.) (3)
 * Forgot to initializes sum dp state such as (0, 1) (1)
 * Did not handle special case when something is 1 or 0 (1).
 
