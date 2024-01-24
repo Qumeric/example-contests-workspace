@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "d_segment_tree",
+    "b_johnny_and_grandmaster",
     "c_classy_numbers",
     "d_number_of_parallelograms",
     "c_civilization",

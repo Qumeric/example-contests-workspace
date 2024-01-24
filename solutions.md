@@ -24,7 +24,22 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 
 ## 1900
 
-### Strange Definition
+### [TODO] Palindrome Game (hard version)
+https://codeforces.com/problemset/problem/1527/B2
+
+
+### Longest Regular Bracket Sequence
+https://codeforces.com/problemset/problem/5/C
+
+Calculate balances.
+Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
+
+### Yet Another Sorting Problem
+https://codeforces.com/problemset/problem/1591/D
+
+This thing with group of permutations. You can just do greedily and decide on last 3 values. Or calculate number of inversions.
+
+### [TODO] Strange Definition
 https://codeforces.com/problemset/problem/1471/D
 
 Uncommon primes all has even degree -- adjacent
@@ -33,7 +48,7 @@ max number of adjacent -- beauty
 
 things only get merged, so maybe DSU
 
-is this relation transitive? TODO
+is this relation transitive?
 
 
 ### Perform Easily
@@ -221,6 +236,28 @@ when! {
  }
 
  TODO: not completely sure but sounds right?
+
+
+### [TODO] Nezzar and Binary String
+https://codeforces.com/problemset/problem/1477/B
+
+### Johnny and Grandmaster
+https://codeforces.com/problemset/problem/1361/B
+
+There are degrees of p. Need to split in two sets such that difference is minimal. Print % MOD
+
+handle p = 1 seaparately, just out n % 2
+
+if max degree > next by 20+ then max will be separate (usually it's less than 5 but for p=2)
+
+Write number for each (we don't need map, array is fine.
+
+Iterate from largest to smallest. If even, skip.
+
+Otherwise there 1 on large, try to build. Dumb and [probably] working way is to iterate over size from largest to smallest (20..1) and try to build to match. If builded then remove stuff and continue. If not then put large in one bin, everything else in another.
+
+Actually maybe just try to "squish" on copy as much as possible. Now iterate. If even, skip. If odd, check if it's even in squished. If it is even then skip but remember that we need to collect it, collect while it collects. Then continue.
+
 
  ### Pairs
  TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
@@ -670,17 +707,6 @@ Binary search answer? For each element position is element - removedSmaller. If 
 https://codeforces.com/problemset/problem/1454/F
 
 TODO
-
-### Segment Tree [EASY IMPL]
-https://codeforces.com/problemset/problem/1278/D
-
-Maybe insight here is that there are only n-1 edges so if we can add edges with log n we win?
-
-Let's sort by start. Now we find ones which match the start i.e. start before start and end after start but before i.end
-
-To do this use set sorted by end (from min to max). Iterate over it, if it ends to early, remove, it's not going to be needed. If it ends to late -- break.
-
-Use DSU to merge. If already the same comonent - NO
 
 ### Number of Components
 https://codeforces.com/problemset/problem/1151/E
