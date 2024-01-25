@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_array_splitting",
     "d_segment_tree",
     "b_johnny_and_grandmaster",
     "c_classy_numbers",
