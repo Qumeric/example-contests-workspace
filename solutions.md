@@ -264,6 +264,15 @@ Actually maybe just try to "squish" on copy as much as possible. Now iterate. If
  This is the same, just in mirror.
  To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
 
+### XOR Guessing
+https://codeforces.com/problemset/problem/1207/E
+
+1. 0000000xxxxxxx
+2. xxxxxxx0000000
+
+Now get first 7 bits of first answer and last 7 bits of second answer.
+
+
  ### Fish
  https://codeforces.com/problemset/problem/16/E
 
