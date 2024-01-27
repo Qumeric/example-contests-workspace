@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "f_random_query",
+    "c_four_segments",
+    "b_math_show",
+    "a_curriculum_vitae",
     "e_xorguessing",
     "d_array_splitting",
     "d_segment_tree",

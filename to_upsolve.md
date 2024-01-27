@@ -9,3 +9,8 @@ It's suposedely very easy but I was not able to solve it somehow...
 https://codeforces.com/contest/1919/problem/D
 
 I had incorrect solution which maybe has some good ideas but only covers a specific case.
+
+## Random Query
+https://codeforces.com/contest/846/problem/F
+
+Idea is quite obvious but then it's some kind of a standard dp optimization which I am struggling with.
