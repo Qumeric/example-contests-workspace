@@ -12,3 +12,4 @@ Using rust-competitive-helper and heaveily borrowing from:
 * kth order like we have in C++ with g++ libs
 * Try using centroid decomposition and maybe make it more friendly to rust_algo graphs
 * If graph is forest, split it to tree graphs
+* ModInt shall accept 64 bit stuff (got -100 because of overflow in init...)
