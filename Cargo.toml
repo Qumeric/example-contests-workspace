@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f_elongated_matrix",
+    "e_monotonic_renumeration",
+    "d_balanced_ternary_string",
+    "c_doors_breaking_and_repairing",
+    "b_array_kcoloring",
+    "a_integer_sequence_dividing",
     "e_space_harbour",
     "d_good_trip",
     "c_did_we_get_everything_covered",

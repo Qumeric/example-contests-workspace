@@ -14,6 +14,7 @@
 * Wrong binsearch/iter bounds (used n instead of m, off by 1 etc.) (3)
 * Forgot to initializes sum dp state such as (0, 1) (1)
 * Did not handle special case when something is 1 or 0 (1).
+* When doing bit operations wanted to check for existance of 1 bit and compared it with 1: mask & (1 << x) == 1 (1)
 
 
 # 1919

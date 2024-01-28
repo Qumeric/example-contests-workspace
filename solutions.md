@@ -34,7 +34,7 @@ https://codeforces.com/problemset/problem/5/C
 Calculate balances.
 Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
 
-### Yet Another Sorting Problem
+### [EASY IMPL] Yet Another Sorting Problem
 https://codeforces.com/problemset/problem/1591/D
 
 This thing with group of permutations. You can just do greedily and decide on last 3 values. Or calculate number of inversions.
@@ -827,3 +827,46 @@ https://codeforces.com/contest/609/problem/D
 
 Seems trivial? Price is just min(a*d, b*d). Now binary search answer, for each answer add to arr and sort, take k cheapest, n log^2 n.
 
+### Monitor (1900)
+https://codeforces.com/contest/846/problem/D
+
+Sort broken pixel by time.
+
+Now binary search by pixel position (by t).
+
+On each query we need to check if there is a square. There are many ways to do it. But for example just iterate over all pixels and check in 2d fenwick tree.
+
+This will be nm log n log m log (nm) -- should be fine prob, 3e8 worst case.
+
+What is not nice is that we need to restore pixels in binary search but ok
+
+### Imbalanced Array (1900)
+https://codeforces.com/contest/817/problem/D
+
+Add to the end one by one.
+
+Find pos of last smaller and last larger. Left is l, right is r. For [r, last] it's clear, just need abs(sum - last * l). Maybe need to assign on segment (i.e. do max).
+
+TODO but seems that it would work, just fill details
+
+### [TODO] Chocolate Bar (2000)
+https://codeforces.com/contest/598/problem/E
+
+k is small. Something something bitmask dp? Or maybe we never need more than 3-4 breaks? Then there will be only 60^(3 or 4) ways.
+
+### Credit Card (1900)
+
+First, it only makes sense to deposit before things are going down. It makes sense to deposit as much us possible but without having limit at some point.
+
+So before - transaction or on checking day we see if we need deposit. If yes then we see what is maximum amount we can deposit by storing balances and using segment tree on postfix.
+
+### Pair Of Lines (2000)
+https://codeforces.com/contest/961/problem/D
+
+We can try randomly? There is a line where 50%+ lie. So let's take say 1.000.000 random pairs and draw lines. Find the most popular. It will be ours. Now remove points on this line. Check if remaining are also on line.
+
+### [TODO] Xor-sequences (2000)
+https://codeforces.com/contest/691/problem/E
+
+### [TODO] Concatenated Multiples
+https://codeforces.com/contest/1029/problem/D
