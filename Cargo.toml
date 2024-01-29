@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "d_buy_aticket",
+    "c_ice_cave",
     "f_elongated_matrix",
     "e_monotonic_renumeration",
     "d_balanced_ternary_string",

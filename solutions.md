@@ -336,6 +336,20 @@ For each point inconvenient will be ones which are between (exclusive) left and 
 
 ## 2000
 
+### [TODO] New Year Concert
+https://codeforces.com/problemset/problem/1632/D
+
+gcd only goes down while length only goes up... This is easy
+
+### [TODO] Nastia and a Hidden Permutation
+https://codeforces.com/problemset/problem/1521/C
+
+### [TODO] Tree Shuffling
+https://codeforces.com/problemset/problem/1363/E
+
+
+
+
 ### Genius's Gambit [EASY IMPL]
 https://codeforces.com/problemset/problem/1492/D
 
@@ -359,9 +373,28 @@ then we set a single one on position k+1 on top
 and set a single one one on position 1 on the bottom
 now we have some other positions but it doesn't matter if they are 1 or 0, they just must be the same
 
-### Masha-Forgetful
+### [EASY IMPL] Masha-Forgetful
 https://codeforces.com/problemset/problem/1624/E
 Just split on segments of len 2 and 3. Then DP. 
+
+### [TODO] Shuffle
+https://codeforces.com/problemset/problem/1622/D
+
+Some kind of dp prob.
+
+### [TODO] Expression Evaluation Error
+https://codeforces.com/problemset/problem/1567/D
+
+### [TODO] GCD and MST
+https://codeforces.com/problemset/problem/1513/D
+
+### [TODO] K-beautiful Strings
+https://codeforces.com/problemset/problem/1493/C
+
+Find string >= s where num(letter) % k == 0 for all letters
+
+Feels like binary search.
+
 
 ### Directing Edges
 https://codeforces.com/problemset/problem/1385/E
@@ -373,23 +406,6 @@ Now the task converged to orient all edges of bidirected graph. I think it can b
 
 TODO: how to implement in the simplest possible way?
 
-### Ice Cave
-https://codeforces.com/problemset/problem/540/C
-
-If there is no path:
-   NO
-Otherwise:
-   If you are already staying on proper cell:
-      if you can't move:
-         NO
-      otherwise:
-         YES # go one step and back
-   Otherwise:
-      if end point have at least 2 adjacent empty squares:
-         YES
-      otherwise:
-         NO
-   
 ### Fixed Points
 https://codeforces.com/problemset/problem/1551/E
 
@@ -411,11 +427,6 @@ https://codeforces.com/problemset/problem/1454/E
 We have one circle and some trees growing on it (cacti?) the  answer is number of paths multiplied by two minus number of paths in each growing tree.
 
 The only question how to implement most elegantly.
-
-### Shortest Path
-https://codeforces.com/problemset/problem/59/E
-
-Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where we kind of go over edges (or store prev and current vertex). There are < n^2 edges so it will be fast enough.
 
 ### Orac and Game of Life
 https://codeforces.com/problemset/problem/1349/C
@@ -467,6 +478,25 @@ TODO: not quite right, for example if AB matches A matches as well and I will ad
 
 but if AA matches, A should be added twice! So maybe we need to somehow call something for matching prefix also to do 5+
 
+### [TODO] The Contest
+https://codeforces.com/problemset/problem/1257/E
+
+Have permutation. It is was split on 3 parts. 
+
+Op: move one element from one set to another.
+
+Find min amount of ops such that first is prefix, second is mid and last is suffix (can be empty).
+
+First split into two part by min amount of moves.
+
+Now iterate over prefix len. If elem was moved from 1 then ans--, if elem was moved but not from 1 then nothing, if elem was not moved then ans++.
+
+Is it correct? Dunno... Maybe...
+
+### Shortest Path
+https://codeforces.com/problemset/problem/59/E
+
+Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where we kind of go over edges (or store prev and current vertex). There are < n^2 edges so it will be fast enough.
 
 ## 2100
 ### How Many Paths?

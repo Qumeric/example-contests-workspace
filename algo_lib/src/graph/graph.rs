@@ -6,7 +6,7 @@ use crate::graph::edges::edge_trait::{BidirectionalEdgeTrait, EdgeTrait};
 use std::ops::{Index, IndexMut};
 
 pub struct Graph<E: EdgeTrait> {
-    pub(super) edges: Vec<Vec<E>>,
+    pub edges: Vec<Vec<E>>,
     edge_count: usize,
 }
 
@@ -164,6 +164,9 @@ impl<E: BidirectionalEdgeTrait> Graph<E> {
                 parents[node] = Some(parent);
             }
         });
+        if parents[end] == None {
+            return vec![];
+        }
         let mut node = end;
         while let Some(parent) = parents[node] {
             path.push(node);
