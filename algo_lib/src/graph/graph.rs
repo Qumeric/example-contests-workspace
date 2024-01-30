@@ -119,7 +119,6 @@ impl<E: BidirectionalEdgeTrait> Graph<E> {
 
     // maybe incorrect somehow?? maybe better to do with LCA?
     pub fn find_diameter_path(&self) -> Vec<usize> {
-        assert!(self.is_tree());
         let mut a_node = 0;
         let mut max_distance = 0;
         let mut distances = vec![0; self.vertex_count()];

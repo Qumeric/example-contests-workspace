@@ -498,6 +498,12 @@ https://codeforces.com/problemset/problem/59/E
 
 Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where we kind of go over edges (or store prev and current vertex). There are < n^2 edges so it will be fast enough.
 
+### [TODO] Counting Arrays
+https://codeforces.com/problemset/problem/893/E
+
+Count number of different arrays a of length y such that prod(y) = x [modulo 1e9+7]
+
+
 ## 2100
 ### How Many Paths?
 https://codeforces.com/problemset/problem/1547/G

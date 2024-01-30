@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f_destroy_it",
+    "e_cover_it",
+    "d_recover_it",
+    "c_lose_it",
+    "b_merge_it",
+    "a_divide_it",
     "d_buy_aticket",
     "c_ice_cave",
     "f_elongated_matrix",
