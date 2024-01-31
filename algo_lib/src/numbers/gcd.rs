@@ -1,19 +1,13 @@
-use crate::numbers::num_traits::add_sub::AddSub;
-use crate::numbers::num_traits::mul_div_rem::{MulDivRem, Multable};
+use crate::numbers::num_traits::algebra::{
+    IntegerMultiplicationMonoid, IntegerSemiRingWithSub, One, SemiRingWithSub, Zero,
+};
 use crate::numbers::num_traits::wideable::Wideable;
-use crate::numbers::num_traits::zero_one::ZeroOne;
 use std::collections::BTreeMap;
 use std::mem::swap;
 
-/// Calculates the extended greatest common divisor (GCD) of two numbers.
-/// Returns a tuple containing the GCD and the coefficients for the input values
-/// that can be used to express the GCD as a linear combination of the two inputs.
-pub fn extended_gcd<T: Copy + ZeroOne + AddSub + MulDivRem + Wideable + PartialEq>(
-    a: T,
-    b: T,
-) -> (T, T::W, T::W)
+pub fn extended_gcd<T: IntegerSemiRingWithSub + Wideable + Copy>(a: T, b: T) -> (T, T::W, T::W)
 where
-    T::W: Copy + ZeroOne + AddSub + Multable,
+    T::W: Copy + SemiRingWithSub,
 {
     if a == T::zero() {
         (b, T::W::zero(), T::W::one())
@@ -24,7 +18,7 @@ where
     }
 }
 
-pub fn gcd<T: Copy + ZeroOne + MulDivRem + PartialEq>(mut a: T, mut b: T) -> T {
+pub fn gcd<T: Copy + Zero + IntegerMultiplicationMonoid>(mut a: T, mut b: T) -> T {
     while b != T::zero() {
         a %= b;
         swap(&mut a, &mut b);
@@ -32,7 +26,7 @@ pub fn gcd<T: Copy + ZeroOne + MulDivRem + PartialEq>(mut a: T, mut b: T) -> T {
     a
 }
 
-pub fn lcm<T: Copy + ZeroOne + MulDivRem + PartialEq>(a: T, b: T) -> T {
+pub fn lcm<T: Copy + Zero + IntegerMultiplicationMonoid>(a: T, b: T) -> T {
     (a / gcd(a, b)) * b
 }
 
@@ -52,7 +46,7 @@ pub fn lcm<T: Copy + ZeroOne + MulDivRem + PartialEq>(a: T, b: T) -> T {
 /// contains the gcd values and their associated maximum lengths.
 pub fn subsegment_gcd<T>(a: Vec<T>) -> Vec<BTreeMap<T, usize>>
 where
-    T: Copy + ZeroOne + MulDivRem + Ord,
+    T: Copy + SemiRingWithSub + IntegerMultiplicationMonoid + Ord,
 {
     let n = a.len();
     let mut sub_gcd: Vec<BTreeMap<T, usize>> = vec![BTreeMap::new(); n];

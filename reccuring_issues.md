@@ -16,6 +16,7 @@
 * Did not handle special case when something is 1 or 0 (1).
 * When doing bit operations wanted to check for existance of 1 bit and compared it with 1: mask & (1 << x) == 1 (1)
 * Traversing grid and adding edges twice even though we do biedges graph (1)
+* Did heavy precalc in each test case (1)
 
 
 # 1919

@@ -582,18 +582,6 @@ When update in one thing we set to 1. In other things we set to 0.
 
 it will be mc log n which is 400_000 * 60 * 20 ~ 500_000 * 1_000 = 5e8
 
-### AquaMoon and Chess [EASY IMPL]
-https://codeforces.com/problemset/problem/1546/D
-
-Seems like segs of 1 can be /2 and then just take C.
-
-0110 -> 010 C[1/3] OK
-011011 -> 0101 C[2/4] OK
-10001111110110111000 -> 0001110101000 C[5/13] OK
-00110110100110111101 -> 0010100010110 C[5/13] OK
-11101111011000100010 -> 1011010000000 C[4/13] OK
-
-
 ### Valid Sets
 https://codeforces.com/problemset/problem/486/D
 

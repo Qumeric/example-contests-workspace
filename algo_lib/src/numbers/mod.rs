@@ -1,7 +1,9 @@
 pub mod gcd;
 pub mod integer_sqrt;
 pub mod mod_int;
+pub mod mod_utils;
 pub mod num_traits;
+pub mod num_utils;
 pub mod number_ext;
 pub mod real;
 pub mod unsigned_big_int;

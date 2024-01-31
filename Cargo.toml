@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "d_odd_even_subsequence",
+    "d_aqua_moon_and_chess",
     "f_destroy_it",
     "e_cover_it",
     "d_recover_it",
