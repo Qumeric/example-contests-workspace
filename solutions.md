@@ -27,6 +27,62 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 ### [TODO] Palindrome Game (hard version)
 https://codeforces.com/problemset/problem/1527/B2
 
+### Guessing the Greatest (hard version)
+https://codeforces.com/problemset/problem/1486/C2
+
+First ask all. Now ask right to the found (including found) what is 2nd. If the same max is on right, else it on left.
+
+18 questions left. We now just have to binary search.
+
+### [DO NOT SOLVE] Replace by MEX
+https://codeforces.com/contest/1375
+
+It's in Global Round 9 which I did not try.
+
+### [TODO] Need for Pink Slips
+https://codeforces.com/problemset/problem/1543/C
+
+This is almost solved, some bug in solution.
+
+### Array Stabilization (GCD version)
+https://codeforces.com/problemset/problem/1547/F
+
+Use "gcd on subsegments" trick. Then binary search answer.
+
+TODO ???
+
+### MinOr Tree [EASY IMPL]
+https://codeforces.com/problemset/problem/1624/G
+
+Start with bitmask of ones. Try to set each bit to 0 from right to left. Check connectivity (e.g DSU)
+
+### Genius's Gambit [EASY IMPL]
+https://codeforces.com/problemset/problem/1492/D
+
+We can easily do
+1 1111 1000
+1 1111 0001
+
+if we need 3 ones
+
+or second can be e.g 
+
+0010
+0001
+
+if we need just single one. But what to do with ones? insight: setting two ones on the same pos is same as setting as two zero
+
+so if we need x ones
+we ones in first position (if b == 1 then answer is Yes iff k == 0)
+
+then we set a single one on position k+1 on top
+and set a single one one on position 1 on the bottom
+now we have some other positions but it doesn't matter if they are 1 or 0, they just must be the same
+
+### [TODO] MEX Sequences
+https://codeforces.com/problemset/problem/1613/D
+
+Key insight: Numbers can never go down or up much.
 
 ### Longest Regular Bracket Sequence
 https://codeforces.com/problemset/problem/5/C
@@ -39,44 +95,6 @@ https://codeforces.com/problemset/problem/1591/D
 
 This thing with group of permutations. You can just do greedily and decide on last 3 values. Or calculate number of inversions.
 
-### [TODO] Strange Definition
-https://codeforces.com/problemset/problem/1471/D
-
-Uncommon primes all has even degree -- adjacent
-
-max number of adjacent -- beauty
-
-things only get merged, so maybe DSU
-
-is this relation transitive?
-
-
-### Perform Easily
-https://codeforces.com/problemset/problem/1413/C
-
-Sort strings and notes.
-
-Binary search answer ans.
-
-There is some string which plays the lowest note. Iterate over it. It will set lowest fret. and range will start from some k
-
-We definitely will have proper because we iterate over all. It will be the lowest fret because there is no 
-
-For each starting string iterate over all other string and try to play each on any string using any fret from k to k + ans.
-
-a = [1, 4]
-
-notes s [1, 3]
-
-
-frets will be 
-
-### Shichikuji and Power Grid
-https://codeforces.com/problemset/problem/1245/D
-
-This is just MST problem. Just add "POWER" node and make edges to it. All other nodes will have edges as described (variant of manhattan distance).
-
-
 ### 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 
@@ -85,6 +103,33 @@ First solve it for negative and positive and add answers. Solving negative can b
 Just move pointers. One pointer is a special position of last box in a line of boxes .
 
 TODO but this is basically implementation problem?
+
+### K-periodic Garland [EASY IMPL]
+https://codeforces.com/problemset/problem/1353/E
+
+Need to reach state where distance between all ones is k (1001 is k = 3) with flipping bits.
+
+The problem is that we can have zero prefix and zero suffix.
+
+If we write for i % k positions in sequence.
+
+Then we will need to solve the following task: have a set of elements. Can remove or insert elements. Need to find minimum amount to make elements be a segment (can be empty).
+
+There will be k such task each with at most n/k elements
+
+To solve this task we keep balances. Go from start, if balance goes below 0 then it's better to remove ones. Do the same from the end
+
+### [TODO] String Reversal
+https://codeforces.com/problemset/problem/1430/E
+
+### Inconvenient Pairs
+https://codeforces.com/contest/1569/problem/D
+
+If something is on crossroad then we can exclude it.
+
+For each point inconvenient will be ones which are between (exclusive) left and right roads (for somebody on horizontal road, WLOG) but not on the same horizonal road.
+
+/ 2 in the end. Be careful in general.
 
 ### 0-1 MST [EASY IMPL]
 https://codeforces.com/problemset/problem/1242/B
@@ -110,6 +155,18 @@ https://codeforces.com/contest/1384/problem/B1
 Lol this is div2 B1...
 
 Just brute force.
+
+### [TODO] Strange Definition
+https://codeforces.com/problemset/problem/1471/D
+
+Uncommon primes all has even degree -- adjacent
+
+max number of adjacent -- beauty
+
+things only get merged, so maybe DSU
+
+is this relation transitive?
+
 
 ### GameGame
 
@@ -141,23 +198,26 @@ If number is odd then skip
 Otherwise WIN if len is odd, otherwise LOSE (this one I am not 100% sure)
 If skipped all then DRAW
 
-### Shichikuji and Power Grid
-https://codeforces.com/contest/1245/problem/D
+### Perform Easily
+https://codeforces.com/problemset/problem/1413/C
 
-### K-periodic Garland [EASY IMPL]
-https://codeforces.com/problemset/problem/1353/E
+Sort strings and notes.
 
-Need to reach state where distance between all ones is k (1001 is k = 3) with flipping bits.
+Binary search answer ans.
 
-The problem is that we can have zero prefix and zero suffix.
+There is some string which plays the lowest note. Iterate over it. It will set lowest fret. and range will start from some k
 
-If we write for i % k positions in sequence.
+We definitely will have proper because we iterate over all. It will be the lowest fret because there is no 
 
-Then we will need to solve the following task: have a set of elements. Can remove or insert elements. Need to find minimum amount to make elements be a segment (can be empty).
+For each starting string iterate over all other string and try to play each on any string using any fret from k to k + ans.
 
-There will be k such task each with at most n/k elements
+a = [1, 4]
 
-To solve this task we keep balances. Go from start, if balance goes below 0 then it's better to remove ones. Do the same from the end
+notes s [1, 3]
+
+
+frets will be 
+
 
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D
@@ -177,25 +237,6 @@ https://codeforces.com/problemset/problem/1141/F2
 Calculate map<sum, [(l, r)]> for all possible blocks.
 
 Now for each sum sort blocks by r. Now take lazily (it's always beneficial to take block with smallest r because it leaves largest amount of space).
-
-### Array Stabilization (GCD version)
-https://codeforces.com/problemset/problem/1547/F
-
-Use "gcd on subsegments" trick. Then binary search answer.
-
-TODO ???
-
-### MinOr Tree
-https://codeforces.com/problemset/problem/1624/G
-
-Start with bitmask of ones. Try to set each bit to 0 from right to left. Check connectivity (e.g DSU)
-
-### Guessing the Greatest (hard version)
-https://codeforces.com/problemset/problem/1486/C2
-
-First ask all. Now ask right to the found (including found) what is 2nd. If the same max is on right, else it on left.
-
-18 questions left. We now just have to binary search.
 
 ### Old Floppy Drive
 https://codeforces.com/contest/1490/problem/G
@@ -325,14 +366,6 @@ TODO
 
 It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
 
-### Inconvenient Pairs
-https://codeforces.com/contest/1569/problem/D
-
-If something is on crossroad then we can exclude it.
-
-For each point inconvenient will be ones which are between (exclusive) left and right roads (for somebody on horizontal road, WLOG) but not on the same horizonal road.
-
-/ 2 in the end. Be careful in general.
 
 ## 2000
 
@@ -349,29 +382,6 @@ https://codeforces.com/problemset/problem/1363/E
 
 
 
-
-### Genius's Gambit [EASY IMPL]
-https://codeforces.com/problemset/problem/1492/D
-
-We can easily do
-1 1111 1000
-1 1111 0001
-
-if we need 3 ones
-
-or second can be e.g 
-
-0010
-0001
-
-if we need just single one. But what to do with ones? insight: setting two ones on the same pos is same as setting as two zero
-
-so if we need x ones
-we ones in first position (if b == 1 then answer is Yes iff k == 0)
-
-then we set a single one on position k+1 on top
-and set a single one one on position 1 on the bottom
-now we have some other positions but it doesn't matter if they are 1 or 0, they just must be the same
 
 ### [EASY IMPL] Masha-Forgetful
 https://codeforces.com/problemset/problem/1624/E

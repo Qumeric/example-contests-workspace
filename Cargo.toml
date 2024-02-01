@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_binary_literature",
     "d_odd_even_subsequence",
     "d_aqua_moon_and_chess",
     "f_destroy_it",
