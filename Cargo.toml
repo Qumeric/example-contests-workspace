@@ -1,5 +1,8 @@
 [workspace]
 members = [
+    "d_yet_another_sorting_problem",
+    "d_abstring",
+    "b_nezzar_and_binary_string",
     "d_binary_literature",
     "d_odd_even_subsequence",
     "d_aqua_moon_and_chess",

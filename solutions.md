@@ -131,30 +131,30 @@ For each point inconvenient will be ones which are between (exclusive) left and 
 
 / 2 in the end. Be careful in general.
 
-### 0-1 MST [EASY IMPL]
-https://codeforces.com/problemset/problem/1242/B
+### [TODO] Asterism (Easy Version)
+https://codeforces.com/problemset/problem/1371/E1
 
-If we find connected components by 0 edges then the answer will be number of connected components -1.
+Given array. How many orderings such that If x >= ai + i (0 indexed)?
 
-We can use DSU but how to merge? 
+Okay so for each number we know on which positions we can set it.
 
-If graph has <= 10000 nodes then we have 1e8 edges and can do properly.
+f(x) number of valid permutations for x. Given prime number p <= n. Find all x such that f(x) doesn't divide p.
 
-Otherwise take 100 verticies with most 1 edges. Do properly for them. Remaining verticies can't have more than 100 1-edges. Seems like all of them should be connected?
+Seems like I can just iterate over all x up to 4k? And solve this thing in n or n log(n).
 
-Actually just take as much largest nodes as possible. We are going to do n operations for each node so we can take something like max(n, 1e8/n). Maybe can try something smaller like 5e7/n to be safer in terms of time.
+### Fill the Bag [EASY IMPL]
+https://codeforces.com/problemset/problem/1303/D
 
-## Tree with Maximum Cost
-https://codeforces.com/problemset/problem/1092/F
+I have masks with 1 bit. I can create 2 masks with bit 1 lower. Need to make it possible to have sum of masks = n with min amount of steps. 
 
-Given tree. Find max sum dist (i, v) * w_v
+Just iterate over n from smallest to largest. Combine smaller boxes on the path. If we got to bit and can't fill break smallest matching box i.e. turn x0001 to x1110. If no larger then -1. It's log^2 n.
 
-### Koa and the Beach (Easy) [EASY IMPL]
-https://codeforces.com/contest/1384/problem/B1
+### Pairs
+TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
+This is the same, just in mirror.
+To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
 
-Lol this is div2 B1...
 
-Just brute force.
 
 ### [TODO] Strange Definition
 https://codeforces.com/problemset/problem/1471/D
@@ -167,6 +167,17 @@ things only get merged, so maybe DSU
 
 is this relation transitive?
 
+### Koa and the Beach (Easy) [EASY IMPL]
+https://codeforces.com/contest/1384/problem/B1
+
+Lol this is div2 B1...
+
+Just brute force.
+
+## [DO NOT SOLVE] Tree with Maximum Cost
+https://codeforces.com/problemset/problem/1092/F
+
+Given tree. Find max sum dist (i, v) * w_v
 
 ### GameGame
 
@@ -198,26 +209,24 @@ If number is odd then skip
 Otherwise WIN if len is odd, otherwise LOSE (this one I am not 100% sure)
 If skipped all then DRAW
 
-### Perform Easily
-https://codeforces.com/problemset/problem/1413/C
+### [TODO] Frog Traveler
+https://codeforces.com/problemset/problem/1602/D
 
-Sort strings and notes.
+### [TODO] Divide and Sum
+https://codeforces.com/contest/1445/problem/D
 
-Binary search answer ans.
+given array 2n. split on 2 subsequences of len n each. sort p in non-decreasing, sort q in non-increasing. cost sum of abs diff.
 
-There is some string which plays the lowest note. Iterate over it. It will set lowest fret. and range will start from some k
+find sum over all correct partitions mod F.
 
-We definitely will have proper because we iterate over all. It will be the lowest fret because there is no 
-
-For each starting string iterate over all other string and try to play each on any string using any fret from k to k + ans.
-
-a = [1, 4]
-
-notes s [1, 3]
+### [TODO] Zuma
+https://codeforces.com/problemset/problem/607/B
 
 
-frets will be 
+### [TODO] AB-string
+https://codeforces.com/problemset/problem/1238/D
 
+Fuck it's crucial that it's AB string. Maybe can only treat segments of len 2 and 3 due to it?
 
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D
@@ -231,13 +240,6 @@ On every step:
 4. Pay taken x. Pay remaining l.
 5. Compare if we paid more than s or not.
 
-### Same Sum Blocks (Hard)
-https://codeforces.com/problemset/problem/1141/F2
-
-Calculate map<sum, [(l, r)]> for all possible blocks.
-
-Now for each sum sort blocks by r. Now take lazily (it's always beneficial to take block with smallest r because it leaves largest amount of space).
-
 ### Old Floppy Drive
 https://codeforces.com/contest/1490/problem/G
 
@@ -248,13 +250,6 @@ Now convert a to map<remainder F, div F>
 Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
 
 Be careful about negative F.
-
-### Equalize the Remainders
-https://codeforces.com/problemset/problem/999/D
-
-Ones with cr <= n/m just stay. Others move to the closest cr which is lower. Just store crs which are low in set, find and update. 
-
-Just go iteratively.
 
 ### Gargari and Permutations
 https://codeforces.com/problemset/problem/463/D
@@ -282,6 +277,14 @@ when! {
 ### [TODO] Nezzar and Binary String
 https://codeforces.com/problemset/problem/1477/B
 
+queries on string. we can change less than half characters in segment *after* inspect. need to say if we can always have 0 or 1 segments and also make string to be matching desirsed at the end. 
+
+seems like we want to number each introspection and at each change we want
+1. change stuff so it matches f if there will be no more introspections
+2. change stuff so it matches later introspections?
+
+idk.
+
 ### Johnny and Grandmaster
 https://codeforces.com/problemset/problem/1361/B
 
@@ -300,21 +303,6 @@ Otherwise there 1 on large, try to build. Dumb and [probably] working way is to 
 Actually maybe just try to "squish" on copy as much as possible. Now iterate. If even, skip. If odd, check if it's even in squished. If it is even then skip but remember that we need to collect it, collect while it collects. Then continue.
 
 
- ### Pairs
- TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
- This is the same, just in mirror.
- To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
-
- ### Fish
- https://codeforces.com/problemset/problem/16/E
-
- DP. State: [alive fish, fishes left]
-There is <= 18 * 2^18 = 4718592 ~ 5e6 states
-Step: all masks with +1 fish (18) with the same alive fish. so 1e8
-Answer is dp_i[0]
-Basis dp_i[((1 << n) - 1) ^ (1 << i)] = 1
-
-Seems like need to calculate for all fishes at each amount of alive fishes from large to small?
 
 ### Cow and Fields
 https://codeforces.com/contest/1307/problem/D
@@ -350,21 +338,78 @@ aaaza to azaaa
 ans +2
 x 0 0 x 0
 
-### Ehab and the Expected XOR Problem
+### [TODO] Ehab and the Expected XOR Problem
 https://codeforces.com/problemset/problem/1174/D
 
-TODO
+honestly idk, seems kind of complicated but prob not, need some key
 
-### AB-string
-https://codeforces.com/problemset/problem/1238/D
+### [DO NOT SOLVE] Playlist
+https://codeforces.com/problemset/problem/1484/D
 
-Key insight: consider strings only of length 2 and 3.
+### 0-1 MST [EASY IMPL]
+https://codeforces.com/problemset/problem/1242/B
 
-TODO
+If we find connected components by 0 edges then the answer will be number of connected components -1.
+
+We can use DSU but how to merge? 
+
+If graph has <= 10000 nodes then we have 1e8 edges and can do properly.
+
+Otherwise take 100 verticies with most 1 edges. Do properly for them. Remaining verticies can't have more than 100 1-edges. Seems like all of them should be connected?
+
+Actually just take as much largest nodes as possible. We are going to do n operations for each node so we can take something like max(n, 1e8/n). Maybe can try something smaller like 5e7/n to be safer in terms of time.
+
+### Perform Easily
+https://codeforces.com/problemset/problem/1413/C
+
+Sort strings and notes.
+
+Binary search answer ans.
+
+There is some string which plays the lowest note. Iterate over it. It will set lowest fret. and range will start from some k
+
+We definitely will have proper because we iterate over all. It will be the lowest fret because there is no 
+
+For each starting string iterate over all other string and try to play each on any string using any fret from k to k + ans.
+
+a = [1, 4]
+
+notes s [1, 3]
+
+
+frets will be 
+
 
 ### Flood Fill
+https://codeforces.com/problemset/problem/1114/D
 
 It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
+
+
+### Equalize the Remainders [EASY IMPL]
+https://codeforces.com/problemset/problem/999/D
+
+Ones with cr <= n/m just stay. Others move to the closest cr which is lower. Just store crs which are low in set, find and update. 
+
+Just go iteratively.
+
+### Same Sum Blocks (Hard)
+https://codeforces.com/problemset/problem/1141/F2
+
+Calculate map<sum, [(l, r)]> for all possible blocks.
+
+Now for each sum sort blocks by r. Now take lazily (it's always beneficial to take block with smallest r because it leaves largest amount of space).
+
+### Fish
+https://codeforces.com/problemset/problem/16/E
+
+DP. State: [alive fish, fishes left]
+There is <= 18 * 2^18 = 4718592 ~ 5e6 states
+Step: all masks with +1 fish (18) with the same alive fish. so 1e8
+Answer is dp_i[0]
+Basis dp_i[((1 << n) - 1) ^ (1 << i)] = 1
+
+Seems like need to calculate for all fishes at each amount of alive fishes from large to small?
 
 
 ## 2000
