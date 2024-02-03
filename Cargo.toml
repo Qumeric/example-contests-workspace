@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f_kth_path",
+    "e_connected_component_on_achessboard",
+    "d1_rgbsubstring_easy_version",
+    "c_robot_breakout",
+    "b_odd_sum_segments",
+    "a_three_piles_of_candies",
     "f2_microtransactions_hard_version",
     "e_two_arrays_and_sum_of_functions",
     "d_almost_all_divisors",
