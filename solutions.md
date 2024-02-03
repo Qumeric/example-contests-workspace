@@ -90,11 +90,6 @@ https://codeforces.com/problemset/problem/5/C
 Calculate balances.
 Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
 
-### [EASY IMPL] Yet Another Sorting Problem
-https://codeforces.com/problemset/problem/1591/D
-
-This thing with group of permutations. You can just do greedily and decide on last 3 values. Or calculate number of inversions.
-
 ### 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 

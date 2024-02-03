@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f2_microtransactions_hard_version",
+    "e_two_arrays_and_sum_of_functions",
+    "d_almost_all_divisors",
+    "c_good_string",
+    "b_polycarp_training",
+    "a_remainder",
     "d_yet_another_sorting_problem",
     "d_abstring",
     "b_nezzar_and_binary_string",
