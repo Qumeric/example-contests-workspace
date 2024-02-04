@@ -1,5 +1,11 @@
 [workspace]
 members = [
+    "f_diygarland",
+    "e_new_year_parties",
+    "d_christmas_trees",
+    "c_friends_and_gifts",
+    "b_candies_division",
+    "a_minutes_before_the_new_year",
     "f_kth_path",
     "e_connected_component_on_achessboard",
     "d1_rgbsubstring_easy_version",
