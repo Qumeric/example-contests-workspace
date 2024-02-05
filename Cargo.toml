@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "e_string_reversal",
     "f_level_generation",
     "c_sofa_thief",
     "e_card_game_again",

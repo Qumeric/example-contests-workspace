@@ -27,6 +27,19 @@ This is combinatorics problem. Each number corresponds to a bitmask. Consider eq
 ### [TODO] Palindrome Game (hard version)
 https://codeforces.com/problemset/problem/1527/B2
 
+State: number of 00, number of 01 (or 10), if there is 0 in the middle, if last turn was reverse, (scoreA, scoreB) 
+
+if there are no 01, we can skip turn. We want to skip as much as possible, if we calc max number of skips we can restore answer easily.
+
+If there are only 01s then we know the result, nobody will flip.
+
+If there are only 00s. Then we can flip and then always keep at least 1 so enemy can't flip.
+A                B       A         B       A       B       A       B
+0000 -> [skip a] 0000 -> 1000   -> 1100 -> 1110 -> 1111 -> ...
+                                        -> 2100 -> 2110 -> 2210 -> 2211 -> ...
+
+Need now consider both and also this 0 in the middle... Maybe 0 in the middle can be actually checked by just letting first play it or second play it? Idk though.
+
 ### Guessing the Greatest (hard version)
 https://codeforces.com/problemset/problem/1486/C2
 
@@ -84,12 +97,6 @@ https://codeforces.com/problemset/problem/1613/D
 
 Key insight: Numbers can never go down or up much.
 
-### Longest Regular Bracket Sequence
-https://codeforces.com/problemset/problem/5/C
-
-Calculate balances.
-Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
-
 ### 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 
@@ -113,9 +120,6 @@ Then we will need to solve the following task: have a set of elements. Can remov
 There will be k such task each with at most n/k elements
 
 To solve this task we keep balances. Go from start, if balance goes below 0 then it's better to remove ones. Do the same from the end
-
-### [TODO] String Reversal
-https://codeforces.com/problemset/problem/1430/E
 
 ### Inconvenient Pairs
 https://codeforces.com/contest/1569/problem/D
@@ -213,6 +217,12 @@ https://codeforces.com/contest/1445/problem/D
 given array 2n. split on 2 subsequences of len n each. sort p in non-decreasing, sort q in non-increasing. cost sum of abs diff.
 
 find sum over all correct partitions mod F.
+
+### Longest Regular Bracket Sequence
+https://codeforces.com/problemset/problem/5/C
+
+Calculate balances.
+Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
 
 ### [TODO] Zuma
 https://codeforces.com/problemset/problem/607/B
