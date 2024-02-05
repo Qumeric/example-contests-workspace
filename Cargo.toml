@@ -1,5 +1,16 @@
 [workspace]
 members = [
+    "f_level_generation",
+    "c_sofa_thief",
+    "e_card_game_again",
+    "d_multicolored_cars",
+    "b_permutation_game",
+    "a_diplomas_and_certificates",
+    "e_turn_off_the_tv",
+    "d_yet_another_array_queries_problem",
+    "c123",
+    "b_kayaking",
+    "a_quasi_palindrome",
     "f_diygarland",
     "e_new_year_parties",
     "d_christmas_trees",
