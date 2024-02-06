@@ -64,11 +64,6 @@ Use "gcd on subsegments" trick. Then binary search answer.
 
 TODO ???
 
-### MinOr Tree [EASY IMPL]
-https://codeforces.com/problemset/problem/1624/G
-
-Start with bitmask of ones. Try to set each bit to 0 from right to left. Check connectivity (e.g DSU)
-
 ### Genius's Gambit [EASY IMPL]
 https://codeforces.com/problemset/problem/1492/D
 
@@ -330,19 +325,6 @@ Then do divide and conquer. For each segment answer is max(min_elem*(left_len+1)
 
 For some reason WA... Maybe bug idk? Try stress or come up with same but simpler solution
 
-### String Reversal
-https://codeforces.com/problemset/problem/1430/E
-
-Just match first a in original with first a in reversed etc. Now we just know where each symbol should move. Now need to calculate how long it will take. It's segment tree maybe?
-
-For each position write how many it should move (+ if backward or - if forward). Now take one which needs to go to 0. Add value to answer, add +1 to all on left. Now take one which needs to go to 1...
-
-aaaza to azaaa
-0 -1 0 2 0
-
-ans +2
-x 0 0 x 0
-
 ### [TODO] Ehab and the Expected XOR Problem
 https://codeforces.com/problemset/problem/1174/D
 
@@ -385,10 +367,10 @@ notes s [1, 3]
 frets will be 
 
 
-### Flood Fill
+### [TODO] Flood Fill
 https://codeforces.com/problemset/problem/1114/D
 
-It seems that greedy here is just selecting 2 closest elements of the same color? Obviously at first replace all 3 3 3 .. to just 3.
+Note that we need to pick starting square and only change this component...
 
 
 ### Equalize the Remainders [EASY IMPL]

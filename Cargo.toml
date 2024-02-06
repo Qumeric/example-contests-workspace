@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "g_min_or_tree",
+    "d_flood_fill",
     "e_string_reversal",
     "f_level_generation",
     "c_sofa_thief",
