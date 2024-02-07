@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_exact_change",
     "g_min_or_tree",
     "d_flood_fill",
     "e_string_reversal",

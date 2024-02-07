@@ -401,6 +401,13 @@ Seems like need to calculate for all fishes at each amount of alive fishes from 
 
 ## 2000
 
+## [TODO] Two Divisors
+https://codeforces.com/problemset/problem/1366/D
+
+## [DO NOT SOLVE] https://codeforces.com/contest/1616/problem/D
+https://codeforces.com/problemset/problem/1616/D
+
+
 ### [TODO] New Year Concert
 https://codeforces.com/problemset/problem/1632/D
 
@@ -411,8 +418,6 @@ https://codeforces.com/problemset/problem/1521/C
 
 ### [TODO] Tree Shuffling
 https://codeforces.com/problemset/problem/1363/E
-
-
 
 
 ### [EASY IMPL] Masha-Forgetful
@@ -429,6 +434,9 @@ https://codeforces.com/problemset/problem/1567/D
 
 ### [TODO] GCD and MST
 https://codeforces.com/problemset/problem/1513/D
+
+### [TODO] Modular Stability
+https://codeforces.com/problemset/problem/1359/E
 
 ### [TODO] K-beautiful Strings
 https://codeforces.com/problemset/problem/1493/C
@@ -448,7 +456,7 @@ Now the task converged to orient all edges of bidirected graph. I think it can b
 
 TODO: how to implement in the simplest possible way?
 
-### Fixed Points
+### [EASY IMPL] Fixed Points
 https://codeforces.com/problemset/problem/1551/E
 
 Simple DP. I just need to store for each length maximum amount of sequence and add iteratively
@@ -461,7 +469,7 @@ https://codeforces.com/problemset/problem/449/B
 
 It seems that (not a figure of speach, I am not completely sure) that we can just do dijkstra from multiple points: root and all points with roads.
 
-The only potential problem is that it's not very clear what to select if distance is equal. However, if we loose closely we can notice that if it's equal between path from root and bridge then we take only root and if it's equal from two bridges, we take both bridges.
+The only potential problem is that it's not very clear what to select if distance is equal. However, if we look closely we can notice that if it's equal between path from root and bridge then we take only root and if it's equal from two bridges, we take both bridges.
 
 ### Number of Simple Paths
 https://codeforces.com/problemset/problem/1454/E
@@ -469,6 +477,20 @@ https://codeforces.com/problemset/problem/1454/E
 We have one circle and some trees growing on it (cacti?) the  answer is number of paths multiplied by two minus number of paths in each growing tree.
 
 The only question how to implement most elegantly.
+
+### [TODO] Cut and Stick
+https://codeforces.com/problemset/problem/1514/D
+
+Given segment, partition it into minimal number of subsequences such that no value occurs > ceil(len/2) times
+
+Need to just know most popular value? And then do binary search for longest possible from each i? 
+
+### Choosing Flowers
+Main insight: answer looks like many flowers of some kind and at most 1 flower of each other kind.
+
+Has set sorted by a.
+Then iterate over flower which we take >= 1 times. Remove from set (and return after handling this iter). Find all flowers with a_i > b_x. Take them (or as much as possible). If space remained fill wiht b_x.
+
 
 ### Orac and Game of Life
 https://codeforces.com/problemset/problem/1349/C
@@ -497,12 +519,6 @@ TODO
 https://codeforces.com/problemset/problem/383/C
 
 Here we just need to build segment tree for each depth level.
-
-### Choosing Flowers
-Main insight: answer looks like many flowers of some kind and at most 1 flower of each other kind.
-
-Has set sorted by a.
-Then iterate over flower which we take >= 1 times. Remove from set (and return after handling this iter). Find all flowers with a_i > b_x. Take them (or as much as possible). If space remained fill wiht b_x.
 
 ### Prefixes and Suffixes
 https://codeforces.com/problemset/problem/432/D
