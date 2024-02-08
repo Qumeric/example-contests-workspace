@@ -300,11 +300,11 @@ impl<T: IntegerRing + Ord + Copy + AsIndex, V: Value<T>> AsIndex for ModInt<T, V
     }
 }
 
-value!(Val7: i64 = 1_000_000_007i64);
-pub type ModInt7 = ModInt<i64, Val7>;
+value!(Val7: i32 = 1_000_000_007);
+pub type ModInt7 = ModInt<i32, Val7>;
 
-value!(Val9: i64 = 1_000_000_009i64);
-pub type ModInt9 = ModInt<i64, Val9>;
+value!(Val9: i32 = 1_000_000_009);
+pub type ModInt9 = ModInt<i32, Val9>;
 
-value!(ValF: i64 = 998_244_353i64);
-pub type ModIntF = ModInt<i64, ValF>;
+value!(ValF: i32 = 998_244_353);
+pub type ModIntF = ModInt<i32, ValF>;

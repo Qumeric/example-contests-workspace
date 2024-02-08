@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "e_counting_arrays",
     "d_exact_change",
     "g_min_or_tree",
     "d_flood_fill",
