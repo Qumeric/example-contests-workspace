@@ -523,6 +523,7 @@ Here we just need to build segment tree for each depth level.
 ### Prefixes and Suffixes
 https://codeforces.com/problemset/problem/432/D
 
+
 I can just calculate Z-function.
 And now I know which prefixes match suffixes.
 
@@ -535,6 +536,43 @@ Just add to segment tree or something?
 TODO: not quite right, for example if AB matches A matches as well and I will add A two times but it should be added only once
 
 but if AA matches, A should be added twice! So maybe we need to somehow call something for matching prefix also to do 5+
+
+### [TODO] Messages
+https://codeforces.com/problemset/problem/1612/E
+
+Wants student i to read mi
+
+each student will read at most ki
+
+students read random ki <= 20
+
+maximise number of student who read msg
+
+
+### [EASY IMPL] XOR Gun
+https://codeforces.com/problemset/problem/1457/D
+
+If there are 3 elements with the same highest bit, answer is 1. Can check with xoring 2 elements and checking if it's smaller than prev.
+
+Now we have at most 60 elements. Brute (two conseq segments).
+
+### [TODO] XOR Inverse
+1416/C
+
+given array, xor each with x such that number of inversions is minimised. 
+
+This sound like divide and conquer (in radix way).
+
+### [TODO] The Football Season
+1244/C
+
+prob easy
+
+### [TODO] XOR on Segment
+242/E
+
+
+
 
 ### [TODO] The Contest
 https://codeforces.com/problemset/problem/1257/E
