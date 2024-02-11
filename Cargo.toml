@@ -1,5 +1,10 @@
 [workspace]
 members = [
+    "e_modular_sequence",
+    "d_lonely_mountain_dungeons",
+    "c_physical_education_lesson",
+    "b_equalize",
+    "a_rectangle_cutting",
     "f_s1",
     "e_mancala2",
     "d_super_takahashi_bros",
