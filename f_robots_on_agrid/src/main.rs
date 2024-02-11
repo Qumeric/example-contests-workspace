@@ -1,4 +1,4 @@
-//{"name":"A. Candies and Two Sisters","group":"Codeforces - Codeforces Round 634 (Div. 3)","url":"https://codeforces.com/problemset/problem/1335/A","interactive":false,"timeLimit":1000,"tests":[{"input":"6\n7\n1\n2\n3\n2000000000\n763243547\n","output":"3\n0\n0\n1\n999999999\n381621773\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"ACandiesAndTwoSisters"}}}
+//{"name":"F. Robots on a Grid","group":"Codeforces - Codeforces Round 634 (Div. 3)","url":"https://codeforces.com/contest/1335/problem/F","interactive":false,"timeLimit":3000,"tests":[{"input":"3\n1 2\n01\nRL\n3 3\n001\n101\n110\nRLL\nDLD\nULL\n3 3\n000\n000\n000\nRRD\nRLD\nULL\n","output":"2 1\n4 3\n2 2\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"FRobotsOnAGrid"}}}
 
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
@@ -7,7 +7,13 @@ type PreCalc = ();
 
 fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc) {
     let n = input.read_size();
-    out.print_line((n - 1) / 2);
+    let m = input.read_size();
+
+    // we have pseudoforest
+    // on each pseudotree mark any vertex on cycle
+    // now calculate distance from this vector mod (cycle.len())
+    // now for each distance say if there is black vertex
+    // this is easy but I am lazy to implement
 }
 
 pub(crate) fn run(mut input: Input, mut output: Output) -> bool {
@@ -46,6 +52,7 @@ mod tester;
 
 fn main() {
     tester::run_tests();
+    // don't forget to set test_type = Single if you do it
     // tester::stress_test(run, tester::check);
 }
 //END MAIN

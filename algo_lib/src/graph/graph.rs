@@ -3,6 +3,8 @@ use crate::graph::edges::bi_edge::BiEdge;
 use crate::graph::edges::bi_weighted_edge::BiWeightedEdge;
 use crate::graph::edges::edge::Edge;
 use crate::graph::edges::edge_trait::{BidirectionalEdgeTrait, EdgeTrait};
+use crate::graph::edges::weighted_edge::WeightedEdge;
+use crate::numbers::num_traits::algebra::AdditionMonoidWithSub;
 use std::ops::{Index, IndexMut};
 
 pub struct Graph<E: EdgeTrait> {
@@ -196,6 +198,16 @@ impl Graph<Edge<()>> {
         let mut graph = Self::new(n);
         for &(from, to) in edges {
             graph.add_edge(Edge::new(from, to));
+        }
+        graph
+    }
+}
+
+impl<W: Copy + AdditionMonoidWithSub> Graph<WeightedEdge<W, ()>> {
+    pub fn from_weighted_edges(n: usize, edges: &[(usize, usize, W)]) -> Self {
+        let mut graph = Self::new(n);
+        for &(from, to, w) in edges {
+            graph.add_edge(WeightedEdge::new(from, to, w));
         }
         graph
     }

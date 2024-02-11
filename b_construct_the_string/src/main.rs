@@ -1,4 +1,4 @@
-//{"name":"A. Candies and Two Sisters","group":"Codeforces - Codeforces Round 634 (Div. 3)","url":"https://codeforces.com/problemset/problem/1335/A","interactive":false,"timeLimit":1000,"tests":[{"input":"6\n7\n1\n2\n3\n2000000000\n763243547\n","output":"3\n0\n0\n1\n999999999\n381621773\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"ACandiesAndTwoSisters"}}}
+//{"name":"B. Construct the String","group":"Codeforces - Codeforces Round 634 (Div. 3)","url":"https://codeforces.com/contest/1335/problem/B","interactive":false,"timeLimit":2000,"tests":[{"input":"4\n7 5 3\n6 1 1\n6 6 1\n5 2 2\n","output":"tleelte\nqwerty\nvvvvvv\nabcde\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"BConstructTheString"}}}
 
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
@@ -7,7 +7,24 @@ type PreCalc = ();
 
 fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc) {
     let n = input.read_size();
-    out.print_line((n - 1) / 2);
+    let a = input.read_size();
+    let b = input.read_size();
+
+    let mut v = vec![];
+    for i in 0..(a - b) {
+        v.push(b'a');
+    }
+    for i in 0..b {
+        v.push(b'a' + i as u8);
+    }
+    for i in 0..n {
+        out.print(v[i % a] as char);
+    }
+    out.print_line("");
+
+    // b = 3
+    // a = 5
+    // aaabcaaabc
 }
 
 pub(crate) fn run(mut input: Input, mut output: Output) -> bool {
@@ -46,6 +63,7 @@ mod tester;
 
 fn main() {
     tester::run_tests();
+    // don't forget to set test_type = Single if you do it
     // tester::stress_test(run, tester::check);
 }
 //END MAIN

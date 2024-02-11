@@ -1,4 +1,4 @@
-//{"name":"A. Candies and Two Sisters","group":"Codeforces - Codeforces Round 634 (Div. 3)","url":"https://codeforces.com/problemset/problem/1335/A","interactive":false,"timeLimit":1000,"tests":[{"input":"6\n7\n1\n2\n3\n2000000000\n763243547\n","output":"3\n0\n0\n1\n999999999\n381621773\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"ACandiesAndTwoSisters"}}}
+//{"name":"B - Append","group":"AtCoder - KAJIMA CORPORATION CONTEST 2024（AtCoder Beginner Contest 340）","url":"https://atcoder.jp/contests/abc340/tasks/abc340_b","interactive":false,"timeLimit":2000,"tests":[{"input":"5\n1 20\n1 30\n2 1\n1 40\n2 3\n","output":"30\n20\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"BAppend"}}}
 
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
@@ -6,8 +6,17 @@ use algo_lib::io::output::Output;
 type PreCalc = ();
 
 fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc) {
-    let n = input.read_size();
-    out.print_line((n - 1) / 2);
+    let q = input.read_size();
+
+    let mut v = vec![];
+    for _ in 0..q {
+        let t = input.read_size();
+        if t == 1 {
+            v.push(input.read_size());
+        } else {
+            out.print_line(v[v.len() - input.read_size()]);
+        }
+    }
 }
 
 pub(crate) fn run(mut input: Input, mut output: Output) -> bool {
@@ -19,7 +28,7 @@ pub(crate) fn run(mut input: Input, mut output: Output) -> bool {
         MultiNumber,
         MultiEof,
     }
-    let test_type = TestType::MultiNumber;
+    let test_type = TestType::Single;
     match test_type {
         TestType::Single => solve(&mut input, &mut output, 1, &pre_calc),
         TestType::MultiNumber => {
@@ -46,6 +55,7 @@ mod tester;
 
 fn main() {
     tester::run_tests();
+    // don't forget to set test_type = Single if you do it
     // tester::stress_test(run, tester::check);
 }
 //END MAIN

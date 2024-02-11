@@ -404,17 +404,27 @@ Seems like need to calculate for all fishes at each amount of alive fishes from 
 ## [TODO] Two Divisors
 https://codeforces.com/problemset/problem/1366/D
 
-## [DO NOT SOLVE] https://codeforces.com/contest/1616/problem/D
+## [DO NOT SOLVE] Keep the Average High
 https://codeforces.com/problemset/problem/1616/D
 
-
-### [TODO] New Year Concert
+### New Year Concert
 https://codeforces.com/problemset/problem/1632/D
 
-gcd only goes down while length only goes up... This is easy
+gcd only goes down while length only goes up.
 
-### [TODO] Nastia and a Hidden Permutation
+Do gcd trick from right to left. Now iterate. For each try to find matching len (gcd only goes down when len goes up, so at most single matching). If found then kill it (you can remove by infinitely large number which has no common divs) and ans++. Don't forget to include largest killed when checking for matching len in later iterations.
+
+### Nastia and a Hidden Permutation
 https://codeforces.com/problemset/problem/1521/C
+
+First, ask 2 (1 2) 1 which will be min(pi, max(2, pj)) [after (1, 2) (3, 4) etc.]
+
+Hopefully we found pair with 1. If no (got 2 at most) we don't know if min is 2 or 1.
+ask reversed, if it returns 1 then min is 1. if it returns 2  min is 2.
+
+Now we have pair with 1, need to locate where it is out of two. Many ways to do so.
+Now we can just ask 1 (pos1 i) n-1. which will be max(1, min(n, pi)) = pi
+
 
 ### [TODO] Tree Shuffling
 https://codeforces.com/problemset/problem/1363/E
@@ -432,8 +442,20 @@ Some kind of dp prob.
 ### [TODO] Expression Evaluation Error
 https://codeforces.com/problemset/problem/1567/D
 
-### [TODO] GCD and MST
+
+
+### GCD and MST
 https://codeforces.com/problemset/problem/1513/D
+
+gcd only goes down when extening segment just like min. gcd can't be more than min.
+
+if there is 1 in array we can make just all edges 1
+
+one way to build mst is just adding smallest edges.
+
+we can just use gcd trick right? we will have nlog values
+
+but only n minimums. so we iterate over minimums. now we know for each minimum array of where it can add edges (both right and left, do it twice). So we don't even need DSU, segments of array get connected
 
 ### [TODO] Modular Stability
 https://codeforces.com/problemset/problem/1359/E
