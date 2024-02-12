@@ -1,5 +1,10 @@
 [workspace]
 members = [
+    "b01_mst",
+    "c1_dsokoban",
+    "c_closest_cities",
+    "b_forming_triangles",
+    "a_tricky_template",
     "e_modular_sequence",
     "d_lonely_mountain_dungeons",
     "c_physical_education_lesson",

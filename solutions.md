@@ -40,7 +40,7 @@ A                B       A         B       A       B       A       B
 
 Need now consider both and also this 0 in the middle... Maybe 0 in the middle can be actually checked by just letting first play it or second play it? Idk though.
 
-### Guessing the Greatest (hard version)
+### [EASY IMPL] Guessing the Greatest (hard version)
 https://codeforces.com/problemset/problem/1486/C2
 
 First ask all. Now ask right to the found (including found) what is 2nd. If the same max is on right, else it on left.
@@ -92,14 +92,12 @@ https://codeforces.com/problemset/problem/1613/D
 
 Key insight: Numbers can never go down or up much.
 
-### 1D Sokoban
+### [EASY IMPL] 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 
 First solve it for negative and positive and add answers. Solving negative can be mirrored so we only need to solve positive.
 
 Just move pointers. One pointer is a special position of last box in a line of boxes .
-
-TODO but this is basically implementation problem?
 
 ### K-periodic Garland [EASY IMPL]
 https://codeforces.com/problemset/problem/1353/E
@@ -332,19 +330,6 @@ honestly idk, seems kind of complicated but prob not, need some key
 
 ### [DO NOT SOLVE] Playlist
 https://codeforces.com/problemset/problem/1484/D
-
-### 0-1 MST [EASY IMPL]
-https://codeforces.com/problemset/problem/1242/B
-
-If we find connected components by 0 edges then the answer will be number of connected components -1.
-
-We can use DSU but how to merge? 
-
-If graph has <= 10000 nodes then we have 1e8 edges and can do properly.
-
-Otherwise take 100 verticies with most 1 edges. Do properly for them. Remaining verticies can't have more than 100 1-edges. Seems like all of them should be connected?
-
-Actually just take as much largest nodes as possible. We are going to do n operations for each node so we can take something like max(n, 1e8/n). Maybe can try something smaller like 5e7/n to be safer in terms of time.
 
 ### Perform Easily
 https://codeforces.com/problemset/problem/1413/C
@@ -948,6 +933,112 @@ Test could be: 1 0 3 2 3
 Doesn't work on: 2 1 4 2 5. Because will asy 3 because before 5 there is 2 but it requires removal. Maybe need assign to tree and have indexes of i and not a_i.
 
 
+## 2200
+### Erase and Extend (Hard Version)
+https://codeforces.com/problemset/problem/1537/E2
+
+### [CLASSIC] Powerful array
+https://codeforces.com/problemset/problem/86/D
+
+### Powerful Ksenia
+https://codeforces.com/problemset/problem/1438/D
+
+### Cleaning
+https://codeforces.com/problemset/problem/1474/D
+
+### Non-Decreasing Dilemma
+https://codeforces.com/problemset/problem/1567/E
+
+### [DIV 3] Guess the K-th Zero (Hard version)
+https://codeforces.com/problemset/problem/1520/F2
+
+### [DO NOT SOLVE] Lexicoraphically Small Enough
+https://codeforces.com/problemset/problem/1616/E
+
+### Gold Transfer
+https://codeforces.com/problemset/problem/1535/E
+
+### Kill Anton
+https://codeforces.com/problemset/problem/1526/D
+
+### [DO NOT SOLVE] Telepanting
+https://codeforces.com/problemset/problem/1552/F
+
+### Figure Fixing
+https://codeforces.com/problemset/problem/1537/F
+
+This is prob hard.
+
+### Sum of Paths
+https://codeforces.com/problemset/problem/1467/D
+
+### Kate and imperfection
+https://codeforces.com/problemset/problem/1333/F
+
+### Proirity Queue
+https://codeforces.com/problemset/problem/1542/D
+
+Some kind of dp?
+
+### [DO NOT SOLVE] Carrots for Rabbits
+https://codeforces.com/contest/1428/problem/E
+
+### Clear the Multiset
+https://codeforces.com/problemset/problem/1400/E
+
+### [DO NOT SOLVE] Phoenix and Computers
+https://codeforces.com/problemset/problem/1515/E
+
+### Calendar Ambiguite
+https://codeforces.com/problemset/problem/1389/E
+
+### Ezzat and Grid
+https://codeforces.com/problemset/problem/1557/D
+
+### Discrete Centrifugal Jumps
+https://codeforces.com/problemset/problem/1407/D
+
+If we build graph we maybe win? But too many edges maybe?
+Can always jump to next.
+
+If we find next >= than current and next <= than current we limit jumps for each category.
+But seems we can only jump there? Not necessarily... Could be 4 1 1 1 3 4 5
+
+### RPD and Rap Sheet (Hard Version)
+https://codeforces.com/problemset/problem/1543/D2
+
+### Not Escaping
+https://codeforces.com/problemset/problem/1627/E
+
+### Sum of Digits
+https://codeforces.com/problemset/problem/1373/E
+
+### [DIV 3] Decreasing Heights
+https://codeforces.com/problemset/problem/1353/F
+
+### Bananas in a Microwave
+https://codeforces.com/problemset/problem/1498/D
+
+### Mocha and Stars
+https://codeforces.com/problemset/problem/1559/E
+
+###  Equillibrium
+https://codeforces.com/problemset/problem/1556/E
+
+### Paired Payment
+https://codeforces.com/problemset/problem/1486/E
+
+### Make It Increasing 
+https://codeforces.com/problemset/problem/1437/E
+
+### Two Hundred Twenty One (hard version)
+https://codeforces.com/problemset/problem/1562/D2
+
+### [DO NOT SOLVE] X(or)-mas Tree
+https://codeforces.com/problemset/problem/1615/D
+
+### [DIV 3] Make k Equal
+https://codeforces.com/problemset/problem/1328/F
 
 ## Other
 
@@ -1009,3 +1100,4 @@ https://codeforces.com/contest/691/problem/E
 
 ### [TODO] Concatenated Multiples
 https://codeforces.com/contest/1029/problem/D
+

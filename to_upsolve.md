@@ -21,3 +21,8 @@ https://codeforces.com/contest/863/problem/E
 I was trying to count number of zeros, ones and >1 on segment but it did not work for some reason.
 
 Then I though wait it's just PlusMin ArqSpec! But can PlusMin be even implemented? Maybe it's segment tree beads or something?
+
+## Modular Sequence 
+https://codeforces.com/contest/1928/problem/E
+
+I tried greedy but it didn't work so maybe it's some dp optimisation? With bitset or segment tree or something?
