@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "c_the_football_season",
+    "d_expression_evaluation_error",
     "b01_mst",
     "c1_dsokoban",
     "c_closest_cities",

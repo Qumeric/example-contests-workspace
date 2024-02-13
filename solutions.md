@@ -427,7 +427,7 @@ Some kind of dp prob.
 ### [TODO] Expression Evaluation Error
 https://codeforces.com/problemset/problem/1567/D
 
-
+I almost solved it but it's slightly tricky. See code and continue from there, idea is obvious but implementation is not quite.
 
 ### GCD and MST
 https://codeforces.com/problemset/problem/1513/D
@@ -444,6 +444,8 @@ but only n minimums. so we iterate over minimums. now we know for each minimum a
 
 ### [TODO] Modular Stability
 https://codeforces.com/problemset/problem/1359/E
+
+First step: implement bruteforce solver and see what answers in gives for 7 3, 8 3, 7 4, 6 4 etc.
 
 ### [TODO] K-beautiful Strings
 https://codeforces.com/problemset/problem/1493/C
@@ -506,12 +508,12 @@ We can observe that each cell either flickers or stays the same. And amount of p
 
 For each point we need to find where is stops to flicker and what color it had. This can be done for each "shape" with bfs from multisource. Actually seems like we can just bfs from all points that change color? If there are no such points then things are constant.
 
-### Square Subsets
+### [TODO] Square Subsets
 https://codeforces.com/problemset/problem/895/C
 
-Something something bitmask TODO.
+Something something bitmask.
 
-### Triangular Paths
+### [TODO] Triangular Paths
 https://codeforces.com/problemset/problem/1506/F
 
 Need to sort points by layer first and traverse in this order.
@@ -519,8 +521,6 @@ Need to sort points by layer first and traverse in this order.
 Now between two points we consider evennes of start and end and amount to go.
 
 We can have function solve (isStartEven, stepsDown, stepsDownRight). 
-
-TODO
 
 ### Propagating Tree
 https://codeforces.com/problemset/problem/383/C
@@ -570,14 +570,10 @@ given array, xor each with x such that number of inversions is minimised.
 
 This sound like divide and conquer (in radix way).
 
-### [TODO] The Football Season
-1244/C
-
-prob easy
-
 ### [TODO] XOR on Segment
 242/E
 
+Can solve same problem for 1 bit length but still not very clear?
 
 
 

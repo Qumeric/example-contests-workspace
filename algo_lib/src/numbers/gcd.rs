@@ -5,6 +5,7 @@ use crate::numbers::num_traits::wideable::Wideable;
 use std::collections::BTreeMap;
 use std::mem::swap;
 
+// Returns (gcd, ax + by = gcd(a, b))
 pub fn extended_gcd<T: IntegerSemiRingWithSub + Wideable + Copy>(a: T, b: T) -> (T, T::W, T::W)
 where
     T::W: Copy + SemiRingWithSub,
