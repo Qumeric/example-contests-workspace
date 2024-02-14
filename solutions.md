@@ -429,6 +429,13 @@ https://codeforces.com/problemset/problem/1567/D
 
 I almost solved it but it's slightly tricky. See code and continue from there, idea is obvious but implementation is not quite.
 
+### The Strongest Build
+https://codeforces.com/problemset/problem/1574/D
+
+no more than 10 slots
+
+if we take last 100 for each surely that much can't be banned (for n = 10). Actually even 10 can't be banned.
+
 ### GCD and MST
 https://codeforces.com/problemset/problem/1513/D
 
@@ -507,11 +514,6 @@ https://codeforces.com/problemset/problem/1349/C
 We can observe that each cell either flickers or stays the same. And amount of points which stay the same goes down each step, at most 2000 (+ eps?) steps. 
 
 For each point we need to find where is stops to flicker and what color it had. This can be done for each "shape" with bfs from multisource. Actually seems like we can just bfs from all points that change color? If there are no such points then things are constant.
-
-### [TODO] Square Subsets
-https://codeforces.com/problemset/problem/895/C
-
-Something something bitmask.
 
 ### [TODO] Triangular Paths
 https://codeforces.com/problemset/problem/1506/F
@@ -601,7 +603,43 @@ Triples are hard but pairs are easier. It's pair of edges. Do modified BFS where
 https://codeforces.com/contest/1561
 
 ## 2100
-### How Many Paths?
+
+### [TODO] The Winter Hike 
+https://codeforces.com/contest/1621/problem/D
+
+Maybe in any solution we should never move in more than 2 different directions? Then 2d dp for each (2 out of 4) = 6
+
+### [TODO] Errich-Tac-Toe (Easy Version)
+https://codeforces.com/contest/1450/problem/C1
+
+Maybe just greedily find positions such that they are both in hor and ver and set them to 0? And then everything is either only in hor or only vert, so I can just set 1 per 3.
+
+Or maybe slightly differnt greedy: caluclate amount of hor and ver for each pos, now do in order of priority, don't forget to update all neighbours. There are not a lot of neighbours so it's not costly.
+
+### [TODO DIV3] Gift Set
+https://codeforces.com/problemset/problem/1538/G
+
+### Martial Arts Tournament
+https://codeforces.com/problemset/problem/1626/D
+
+Given sorted list, need to split it into tree parts such that adding smallest amount would make all of them degrees of 2.
+
+We can iterate over one segment, now we need to iterate over all possible degrees of two and make second segment as long as possible but not more than current degree. If we squit we will notice that this way is correct. To actually check we only need to store boundaries of consequitive same, no need for binsearch even.
+
+### [DIV3] Nearest Beautiful Number (hard version)
+https://codeforces.com/problemset/problem/1560/F2
+
+Maybe need precalc for each k.
+
+For k = 10, 9, 8, 7, 6, 5 can do naively
+
+Iterate over prefix. XXY....
+
+If Y gets to Z=Y+1 then try all XXZ0000, XXZ1111 etc. (XX can change as well, doesn't matter)
+
+Also try all XXY0000, XXY1111 (but number of steps can't be negative)
+
+### [DIV3] How Many Paths?
 https://codeforces.com/problemset/problem/1547/G
 
 First find 0, remove them.
@@ -609,6 +647,73 @@ First find 0, remove them.
 Now find strongly connected components. Now mark nodes with loops. Now find SCC. Mark nodes in SCC with size at least 2. Now do bfs from all marked nodes. Mark everything reached with -1, remove.
 
 Now we only need to differ between 1 and 2, this is easy. Can be done with bfs prob?
+
+### The Number of Pairs
+https://codeforces.com/problemset/problem/1499/D
+
+lcm/gcd is divisors which only one number has
+
+so we can do c * singleDiv(a, b) = x/gcd(a, b) + d
+
+so singleDiv should is (x/gcd(a, b) + d) / c
+
+so gcd(a, b) should be divisor of x
+
+so let's look at all divisors of x. 
+
+then we will have singleDiv = CONST
+
+we just need to calculate amount of possible splits which is just mult of degrees or smth?
+
+TODO: details
+
+### Max Median
+https://codeforces.com/contest/1486/problem/D
+
+Binary search answer. For each candidate convert array to binary. Now we need to find any segment of len at least k with at lest k/2 1 elements.
+
+Now we can write O(n^2) solution here. Iterate over start and then start from j=i+k to end and find the best. "Bestness" will be determined by value and position of j so we can use fenwick/segment tree to find it in log time. O(n log^2 n) easily fits in 1e8 (and it's 2 seconds even).
+
+### Omkar and Circle
+https://codeforces.com/problemset/problem/1372/D
+
+Given odd number circle. Pick number, replace with sum adjacent and delete adjacent. Find maximum.
+
+Most elements we keep but some delete (in sum).
+
+ttttHHHHH
+tttxHHHHH
+ttHHHHH
+txHHHHH
+HHHHH
+
+we can think of it as removing any segment and merging values on sides
+
+maybe like greedy would work if we knew how to implement?
+
+..AxxxB..CxxxD...
+..E..F...
+
+abcde
+(a+c)de
+
+option 1: (d+e) (removed 1, 2, 3) -> worse than removed (1, 3)
+option 2: a+c+e (removed 2, 4)
+
+so basically we need to remove n//2 elements but can't delete 2 in a row. This is dp with 2 different starts. State is toRem, subtracted.
+
+### [TODO] Binary Subsequence Rotation
+https://codeforces.com/problemset/problem/1370/E
+
+Given two binary strings, can clokwise rotate subseqence by 1. Minimise number of ops so A=B. Can always do len/2. If number of 1s do not match then can't at all.
+
+### [TODO] Boring Segments
+https://codeforces.com/problemset/problem/1555/E
+
+given weighted segments, need to select subset of min weight such that can travel from 1 to m. So basically cover 1-m?
+
+### [DO NOT SOLVE] Permutation Shift
+https://codeforces.com/problemset/problem/1553/E
 
 ### Red-Black Number
 https://codeforces.com/problemset/problem/1593/F
@@ -804,39 +909,7 @@ Need to "rotate" this thing 45 degree. Now we are looking for squares, need find
 
 Finding can be done with binary search. Checking can be done without data structures, just sum and use inclusion-exclusion. Maybe would be convenient to map a - > 1 -> 2, b -> 2 -> 4, c -> 3 -> 8 etc so sum would never be ambiguous.
 
-### Max Median
-https://codeforces.com/contest/1486/problem/D
 
-Binary search answer. For each candidate convert array to binary. Now we need to find any segment of len at least k with at lest k/2 1 elements.
-
-Now we can write O(n^2) solution here. Iterate over start and then start from j=i+k to end and find the best. "Bestness" will be determined by value and position of j so we can use fenwick/segment tree to find it in log time. O(n log^2 n) easily fits in 1e8 (and it's 2 seconds even).
-
-### The Winter Hike 
-https://codeforces.com/contest/1621/problem/D
-
-TODO. Maybe in any solution we should never move in more than 2 different directions? Then 2d dp for each (2 out of 4) = 6
-
-### Errich-Tac-Toe (Easy Version)
-https://codeforces.com/contest/1450/problem/C1
-
-TODO
-
-Maybe just greedily find positions such that they are both in hor and ver and set them to 0? And then everything is either only in hor or only vert, so I can just set 1 per 3.
-
-Or maybe slightly differnt greedy: caluclate amount of hor and ver for each pos, now do in order of priority, don't forget to update all neighbours. There are not a lot of neighbours so it's not costly.
-
-### Nearest Beautiful Number (hard version)
-https://codeforces.com/problemset/problem/1560/F2
-
-Maybe need precalc for each k.
-
-For k = 10, 9, 8, 7, 6, 5 can do naively
-
-Iterate over prefix. XXY....
-
-If Y gets to Z=Y+1 then try all XXZ0000, XXZ1111 etc. (XX can change as well, doesn't matter)
-
-Also try all XXY0000, XXY1111 (but number of steps can't be negative)
 
 ### Binary Median [EASY IMPL]
 https://codeforces.com/contest/1360/problem/H
@@ -874,24 +947,6 @@ then move left boundary. Need only recalculate elems adjacent to removed, it's t
 
 TODO: details
 
-### The Number of Pairs
-https://codeforces.com/problemset/problem/1499/D
-
-lcm/gcd is divisors which only one number has
-
-so we can do c * singleDiv(a, b) = x/gcd(a, b) + d
-
-so singleDiv should is (x/gcd(a, b) + d) / c
-
-so gcd(a, b) should be divisor of x
-
-so let's look at all divisors of x. 
-
-then we will have singleDiv = CONST
-
-we just need to calculate amount of possible splits which is just mult of degrees or smth?
-
-TODO: details
 
 ### Mahmoud and a xor trip
 https://codeforces.com/problemset/problem/766/E
