@@ -134,13 +134,6 @@ f(x) number of valid permutations for x. Given prime number p <= n. Find all x s
 
 Seems like I can just iterate over all x up to 4k? And solve this thing in n or n log(n).
 
-### Fill the Bag [EASY IMPL]
-https://codeforces.com/problemset/problem/1303/D
-
-I have masks with 1 bit. I can create 2 masks with bit 1 lower. Need to make it possible to have sum of masks = n with min amount of steps. 
-
-Just iterate over n from smallest to largest. Combine smaller boxes on the path. If we got to bit and can't fill break smallest matching box i.e. turn x0001 to x1110. If no larger then -1. It's log^2 n.
-
 ### Pairs
 TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
 This is the same, just in mirror.
@@ -711,6 +704,8 @@ Given two binary strings, can clokwise rotate subseqence by 1. Minimise number o
 https://codeforces.com/problemset/problem/1555/E
 
 given weighted segments, need to select subset of min weight such that can travel from 1 to m. So basically cover 1-m?
+
+Cost is max value - minimum value!
 
 ### [DO NOT SOLVE] Permutation Shift
 https://codeforces.com/problemset/problem/1553/E

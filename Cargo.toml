@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_fill_the_bag",
     "c_square_subsets",
     "d_omkar_and_circle",
     "c_the_football_season",
