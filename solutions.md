@@ -134,12 +134,52 @@ f(x) number of valid permutations for x. Given prime number p <= n. Find all x s
 
 Seems like I can just iterate over all x up to 4k? And solve this thing in n or n log(n).
 
+
+### Skyscrapers (hard version)
+https://codeforces.com/problemset/problem/1313/C2
+
+Need segment tree which finds minimum element and position.
+
+Then do divide and conquer. For each segment answer is max(min_elem*(left_len+1) + right_seg, left_seg + min_elem(right_len+1)). That's it?
+
+For some reason WA... Maybe bug idk? Try stress or come up with same but simpler solution
+
+### [TODO] Bandit in a City
+https://codeforces.com/problemset/problem/1436/D
+
+Seems easy.
+
+
+### [TODO] Painting the Array I
+https://codeforces.com/problemset/problem/1480/D1
+
+Iterate.
+
+If there are more than 2 numbers in a row it's the same as 2 numbers.
+
+Maybe now stupidiest greedy? Not sure
+
+### Cow and Fields
+https://codeforces.com/contest/1307/problem/D
+
+Just need to calc dist_from dist_to with 2 bfses
+
+Then we iterate over special field 1 and try to find special field 2 which will result in longest path
+(dist_from[sf1] + 1 + query). Where query is max on subsegment before and subsegment after in segment tree where values are 0 if not special or dist_to[i].
+
+Take min(ans, distance_from_to) because if ans is large enough it may be larger than original distance.
+
+TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
+
+
+### [DO NOT SOLVE] Bouncing Boomerangs
+https://codeforces.com/contest/1428/problem/D
+
+
 ### Pairs
 TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
 This is the same, just in mirror.
 To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
-
-
 
 ### [TODO] Strange Definition
 https://codeforces.com/problemset/problem/1471/D
@@ -295,26 +335,7 @@ Actually maybe just try to "squish" on copy as much as possible. Now iterate. If
 
 
 
-### Cow and Fields
-https://codeforces.com/contest/1307/problem/D
 
-Just need to calc dist_from dist_to with 2 bfses
-
-Then we iterate over special field 1 and try to find special field 2 which will result in longest path
-(dist_from[sf1] + 1 + query). Where query is max on subsegment before and subsegment after in segment tree where values are 0 if not special or dist_to[i].
-
-Take min(ans, distance_from_to) because if ans is large enough it may be larger than original distance.
-
-TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
-
-### Skyscrapers (hard version)
-https://codeforces.com/problemset/problem/1313/C2
-
-Need segment tree which finds minimum element and position.
-
-Then do divide and conquer. For each segment answer is max(min_elem*(left_len+1) + right_seg, left_seg + min_elem(right_len+1)). That's it?
-
-For some reason WA... Maybe bug idk? Try stress or come up with same but simpler solution
 
 ### [TODO] Ehab and the Expected XOR Problem
 https://codeforces.com/problemset/problem/1174/D
@@ -723,17 +744,6 @@ to recalculate we iterate through all pairs and all taken and try to add. there 
 
 O(n^4) easily fits. Tbh even O(n^5) may fit if we do it carefully)
 
-### [TODO] Painting the Array I
-https://codeforces.com/problemset/problem/1480/D1
-
-Iterate.
-
-If there are more than 2 numbers in a row it's the same as 2 numbers.
-
-Maybe now stupidiest greedy? Not sure
-
-### [DO NOT SOLVE] Bouncing Boomerangs
-https://codeforces.com/contest/1428/problem/D
 
 ### Ant colony
 https://codeforces.com/contest/474/problem/F
@@ -849,6 +859,8 @@ Answer should be pretty large!
 
 ### [TODO] Checkpoints
 https://codeforces.com/problemset/problem/1453/D
+
+
 
 ### Cut
 https://codeforces.com/contest/1516/problem/D
