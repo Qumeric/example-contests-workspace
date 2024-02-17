@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "b_digits_permutations",
+    "a_literature_lesson",
     "c_the_art_of_dealing_with_atm",
     "b_foto_na_pamyat2_round_version",
     "a_vozmozhno_vi_znaete_etikh_lyudei",
