@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "c_the_art_of_dealing_with_atm",
+    "b_foto_na_pamyat2_round_version",
+    "a_vozmozhno_vi_znaete_etikh_lyudei",
+    "d_ehab_and_the_expected_xorproblem",
     "d_kuroni_and_the_celebration",
     "d_fill_the_bag",
     "c_square_subsets",

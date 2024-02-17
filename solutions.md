@@ -181,6 +181,14 @@ TODO but it feels like probably valid xs are a single subsegment so we only need
 This is the same, just in mirror.
 To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
 
+
+### Longest Regular Bracket Sequence
+https://codeforces.com/problemset/problem/5/C
+
+Calculate balances.
+Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
+
+
 ### [TODO] Strange Definition
 https://codeforces.com/problemset/problem/1471/D
 
@@ -198,11 +206,6 @@ https://codeforces.com/contest/1384/problem/B1
 Lol this is div2 B1...
 
 Just brute force.
-
-## [DO NOT SOLVE] Tree with Maximum Cost
-https://codeforces.com/problemset/problem/1092/F
-
-Given tree. Find max sum dist (i, v) * w_v
 
 ### GameGame
 
@@ -244,11 +247,10 @@ given array 2n. split on 2 subsequences of len n each. sort p in non-decreasing,
 
 find sum over all correct partitions mod F.
 
-### Longest Regular Bracket Sequence
-https://codeforces.com/problemset/problem/5/C
+## [DO NOT SOLVE] Tree with Maximum Cost
+https://codeforces.com/problemset/problem/1092/F
 
-Calculate balances.
-Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
+Given tree. Find max sum dist (i, v) * w_v
 
 ### [TODO] Zuma
 https://codeforces.com/problemset/problem/607/B
@@ -281,15 +283,6 @@ Now convert a to map<remainder F, div F>
 Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
 
 Be careful about negative F.
-
-### Gargari and Permutations
-https://codeforces.com/problemset/problem/463/D
-
-Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
-
-Now we just need to find longest path on DAG.
-
-Would be nice to solve and add longest path, topsort etc. to the lib.
 
 ### Beautiful Array
 We can remove 0s first. 
@@ -334,16 +327,23 @@ Otherwise there 1 on large, try to build. Dumb and [probably] working way is to 
 Actually maybe just try to "squish" on copy as much as possible. Now iterate. If even, skip. If odd, check if it's even in squished. If it is even then skip but remember that we need to collect it, collect while it collects. Then continue.
 
 
-
-
-
-### [TODO] Ehab and the Expected XOR Problem
-https://codeforces.com/problemset/problem/1174/D
-
-honestly idk, seems kind of complicated but prob not, need some key
-
 ### [DO NOT SOLVE] Playlist
 https://codeforces.com/problemset/problem/1484/D
+
+
+### [TODO] Flood Fill
+https://codeforces.com/problemset/problem/1114/D
+
+Note that we need to pick starting square and only change this component...
+
+### Gargari and Permutations
+https://codeforces.com/problemset/problem/463/D
+
+Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
+
+Now we just need to find longest path on DAG.
+
+Would be nice to solve and add longest path, topsort etc. to the lib.
 
 ### Perform Easily
 https://codeforces.com/problemset/problem/1413/C
@@ -366,10 +366,12 @@ notes s [1, 3]
 frets will be 
 
 
-### [TODO] Flood Fill
-https://codeforces.com/problemset/problem/1114/D
+### [TODO] Ehab and the Expected XOR Problem
+https://codeforces.com/problemset/problem/1174/D
 
-Note that we need to pick starting square and only change this component...
+honestly idk, seems kind of complicated but prob not, need some key
+
+had hypothesis that adding one x (not too large) divides answer len by 2 but it's not always the best...
 
 
 ### Equalize the Remainders [EASY IMPL]
