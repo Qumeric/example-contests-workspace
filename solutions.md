@@ -52,11 +52,6 @@ https://codeforces.com/contest/1375
 
 It's in Global Round 9 which I did not try.
 
-### [TODO] Need for Pink Slips
-https://codeforces.com/problemset/problem/1543/C
-
-This is almost solved, some bug in solution.
-
 ### Array Stabilization (GCD version)
 https://codeforces.com/problemset/problem/1547/F
 

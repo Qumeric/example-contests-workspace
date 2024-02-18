@@ -26,3 +26,9 @@ Then I though wait it's just PlusMin ArqSpec! But can PlusMin be even implemente
 https://codeforces.com/contest/1928/problem/E
 
 I tried greedy but it didn't work so maybe it's some dp optimisation? With bitset or segment tree or something?
+
+## Lexicographically Largest
+FUUUCK I SPENT MORE THAN 2 HOURS AND CANT'T SOLVE THIS FUCKING C!!!!
+
+
+https://codeforces.com/contest/1930/problem/C

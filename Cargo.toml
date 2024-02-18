@@ -1,5 +1,9 @@
 [workspace]
 members = [
+    "d1_sum_over_all_substrings_easy_version",
+    "c_lexicographically_largest",
+    "b_permutation_printing",
+    "a_maximise_the_score",
     "b_digits_permutations",
     "a_literature_lesson",
     "c_the_art_of_dealing_with_atm",
