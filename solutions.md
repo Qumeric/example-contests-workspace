@@ -94,6 +94,17 @@ First solve it for negative and positive and add answers. Solving negative can b
 
 Just move pointers. One pointer is a special position of last box in a line of boxes .
 
+### [DIV 3] Old Floppy Drive
+https://codeforces.com/contest/1490/problem/G
+
+Calculate amount of full circular spin F.
+
+Now convert a to map<remainder F, div F>
+
+Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
+
+Be careful about negative F.
+
 ### K-periodic Garland [EASY IMPL]
 https://codeforces.com/problemset/problem/1353/E
 
@@ -117,18 +128,6 @@ If something is on crossroad then we can exclude it.
 For each point inconvenient will be ones which are between (exclusive) left and right roads (for somebody on horizontal road, WLOG) but not on the same horizonal road.
 
 / 2 in the end. Be careful in general.
-
-### [TODO] Asterism (Easy Version)
-https://codeforces.com/problemset/problem/1371/E1
-
-Given array. How many orderings such that If x >= ai + i (0 indexed)?
-
-Okay so for each number we know on which positions we can set it.
-
-f(x) number of valid permutations for x. Given prime number p <= n. Find all x such that f(x) doesn't divide p.
-
-Seems like I can just iterate over all x up to 4k? And solve this thing in n or n log(n).
-
 
 ### Skyscrapers (hard version)
 https://codeforces.com/problemset/problem/1313/C2
@@ -268,16 +267,6 @@ On every step:
 4. Pay taken x. Pay remaining l.
 5. Compare if we paid more than s or not.
 
-### Old Floppy Drive
-https://codeforces.com/contest/1490/problem/G
-
-Calculate amount of full circular spin F.
-
-Now convert a to map<remainder F, div F>
-
-Now for every x we need to find element in map. It should have the same remainder F and maximum div <= x div F. It can be done with binsearch or maybe even linearly if we orgainze smart.
-
-Be careful about negative F.
 
 ### Beautiful Array
 We can remove 0s first. 

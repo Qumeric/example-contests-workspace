@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "e1_asterism_easy_version",
     "d1_sum_over_all_substrings_easy_version",
     "c_lexicographically_largest",
     "b_permutation_printing",
