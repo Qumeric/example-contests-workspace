@@ -144,14 +144,14 @@ https://codeforces.com/problemset/problem/1436/D
 Seems easy.
 
 
-### [TODO] Painting the Array I
+### [EASY IMPL] Painting the Array I
 https://codeforces.com/problemset/problem/1480/D1
 
 Iterate.
 
 If there are more than 2 numbers in a row it's the same as 2 numbers.
 
-Maybe now stupidiest greedy? Not sure
+Now we can do greedy, just need to be careful for cases when there are 2 in a row but state to keep track of is tiny.
 
 ### Cow and Fields
 https://codeforces.com/contest/1307/problem/D
@@ -170,18 +170,16 @@ TODO: not 100% sure partly cuz chatgpt says it's wrong but I think it's correct.
 https://codeforces.com/contest/1428/problem/D
 
 
-### Pairs
-TODO but it feels like probably valid xs are a single subsegment so we only need to find first and last.
+### [TODO] Pairs
+It feels like probably valid xs are a single subsegment so we only need to find first and last.
 This is the same, just in mirror.
 To do it we need to iterate, get element i as minimum and smallest larger such that it's not in b  > v_i as maximum
-
 
 ### Longest Regular Bracket Sequence
 https://codeforces.com/problemset/problem/5/C
 
 Calculate balances.
 Binary search answer. Balance in the beginning should be balance at the end + 1 and there should be no balance less than beginning - 1 in between (use segtree). 
-
 
 ### [TODO] Strange Definition
 https://codeforces.com/problemset/problem/1471/D
@@ -194,7 +192,7 @@ things only get merged, so maybe DSU
 
 is this relation transitive?
 
-### Koa and the Beach (Easy) [EASY IMPL]
+### Koa and the Beach (Easy) [EASY]
 https://codeforces.com/contest/1384/problem/B1
 
 Lol this is div2 B1...
@@ -202,8 +200,7 @@ Lol this is div2 B1...
 Just brute force.
 
 ### GameGame
-
-TODO. I did not read this problem but seems there is an interesting discussion here: https://codeforces.com/blog/entry/80422#comment-668160
+There is an interesting discussion here: https://codeforces.com/blog/entry/80422#comment-668160
 
 consider element with rightmost 1
 
@@ -213,12 +210,8 @@ odd this, odd other
 goes to:
 * even this, odd other we get here but with having 1. and player 2 starts. we will end. so player 2 always leaves the last this to us so we lose. unless this is 0
 
-
-
 * odd this, even other. -- LOSE so we don't go here
-
 odd this, even other -- WIN. take this and then mirror every turn
-
 
 even this, odd other
 even this, even other
@@ -232,7 +225,7 @@ Otherwise WIN if len is odd, otherwise LOSE (this one I am not 100% sure)
 If skipped all then DRAW
 
 ### [TODO] Frog Traveler
-https://codeforces.com/problemset/problem/1602/D
+https://codeforces.com/problemset/problem/1602/D/
 
 ### [TODO] Divide and Sum
 https://codeforces.com/contest/1445/problem/D
@@ -241,32 +234,8 @@ given array 2n. split on 2 subsequences of len n each. sort p in non-decreasing,
 
 find sum over all correct partitions mod F.
 
-## [DO NOT SOLVE] Tree with Maximum Cost
-https://codeforces.com/problemset/problem/1092/F
-
-Given tree. Find max sum dist (i, v) * w_v
-
-### [TODO] Zuma
-https://codeforces.com/problemset/problem/607/B
-
-
-### [TODO] AB-string
-https://codeforces.com/problemset/problem/1238/D
-
-Fuck it's crucial that it's AB string. Maybe can only treat segments of len 2 and 3 due to it?
-
-### Salary Changing
-https://codeforces.com/problemset/problem/1251/D
-
-Binary search answer. 
-
-On every step:
-1. Sort by l, to ones where l_i > x pay l_i.
-2. Sort by r. Take ones with r >= x.
-3. Sort taken by l. Untake ones with smallest l_i as much as possible.
-4. Pay taken x. Pay remaining l.
-5. Compare if we paid more than s or not.
-
+## [DO NOT SOLVE] Up the Strip
+https://codeforces.com/problemset/problem/1561/D2
 
 ### Beautiful Array
 We can remove 0s first. 
@@ -281,53 +250,11 @@ when! {
 
  TODO: not completely sure but sounds right?
 
+## [DO NOT SOLVE] Tree with Maximum Cost
+https://codeforces.com/problemset/problem/1092/F
 
-### [TODO] Nezzar and Binary String
-https://codeforces.com/problemset/problem/1477/B
+Given tree. Find max sum dist (i, v) * w_v
 
-queries on string. we can change less than half characters in segment *after* inspect. need to say if we can always have 0 or 1 segments and also make string to be matching desirsed at the end. 
-
-seems like we want to number each introspection and at each change we want
-1. change stuff so it matches f if there will be no more introspections
-2. change stuff so it matches later introspections?
-
-idk.
-
-### Johnny and Grandmaster
-https://codeforces.com/problemset/problem/1361/B
-
-There are degrees of p. Need to split in two sets such that difference is minimal. Print % MOD
-
-handle p = 1 seaparately, just out n % 2
-
-if max degree > next by 20+ then max will be separate (usually it's less than 5 but for p=2)
-
-Write number for each (we don't need map, array is fine.
-
-Iterate from largest to smallest. If even, skip.
-
-Otherwise there 1 on large, try to build. Dumb and [probably] working way is to iterate over size from largest to smallest (20..1) and try to build to match. If builded then remove stuff and continue. If not then put large in one bin, everything else in another.
-
-Actually maybe just try to "squish" on copy as much as possible. Now iterate. If even, skip. If odd, check if it's even in squished. If it is even then skip but remember that we need to collect it, collect while it collects. Then continue.
-
-
-### [DO NOT SOLVE] Playlist
-https://codeforces.com/problemset/problem/1484/D
-
-
-### [TODO] Flood Fill
-https://codeforces.com/problemset/problem/1114/D
-
-Note that we need to pick starting square and only change this component...
-
-### Gargari and Permutations
-https://codeforces.com/problemset/problem/463/D
-
-Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
-
-Now we just need to find longest path on DAG.
-
-Would be nice to solve and add longest path, topsort etc. to the lib.
 
 ### Perform Easily
 https://codeforces.com/problemset/problem/1413/C
@@ -348,6 +275,86 @@ notes s [1, 3]
 
 
 frets will be 
+
+### [TODO] Zuma
+https://codeforces.com/problemset/problem/607/B
+
+This seems hard to me... Probably there is some property so many different ways yield the same result?
+
+### [TODO] Nezzar and Binary String
+https://codeforces.com/problemset/problem/1477/B
+
+queries on string. we can change less than half characters in segment *after* inspect. need to say if we can always have 0 or 1 segments and also make string to be matching desirsed at the end. 
+
+seems like we want to number each introspection and at each change we want
+1. change stuff so it matches f if there will be no more introspections
+2. change stuff so it matches later introspections?
+
+idk.
+
+
+### Johnny and Grandmaster
+https://codeforces.com/problemset/problem/1361/B
+
+There are degrees of p. Need to split in two sets such that difference is minimal. Print % MOD
+
+handle p = 1 seaparately, just out n % 2
+
+if max degree > next by 20+ then max will be separate (usually it's less than 5 but for p=2)
+
+Write number for each (we don't need map, array is fine.
+
+Iterate from largest to smallest. If even, skip.
+
+Otherwise there 1 on large, try to build. Dumb and [probably] working way is to iterate over size from largest to smallest (20..1) and try to build to match. If builded then remove stuff and continue. If not then put large in one bin, everything else in another.
+
+Actually maybe just try to "squish" on copy as much as possible. Now iterate. If even, skip. If odd, check if it's even in squished. If it is even then skip but remember that we need to collect it, collect while it collects. Then continue.
+
+### [ICPC TODO] Array Game
+https://codeforces.com/problemset/problem/1600/E
+
+### [EASY IMPL] Painting Fence
+https://codeforces.com/problemset/problem/448/C
+
+Answer for task is either all vertical or fill up to minimum and then solve separate subtasks. It will be n^2.
+
+### [TODO] AB-string
+https://codeforces.com/problemset/problem/1238/D
+
+Fuck it's crucial that it's AB string. Maybe can only treat segments of len 2 and 3 due to it?
+
+### Salary Changing
+https://codeforces.com/problemset/problem/1251/D
+
+Binary search answer. 
+
+On every step:
+1. Sort by l, to ones where l_i > x pay l_i.
+2. Sort by r. Take ones with r >= x.
+3. Sort taken by l. Untake ones with smallest l_i as much as possible.
+4. Pay taken x. Pay remaining l.
+5. Compare if we paid more than s or not.
+
+
+### [DO NOT SOLVE] Playlist
+https://codeforces.com/problemset/problem/1484/D
+
+
+### [TODO] Flood Fill
+https://codeforces.com/problemset/problem/1114/D
+
+Note that we need to pick starting square and only change this component...
+
+### Gargari and Permutations
+https://codeforces.com/problemset/problem/463/D
+
+Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
+
+Now we just need to find longest path on DAG.
+
+Would be nice to solve and add longest path, topsort etc. to the lib.
+
+### [CLONE] Perform Easily
 
 
 ### [TODO] Ehab and the Expected XOR Problem
@@ -418,6 +425,8 @@ https://codeforces.com/problemset/problem/1363/E
 ### [EASY IMPL] Masha-Forgetful
 https://codeforces.com/problemset/problem/1624/E
 Just split on segments of len 2 and 3. Then DP. 
+
+Fucking answer restoration too... I implemented part of it but then got lazy.
 
 ### [TODO] Shuffle
 https://codeforces.com/problemset/problem/1622/D
@@ -557,13 +566,6 @@ students read random ki <= 20
 
 maximise number of student who read msg
 
-
-### [EASY IMPL] XOR Gun
-https://codeforces.com/problemset/problem/1457/D
-
-If there are 3 elements with the same highest bit, answer is 1. Can check with xoring 2 elements and checking if it's smaller than prev.
-
-Now we have at most 60 elements. Brute (two conseq segments).
 
 ### [TODO] XOR Inverse
 1416/C
@@ -817,31 +819,18 @@ dp will have rem taken state for each row.
 Now do another similar dp by columnt, but here only have rem (we have to take all)
 
 
-### Ciel the Commander
+### [TODO] Ciel the Commander
 Isn't it centroid decomposition?
 
 TODO
 
-### Tree Painting
+### [TODO] Tree Painting
 https://codeforces.com/problemset/problem/1187/E
 
 It doesn't matter how you play -- if you selected vertex the game is split on 1+ games on parts. Each part has predetermined start too. 
 So it only matter where you start.
 
-Ahh unclear TODO. Kind of reminds heavy light?? Maybe need to think how answer changes when I move start to adjacent? But depth is also important...
-
-### Maximum Value
-https://codeforces.com/problemset/problem/484/B
-
-Can remove same values
-
-If we have <1e4 values we can try all. Prob even for <2e4?
-
-So we have a lot of different values. Maybe binary search things like smallest > x/2, smallest > x/3 etc..
-
-Answer have to be quite large right? If we will look up to sqrt it will be n * sqrt(n) * log n. Althought it's a bit much, more than 1e9.
-
-Answer should be pretty large!
+But unclear. Kind of reminds heavy light?? Maybe need to think how answer changes when I move start to adjacent? But depth is also important...
 
 ### [TODO] Checkpoints
 https://codeforces.com/problemset/problem/1453/D
