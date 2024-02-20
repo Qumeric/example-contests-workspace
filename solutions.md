@@ -318,11 +318,6 @@ https://codeforces.com/problemset/problem/448/C
 
 Answer for task is either all vertical or fill up to minimum and then solve separate subtasks. It will be n^2.
 
-### [TODO] AB-string
-https://codeforces.com/problemset/problem/1238/D
-
-Fuck it's crucial that it's AB string. Maybe can only treat segments of len 2 and 3 due to it?
-
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D
 
@@ -438,7 +433,7 @@ https://codeforces.com/problemset/problem/1567/D
 
 I almost solved it but it's slightly tricky. See code and continue from there, idea is obvious but implementation is not quite.
 
-### The Strongest Build
+### [TODO] The Strongest Build
 https://codeforces.com/problemset/problem/1574/D
 
 no more than 10 slots
@@ -541,7 +536,6 @@ Here we just need to build segment tree for each depth level.
 ### Prefixes and Suffixes
 https://codeforces.com/problemset/problem/432/D
 
-
 I can just calculate Z-function.
 And now I know which prefixes match suffixes.
 
@@ -620,6 +614,8 @@ Or maybe slightly differnt greedy: caluclate amount of hor and ver for each pos,
 
 ### [TODO DIV3] Gift Set
 https://codeforces.com/problemset/problem/1538/G
+
+Isn't it just ternary search?
 
 ### Martial Arts Tournament
 https://codeforces.com/problemset/problem/1626/D

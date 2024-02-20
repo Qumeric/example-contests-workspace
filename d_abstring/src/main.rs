@@ -1,56 +1,55 @@
 //{"name":"D. AB-string","group":"Codeforces - Educational Codeforces Round 74 (Rated for Div. 2)","url":"https://codeforces.com/problemset/problem/1238/D","interactive":false,"timeLimit":2000,"tests":[{"input":"5\nAABBB\n","output":"6\n"},{"input":"3\nAAA\n","output":"3\n"},{"input":"7\nAAABABB\n","output":"15\n"}],"testType":"single","input":{"type":"stdin","fileName":null,"pattern":null},"output":{"type":"stdout","fileName":null,"pattern":null},"languages":{"java":{"taskClass":"DABString"}}}
 
-use algo_lib::collections::min_max::MinimMaxim;
+use algo_lib::collections::iter_ext::collect::IterCollect;
 use algo_lib::io::input::Input;
 use algo_lib::io::output::Output;
 use algo_lib::string::str::StrReader;
-use algo_lib::string::string_algorithms::palindromes::Palindromes;
 
 type PreCalc = ();
+
+fn calc(s: &Vec<u8>) -> usize {
+    // ABBB + BAAA - AB
+
+    // number of ABBB -> number of BS except for BS at the beginning
+
+    let a_cnt = s.iter().filter(|&x| *x == b'A').count();
+    let b_cnt = s.len() - a_cnt;
+    if a_cnt == 0 || b_cnt == 0 {
+        return 0;
+    }
+
+    let mut i = 0;
+    while s[i] == b'B' {
+        i += 1;
+    }
+    let abbb = b_cnt - i;
+
+    let mut i = 0;
+    while s[i] == b'A' {
+        i += 1;
+    }
+    let baaa = a_cnt - i;
+
+    let mut ab = 0;
+    for i in 0..(s.len() - 1) {
+        if s[i] == b'A' && s[i + 1] == b'B' {
+            ab += 1;
+        }
+    }
+    abbb + baaa - ab
+}
 
 // fuck i was solving kinda wrong thing, missed that letters are A and B only......
 fn solve(input: &mut Input, out: &mut Output, _test_case: usize, _data: &PreCalc) {
     let n = input.read_size();
-    let s = input.read_str();
 
-    let odd = s.odd_palindromes();
-    let even = s.even_palindromes();
+    let mut s = input.read_str().into_iter().collect_vec();
 
-    out.print_line(&odd);
-    out.print_line(&even);
+    let mut ans = n * (n - 1) / 2;
 
-    let mut v = vec![];
-    for i in 0..n {
-        if odd[i] > 1 {
-            v.push((i + 1 - odd[i], i + odd[i] - 1));
-        }
-        if even[i] > 0 {
-            v.push((i - even[i], i + even[i] - 1));
-        }
-    }
-
-    v.sort();
-
-    let mut final_v = vec![];
-    final_v.push(v[0]);
-
-    for i in 1..v.len() {
-        let mut cur = final_v.pop().unwrap();
-        if v[i].0 <= cur.1 {
-            cur.1.maxim(v[i].1);
-            final_v.push(cur);
-        } else {
-            final_v.push(cur);
-            final_v.push(v[i]);
-        }
-    }
-    out.print_line(&final_v);
-
-    let mut ans = 0;
-    for (a, b) in final_v {
-        let len = b + 1 - a;
-        ans += len * (len + 1) / 2 - len;
-    }
+    ans -= calc(&s);
+    s.reverse();
+    ans -= calc(&s);
     out.print_line(ans);
 }
 
