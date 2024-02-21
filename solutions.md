@@ -59,35 +59,12 @@ Use "gcd on subsegments" trick. Then binary search answer.
 
 TODO ???
 
-### Genius's Gambit [EASY IMPL]
-https://codeforces.com/problemset/problem/1492/D
-
-We can easily do
-1 1111 1000
-1 1111 0001
-
-if we need 3 ones
-
-or second can be e.g 
-
-0010
-0001
-
-if we need just single one. But what to do with ones? insight: setting two ones on the same pos is same as setting as two zero
-
-so if we need x ones
-we ones in first position (if b == 1 then answer is Yes iff k == 0)
-
-then we set a single one on position k+1 on top
-and set a single one one on position 1 on the bottom
-now we have some other positions but it doesn't matter if they are 1 or 0, they just must be the same
-
 ### [TODO] MEX Sequences
 https://codeforces.com/problemset/problem/1613/D
 
 Key insight: Numbers can never go down or up much.
 
-### [EASY IMPL] 1D Sokoban
+### 1D Sokoban
 https://codeforces.com/problemset/problem/1494/C
 
 First solve it for negative and positive and add answers. Solving negative can be mirrored so we only need to solve positive.
@@ -637,14 +614,6 @@ If Y gets to Z=Y+1 then try all XXZ0000, XXZ1111 etc. (XX can change as well, do
 
 Also try all XXY0000, XXY1111 (but number of steps can't be negative)
 
-### [DIV3] How Many Paths?
-https://codeforces.com/problemset/problem/1547/G
-
-First find 0, remove them.
-
-Now find strongly connected components. Now mark nodes with loops. Now find SCC. Mark nodes in SCC with size at least 2. Now do bfs from all marked nodes. Mark everything reached with -1, remove.
-
-Now we only need to differ between 1 and 2, this is easy. Can be done with bfs prob?
 
 ### The Number of Pairs
 https://codeforces.com/problemset/problem/1499/D
@@ -664,6 +633,16 @@ then we will have singleDiv = CONST
 we just need to calculate amount of possible splits which is just mult of degrees or smth?
 
 TODO: details
+
+### [DIV3] How Many Paths?
+https://codeforces.com/problemset/problem/1547/G
+
+First find 0, remove them.
+
+Now find strongly connected components. Now mark nodes with loops. Now find SCC. Mark nodes in SCC with size at least 2. Now do bfs from all marked nodes. Mark everything reached with -1, remove.
+
+Now we only need to differ between 1 and 2, this is easy. Can be done with bfs prob?
+
 
 ### Max Median
 https://codeforces.com/contest/1486/problem/D
@@ -887,7 +866,18 @@ Need to "rotate" this thing 45 degree. Now we are looking for squares, need find
 
 Finding can be done with binary search. Checking can be done without data structures, just sum and use inclusion-exclusion. Maybe would be convenient to map a - > 1 -> 2, b -> 2 -> 4, c -> 3 -> 8 etc so sum would never be ambiguous.
 
+### [TODO] Pokemon Army (hard version)
+https://codeforces.com/problemset/problem/1420/C2
 
+all ai different
+
+choose subsequence (non-empty). strength is alternating sum
+
+q ops: swap lth and rth
+
+max strength after each op
+
+Strategy: solve subtask, then see how things change. Hyp: they change only locally so we can update with segtree
 
 ### Binary Median [EASY IMPL]
 https://codeforces.com/contest/1360/problem/H
@@ -899,6 +889,19 @@ Print element with index (k-1)/2
 k is 2^m - n
 
 Binary search answer? For each element position is element - removedSmaller. If binary serach found removed element, then just take first larger not removed.
+
+### [TODO] Minimax
+https://codeforces.com/problemset/problem/1530/E
+
+### Guess The Maximums
+https://codeforces.com/problemset/problem/1363/D
+
+Binary search. First ask for all, now we know maximum, answer for all digits except one will be maximum. Now just need to find where maximum is located, can do with binary search with 10 questions. Now ask for everything except set with maximum, get the interesting digit. Exactly 12 questions.
+
+### [TODO] Restorer Distance
+https://codeforces.com/problemset/problem/1355/E
+
+This maybe looks like ternary search? Approach: write bruteforce and see if function fits ternary (or maybe it doesn't fit exactly but answer is always close to what it finds for large n so we can bruteforce?
 
 ### Array Partition
 https://codeforces.com/problemset/problem/1454/F

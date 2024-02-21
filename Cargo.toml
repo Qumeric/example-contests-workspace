@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "d_geniuss_gambit",
     "b_mike_and_feet",
     "e1_asterism_easy_version",
     "d1_sum_over_all_substrings_easy_version",
