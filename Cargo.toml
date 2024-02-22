@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "f2_same_sum_blocks_hard",
     "d_geniuss_gambit",
     "b_mike_and_feet",
     "e1_asterism_easy_version",

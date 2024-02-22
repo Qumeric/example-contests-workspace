@@ -322,7 +322,7 @@ https://codeforces.com/problemset/problem/463/D
 
 Each integer represents a point in 5d space (or 4d, 3d, 2d but 5d WLOG). Edge u-v exists iff all coordinates of v are larger than corresponding coordinates of u.
 
-Now we just need to find longest path on DAG.
+Now we just do dp.
 
 Would be nice to solve and add longest path, topsort etc. to the lib.
 
@@ -343,13 +343,6 @@ https://codeforces.com/problemset/problem/999/D
 Ones with cr <= n/m just stay. Others move to the closest cr which is lower. Just store crs which are low in set, find and update. 
 
 Just go iteratively.
-
-### Same Sum Blocks (Hard)
-https://codeforces.com/problemset/problem/1141/F2
-
-Calculate map<sum, [(l, r)]> for all possible blocks.
-
-Now for each sum sort blocks by r. Now take lazily (it's always beneficial to take block with smallest r because it leaves largest amount of space).
 
 ### Fish
 https://codeforces.com/problemset/problem/16/E
