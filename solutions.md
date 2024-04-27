@@ -220,7 +220,7 @@ We can remove 0s first.
 Then seems like I have to split array on pos - neg parts (each pos starts with neg and end with neg). then just convert each such part to sum. 
 
 when! {
-   x == 0 => output max
+   x == 0 => output (max, 0)
    x > 0 => output (max * x)
    x < 0 => output max over (pos_i + -neg_(i+1) + pos_(i+2))
  }
@@ -290,10 +290,14 @@ Actually maybe just try to "squish" on copy as much as possible. Now iterate. If
 ### [ICPC TODO] Array Game
 https://codeforces.com/problemset/problem/1600/E
 
-### [EASY IMPL] Painting Fence
+### [TODO] Painting Fence
 https://codeforces.com/problemset/problem/448/C
 
 Answer for task is either all vertical or fill up to minimum and then solve separate subtasks. It will be n^2.
+
+Actually when we coloring minimal it's not clear if we do horizonally or vertically... Picking one with smallest number of moves is not necessarily optimal.
+
+I have slow implementation which works as stress test.
 
 ### Salary Changing
 https://codeforces.com/problemset/problem/1251/D

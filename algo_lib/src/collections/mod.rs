@@ -19,3 +19,6 @@ pub mod static_arq;
 
 // Tests
 pub mod tests;
+
+// Mine
+pub mod fenwick2d;
